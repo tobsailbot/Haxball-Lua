@@ -951,13 +951,38 @@ TODO add session ID to options, maybe show other players that are connected
 		// El contexto escala los gráficos internos
 		ctx.scale(dpr, dpr);
 
-		window.addEventListener("orientationchange", () => {
-			if (screen.orientation && screen.orientation.type.includes("landscape")) {
-				if (document.documentElement.requestFullscreen) {
-					document.documentElement.requestFullscreen().catch(() => { });
-				}
-			}
-		});
+// =========================================================================
+// ENTRAR EN PANTALLA COMPLETA AL TOCAR EN HORIZONTAL
+// =========================================================================
+function tryFullscreen() {
+    // Verificamos si estamos en horizontal
+    const isLandscape = window.matchMedia("(orientation: landscape)").matches;
+    
+    // Si la pantalla está en horizontal y aún no estamos en pantalla completa
+    if (isLandscape && !document.fullscreenElement) {
+        const elem = document.documentElement;
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen().catch((err) => {
+                console.warn("Fullscreen denegado:", err);
+            });
+        } else if (elem.webkitRequestFullscreen) { /* Safari / iOS */
+            elem.webkitRequestFullscreen();
+        }
+    }
+}
+
+// 1. Intentamos entrar a pantalla completa con el PRIMER TOQUE del jugador en la pantalla.
+// Como el usuario debe tocar el canvas para mover el joypad o patear, esto cumple la regla de seguridad.
+window.addEventListener("touchstart", tryFullscreen, { once: true });
+
+// 2. Si el usuario arranca en vertical y luego gira a horizontal, 
+// rearmamos el evento para que el próximo toque lo ponga en pantalla completa.
+window.addEventListener("orientationchange", () => {
+    // Esperamos 200ms para que el navegador actualice la orientación internamente
+    setTimeout(() => {
+        window.addEventListener("touchstart", tryFullscreen, { once: true });
+    }, 200);
+});
 
 
 		let graphics_map = new Map();
