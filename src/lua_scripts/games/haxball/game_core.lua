@@ -16,6 +16,7 @@ core.state = {
     ball = { x = 400, y = 240, vx = 0, vy = 0, radius = 11 },
     score = { red = 0, blue = 0 },
     goal_scored = false,
+    last_goal_team = nil, -- [NUEVO] Registra el equipo que hizo el último gol
     goal_timer = 0,
     match_time = 0,
     fps = 0,
@@ -169,18 +170,20 @@ local function check_goal(state)
     if state.ball.x < 50 and in_goal_y then
         state.score.blue = state.score.blue + 1
         state.goal_scored = true
+        state.last_goal_team = "blue" -- [NUEVO]
         state.goal_timer = 4.0
         state.ball.vx = state.ball.vx * 0.2
         state.ball.vy = state.ball.vy * 0.2
-        alexgames.set_status_msg("¡GOL DEL EQUIPO AZUL! | Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
+        -- alexgames.set_status_msg("¡GOL DEL EQUIPO AZUL! | Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
         
     elseif state.ball.x > 750 and in_goal_y then
         state.score.red = state.score.red + 1
         state.goal_scored = true
+        state.last_goal_team = "red" -- [NUEVO]
         state.goal_timer = 4.0
         state.ball.vx = state.ball.vx * 0.2
         state.ball.vy = state.ball.vy * 0.2
-        alexgames.set_status_msg("¡GOL DEL EQUIPO ROJO! | Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
+        -- alexgames.set_status_msg("¡GOL DEL EQUIPO ROJO! | Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
     end
 end
 
@@ -206,7 +209,8 @@ function core.update_physics(dt)
             state.players[2].vx, state.players[2].vy = 0, 0
             
             state.goal_scored = false
-            alexgames.set_status_msg("Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
+            state.last_goal_team = nil
+            -- alexgames.set_status_msg("Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
         end
     end
 

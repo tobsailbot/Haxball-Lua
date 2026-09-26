@@ -53,23 +53,29 @@ local function draw_touchpad(state)
     end
 end
 
--- Nueva función para el panel de Debug
--- local function draw_debug_stats(state)
---     local p1 = state.players[1]
---     local ball = state.ball
+-- [NUEVO] Función para dibujar el gran cartel de GOL
+local function draw_goal_banner(state)
+    if not state.goal_scored or not state.last_goal_team then return end
+
+    local team_name = state.last_goal_team == "red" and "ROJO" or "AZUL"
+    local team_color = state.last_goal_team == "red" and '#ff0000' or '#4d4dff'
+
+    -- 1. Fondo oscuro semitransparente del cartel en el centro (y1, x1, y2, x2)
+    alexgames.draw_rect('rgba(0,0,0,0.5)', 60, 200, 120, 600)
+
+    -- 2. Cuadrado relleno con el color del equipo (40x40 píxeles, a la izquierda)
+    alexgames.draw_rect(team_color, 70, 500, 110, 540)
     
---     -- Magnitud de la velocidad calculada por Pitágoras
---     local p_speed = math.sqrt(p1.vx * p1.vx + p1.vy * p1.vy)
---     local b_speed = math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy)
-    
---     -- Fondo semitransparente (Y_inicio, X_inicio, Y_fin, X_fin) en la esquina inferior izquierda
---     alexgames.draw_rect('rgba(0,0,0,0.6)', 400, 10, 470, 200)
-    
---     -- Textos de debugging con colores distintos (Y, X, tamaño)
---     alexgames.draw_text(string.format("FPS: %d", state.fps or 0), '#00ff00', 418, 20, 16)
---     alexgames.draw_text(string.format("Vel P1: %.1f", p_speed), '#ffff00', 440, 20, 16)
---     alexgames.draw_text(string.format("Vel Pelota: %.1f", b_speed), '#ff8800', 462, 20, 16)
--- end
+    -- 3. Borde blanco opcional para resaltar el cuadrado del equipo
+    alexgames.draw_rect('#ffffff', 68, 498, 72, 542) -- Izquierda
+    alexgames.draw_rect('#ffffff', 108, 498, 112, 542) -- Derecha
+    alexgames.draw_rect('#ffffff', 68, 498, 112, 502) -- Arriba
+    alexgames.draw_rect('#ffffff', 68, 538, 112, 542) -- Abajo
+
+    -- 4. Texto grande de Gol a la derecha del cuadrado
+    local text = "GOOOOL"
+    alexgames.draw_text(text, '#ffffff', 105, 360, 32)
+end
 
 function draw.render(state)
     alexgames.draw_clear()
@@ -92,8 +98,8 @@ function draw.render(state)
     draw_hud(state)
     draw_touchpad(state)
     
-    -- Dibujamos el panel de stats por encima de todo
-    -- draw_debug_stats(state)
+    -- Dibujamos el cartel encima de la cancha y los jugadores
+    draw_goal_banner(state)
     
     alexgames.draw_refresh()
 end
