@@ -193,7 +193,7 @@ struct game_api_callbacks {
 	                      int y3, int x3);
 	void (*draw_circle)(const char *fill_colour_str,    size_t fill_colour_len,
 	                    const char *outline_colour_str, size_t outline_colour_len,
-	                    int y, int x, int radius, int outline_width);
+	                    float y, float x, float radius, int outline_width);
 	void (*draw_clear)(void);
 	void (*draw_refresh)(void);
 	void (*send_message)(const char *dst, size_t dst_len, const char *msg, size_t msg_len);

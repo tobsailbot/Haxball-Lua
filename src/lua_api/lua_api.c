@@ -405,6 +405,8 @@ const char *get_lua_game_path(const char *game_id, size_t game_id_len) {
 		return LUA_PRELOAD_DIR "games/endless_runner/endless_runner_main.lua";
 	} else if (str_eq_literal(game_id, "minesweeper_life", game_id_len)) {
 		return LUA_PRELOAD_DIR "games/minesweeper_life/minesweeper_life_main.lua";
+	} else if (str_eq_literal(game_id, "haxball", game_id_len)) {
+		return LUA_PRELOAD_DIR "games/haxball/game_main.lua";
 	} else {
 		return NULL;
 	}
@@ -1276,10 +1278,12 @@ static int lua_draw_circle(lua_State *L) {
 	size_t outline_colour_len;
 	const char *outline_colour_str = lua_tolstring_notnil(L, 2, &outline_colour_len);
 	
-	lua_Integer y      = lua_get_int_or_float(L, 3, "y");
-	lua_Integer x      = lua_get_int_or_float(L, 4, "x");
-	lua_Integer radius = lua_get_int_or_float(L, 5, "radius");
-	lua_Integer outline_width = lua_get_int_or_float_or_nil(L, 6, "outline_width");
+	// Cambiamos lua_Integer por lua_Number (que almacena decimales)
+	// Usamos lua_tonumber que es la función nativa de Lua para obtener flotantes
+	lua_Number y      = lua_tonumber(L, 3);
+	lua_Number x      = lua_tonumber(L, 4);
+	lua_Number radius = lua_tonumber(L, 5);
+	lua_Number outline_width = lua_tonumber(L, 6);
 
 	api->draw_circle(fill_colour_str, fill_colour_len,
 	               outline_colour_str, outline_colour_len,

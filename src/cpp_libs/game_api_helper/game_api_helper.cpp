@@ -20,7 +20,7 @@ static void draw_triangle(const char *fill_colour_str, size_t fill_colour_len,
                           int y3, int x3) {}
 static void draw_circle(const char *fill_colour_str,    size_t fill_colour_len,
                     const char *outline_colour_str, size_t outline_colour_len,
-                    int y, int x, int radius, int outline_width) {}
+                    float y, float x, float radius, int outline_width) {}
 
 static void draw_clear(void) {}
 static void draw_refresh(void) {}

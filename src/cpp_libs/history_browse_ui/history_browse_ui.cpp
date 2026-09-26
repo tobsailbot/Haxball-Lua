@@ -327,7 +327,7 @@ static void preview_draw_triangle(const char *fill_colour_str, size_t fill_colou
 
 static void preview_draw_circle(const char *fill_colour_str,    size_t fill_colour_len,
                     const char *outline_colour_str, size_t outline_colour_len,
-                    int y, int x, int radius, int outline_width) {
+                    float y, float x, float radius, int outline_width) {
 	g_callbacks->draw_circle(fill_colour_str, fill_colour_len, outline_colour_str, outline_colour_len, y, x, radius, outline_width);
 }
 static void preview_draw_clear(void) {

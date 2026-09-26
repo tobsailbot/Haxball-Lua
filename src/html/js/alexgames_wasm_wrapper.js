@@ -152,8 +152,10 @@ function handle_touch_evt(canvas, ptr, evt) {
 		for (let i=0; i<evt.changedTouches.length; i++) {
 			let touch = evt.changedTouches[i];
 			let offset = touch_ary_ptr + i * sizeof_elem;
-			const x = (touch.clientX - rect.left)/(rect.right - rect.left)* canvas.width;
-			const y = (touch.clientY - rect.top)/(rect.bottom - rect.top) * canvas.height;
+			// Forzamos a que el mapeo táctil sea SIEMPRE a la resolución base de tu juego (800x480).
+			// Así ignoramos el zoom del dispositivo (DPR) y el CSS.
+			const x = (touch.clientX - rect.left) / (rect.right - rect.left) * 800;
+			const y = (touch.clientY - rect.top) / (rect.bottom - rect.top) * 500;
 
 			Module.setValue(offset + 0,                         touch.identifier, 'i64');
 			Module.setValue(offset + sizeof_id,                 y,                'double');
@@ -167,6 +169,7 @@ function handle_touch_evt(canvas, ptr, evt) {
 		Module._free(touch_ary_ptr);
 	}
 }
+
 
 function i8_to_u8(val) {
 	if (val < 0) { return 256 + val; }

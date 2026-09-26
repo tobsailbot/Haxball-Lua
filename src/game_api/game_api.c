@@ -141,6 +141,7 @@ static const char *GAMES_LIST[] = {
 	"swarm",
 
 	"crossword_builder",
+	"haxball",
 
 	//"timer_test",
 };

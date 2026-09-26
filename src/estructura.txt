@@ -1,0 +1,263 @@
+.
+├── alexgames_config.h.in
+│   ├── build.gradle
+│   ├── cp_games_assets.sh
+│   ├── gradle
+│   │   └── wrapper
+│   │       ├── gradle-wrapper.jar
+│   │       └── gradle-wrapper.properties
+│   ├── gradle.properties
+│   ├── gradlew
+│   ├── gradlew.bat
+│   ├── README.md
+│   └── settings.gradle
+├── CMakeLists.txt
+├── cpp_libs
+│   ├── button_helper
+│   │   ├── button_helper.cpp
+│   │   └── button_helper.h
+│   ├── game_api_helper
+│   │   ├── game_api_helper.cpp
+│   │   └── game_api_helper.h
+│   ├── history_browse_ui
+│   │   ├── history_browse_ui.cpp
+│   │   └── history_browse_ui.h
+│   ├── mouse_scroll_handler
+│   │   ├── mouse_scroll_handler.cpp
+│   │   └── mouse_scroll_handler.h
+│   ├── saved_state_db
+│   │   ├── README.md
+│   │   ├── saved_state_db_c_api.cpp
+│   │   ├── saved_state_db_c_api.h
+│   │   ├── saved_state_db.cpp
+│   │   └── saved_state_db.h
+│   ├── sqlite_saved_state
+│   │   ├── CMakeLists.txt
+│   │   ├── README.md
+│   │   ├── sqlite_saved_state.c
+│   │   └── sqlite_saved_state.h
+│   ├── touch_press_handler
+│   │   ├── touch_press_handler.cpp
+│   │   └── touch_press_handler.h
+│   ├── touch_scroll_handler
+│   │   ├── touch_scroll_handler.cpp
+│   │   └── touch_scroll_handler.h
+│   └── utils
+│       └── str_eq_literal.h
+├── dictionary
+│   ├── build_word_list_w_freq.py
+│   ├── c_dictionary.c
+│   ├── c_dictionary.h
+│   ├── CMakeLists.txt
+│   ├── dictionary.c
+│   ├── dictionary.h
+│   ├── dict_utils.py
+│   ├── __pycache__
+│   │   └── dict_utils.cpython-313.pyc
+│   └── wip
+│       ├── vulgar_or_weird_words.txt
+│       └── words_to_remove.txt
+├── emscripten
+│   ├── emscripten_api.c
+│   ├── emscripten_c_dict_api.c
+│   ├── emscripten_dict_api.c
+│   └── emscripten_dict_api.h
+├── estructura.txt
+├── game_api
+│   ├── game_api.c
+│   ├── game_api.h
+│   ├── game_api_utils.c
+│   ├── game_api_utils.h
+│   ├── game_api_words.c
+│   └── game_api_words.h
+├── html
+│   ├── cache.manifest
+│   ├── css
+│   │   ├── style_collapsable.css
+│   │   ├── style.css
+│   │   ├── style_dark.css
+│   │   └── style_very_dark.css
+│   ├── game_api_doc.html
+│   ├── index.html
+│   ├── js
+│   │   ├── alexgames_c_dict.js
+│   │   ├── alexgames_colour_pref.js
+│   │   ├── alexgames_dict.js
+│   │   ├── alexgames.js
+│   │   ├── alexgames_wasm_api.js
+│   │   ├── alexgames_wasm_wrapper.js
+│   │   ├── alexgames_ws.js
+│   │   ├── collapsable.js
+│   │   └── url_args.js
+│   ├── licenses.html
+│   └── manifest.json
+├── lua_api
+│   ├── lua_api.c
+│   ├── lua_api_dict.c
+│   ├── lua_api_dict.h
+│   ├── lua_api.h
+│   ├── lua_api_utils.c
+│   ├── lua_api_utils.h
+│   └── lua_user_cfg.h
+├── lua_scripts
+│   ├── games
+│   │   ├── api_demo
+│   │   │   ├── game_core.lua
+│   │   │   ├── game_draw.lua
+│   │   │   └── game.lua
+│   │   ├── chess
+│   │   │   ├── chess_core.lua
+│   │   │   ├── chess_draw.lua
+│   │   │   ├── chess_main.lua
+│   │   │   └── chess_serialize.lua
+│   │   ├── crossword_letters
+│   │   │   ├── crossword_letters_core.lua
+│   │   │   ├── crossword_letters_draw.lua
+│   │   │   ├── crossword_letters_gen_puzzles.lua
+│   │   │   ├── crossword_letters_main.lua
+│   │   │   ├── crossword_letters_puzzles.lua
+│   │   │   ├── crossword_letters_serialize.lua
+│   │   │   ├── gen_crossword_letters2.py
+│   │   │   ├── gen_crossword_letters.py
+│   │   │   ├── list_puzzle_words.lua
+│   │   │   └── list_right_diffs.py
+│   │   ├── endless_runner
+│   │   │   ├── endless_runner_core.lua
+│   │   │   ├── endless_runner_draw.lua
+│   │   │   └── endless_runner_main.lua
+│   │   ├── fluid_mix
+│   │   │   ├── fluid_mix_core.lua
+│   │   │   ├── fluid_mix_draw.lua
+│   │   │   ├── fluid_mix_main.lua
+│   │   │   └── fluid_mix_serialize.lua
+│   │   ├── go
+│   │   │   ├── go_core.lua
+│   │   │   ├── go_ctrl.lua
+│   │   │   ├── go_main.lua
+│   │   │   └── go_ui.lua
+│   │   ├── haxball
+│   │   │   ├── game_core.lua
+│   │   │   ├── game_draw.lua
+│   │   │   └── game_main.lua
+│   │   ├── hospital
+│   │   │   ├── hospital_core.lua
+│   │   │   ├── hospital_draw.lua
+│   │   │   ├── hospital_main.lua
+│   │   │   └── hospital_serialize.lua
+│   │   ├── life
+│   │   │   ├── life_core.lua
+│   │   │   ├── life_draw.lua
+│   │   │   └── life_main.lua
+│   │   ├── minesweeper
+│   │   │   ├── minesweeper_core.lua
+│   │   │   ├── minesweeper_draw.lua
+│   │   │   ├── minesweeper_main.lua
+│   │   │   └── minesweeper_serialize.lua
+│   │   ├── minesweeper_life
+│   │   │   ├── minesweeper_draw.lua
+│   │   │   ├── minesweeper_life_core.lua
+│   │   │   ├── minesweeper_life_main.lua
+│   │   │   └── minesweeper_serialize.lua
+│   │   ├── poker_chips
+│   │   │   ├── poker_chips_core.lua
+│   │   │   ├── poker_chips_main.lua
+│   │   │   ├── poker_chips_serialize.lua
+│   │   │   ├── poker_chips_ui.lua
+│   │   │   └── ui
+│   │   │       ├── bet_input.lua
+│   │   │       ├── control.lua
+│   │   │       └── view_others.lua
+│   │   ├── solitaire
+│   │   │   ├── solitaire_core.lua
+│   │   │   ├── solitaire_draw.lua
+│   │   │   ├── solitaire_main.lua
+│   │   │   ├── solitaire_serialize.lua
+│   │   │   └── solitaire_solve.lua
+│   │   ├── spider_swing
+│   │   │   ├── spider_swing_core.lua
+│   │   │   ├── spider_swing_draw.lua
+│   │   │   └── spider_swing_main.lua
+│   │   ├── sudoku
+│   │   │   ├── sudoku_core.lua
+│   │   │   ├── sudoku_draw.lua
+│   │   │   └── sudoku_main.lua
+│   │   ├── swarm
+│   │   │   ├── swarm_core.lua
+│   │   │   ├── swarm_draw.lua
+│   │   │   ├── swarm_keyboard_input.lua
+│   │   │   └── swarm_main.lua
+│   │   ├── test
+│   │   │   ├── card_angle_test.lua
+│   │   │   ├── draw_graphics_test.lua
+│   │   │   └── timer_test.lua
+│   │   ├── thrust
+│   │   │   ├── thrust_core.lua
+│   │   │   ├── thrust_draw.lua
+│   │   │   ├── thrust_keyboard_input.lua
+│   │   │   └── thrust_main.lua
+│   │   ├── touch_test
+│   │   │   └── touch_test.lua
+│   │   ├── word_mastermind
+│   │   │   ├── word_mastermind_core.lua
+│   │   │   ├── word_mastermind_draw.lua
+│   │   │   ├── word_mastermind_main.lua
+│   │   │   └── word_mastermind_serialize.lua
+│   │   └── wu
+│   │       ├── wu_core.lua
+│   │       ├── wu_ctrl.lua
+│   │       └── wu_main.lua
+│   └── libs
+│       ├── cards
+│       │   ├── cards_draw.lua
+│       │   ├── cards.lua
+│       │   ├── cards_set.lua
+│       │   └── card_test.lua
+│       ├── combinations.lua
+│       ├── dice
+│       │   ├── dice_draw.lua
+│       │   └── dice.lua
+│       ├── draw
+│       │   ├── draw_celebration_anim.lua
+│       │   ├── draw_colours.lua
+│       │   ├── draw_keyboard.lua
+│       │   ├── draw_more.lua
+│       │   └── draw_shapes.lua
+│       ├── letter_tiles.lua
+│       ├── multiplayer
+│       │   ├── two_player.lua
+│       │   └── wait_for_players.lua
+│       ├── serialize
+│       │   ├── bit_pack.lua
+│       │   ├── serialize.lua
+│       │   └── storage_helpers.lua
+│       ├── shuffle.lua
+│       ├── touch_to_mouse_evts.lua
+│       ├── ui
+│       │   ├── buttons.lua
+│       │   ├── show_buttons_popup.lua
+│       │   ├── soft_numpad.lua
+│       │   └── touchpad.lua
+│       ├── utils.lua
+│       └── words.lua
+├── misc
+│   └── generate_apple_icons.py
+├── server
+│   ├── socket
+│   │   ├── socket_server.h
+│   │   ├── socket_server_impl.c
+│   │   └── test
+│   │       ├── build_client.sh
+│   │       ├── build_server.sh
+│   │       ├── test_client.c
+│   │       └── test_server.c
+│   └── ws
+│       ├── requirements.txt
+│       └── ws_server.py
+└── ui_wxWidgets
+    ├── wx_game_popup.cpp
+    ├── wx_game_popup.h
+    ├── wx_main.cpp
+    ├── wx_network.cpp
+    ├── wx_network.h
+    ├── wx_network_ui.cpp
+    └── wx_network_ui.h

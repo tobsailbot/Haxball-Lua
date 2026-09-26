@@ -269,7 +269,7 @@ EM_JS(void, js_draw_triangle, (const char *fill_colour_ptr, size_t fill_colour_l
 
 EM_JS(void, js_draw_circle, (const char *fill_colour_ptr, size_t fill_colour_len,
                              const char *outline_colour_ptr, size_t outline_colour_len,
-                            int y, int x, int radius, int outline_width), {
+                            float y, float x, float radius, int outline_width), {
 	let fill_colour    = UTF8ToString(fill_colour_ptr,    fill_colour_len);
 	let outline_colour = UTF8ToString(outline_colour_ptr, outline_colour_len);
 	

@@ -139,7 +139,6 @@ list(APPEND EMCC_LINK_OPTS "-s USE_ZLIB=1")
 # (at least the WKWebView on the iOS app running on the simulator)
 # when handling touch events, it seems the touch.identifier is
 # large in that case
-list(APPEND EMCC_LINK_OPTS "-s WASM_BIGINT")
 list(APPEND EMCC_LINK_OPTS "-sSUPPORT_LONGJMP=emscripten")
 list(APPEND EMCC_LINK_OPTS "-Wno-unused-main")
 
@@ -271,6 +270,7 @@ list(APPEND LINK_DEPS "${LUA_SCRIPT_SRC}/games/crossword_builder")
 list(APPEND LINK_DEPS "${LUA_SCRIPT_SRC}/games/fluid_mix")
 list(APPEND LINK_DEPS "${LUA_SCRIPT_SRC}/games/endless_runner")
 list(APPEND LINK_DEPS "${LUA_SCRIPT_SRC}/games/minesweeper_life")
+list(APPEND LINK_DEPS "${LUA_SCRIPT_SRC}/games/haxball")
 set_target_properties(alexgames_wasm PROPERTIES LINK_DEPENDS "${LINK_DEPS}")
 
 # NOTE: if `zip` isn't available on your system, then

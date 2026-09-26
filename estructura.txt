@@ -1,0 +1,4089 @@
+.
+├── build
+│   ├── wasm
+│   │   ├── archive.sh
+│   │   ├── build.sh
+│   │   ├── CMakeLists.txt
+│   │   ├── out
+│   │   │   ├── alexgames_wasm.data
+│   │   │   ├── alexgames_wasm.js
+│   │   │   ├── alexgames_wasm.wasm
+│   │   │   ├── CMakeCache.txt
+│   │   │   ├── CMakeFiles
+│   │   │   │   ├── 3.31.6
+│   │   │   │   │   ├── CMakeCCompiler.cmake
+│   │   │   │   │   ├── CMakeCXXCompiler.cmake
+│   │   │   │   │   └── CMakeSystem.cmake
+│   │   │   │   ├── alexgames_wasm.dir
+│   │   │   │   │   ├── app
+│   │   │   │   │   │   └── src
+│   │   │   │   │   │       └── emscripten
+│   │   │   │   │   │           ├── emscripten_api.c.o
+│   │   │   │   │   │           ├── emscripten_api.c.o.d
+│   │   │   │   │   │           ├── emscripten_c_dict_api.c.o
+│   │   │   │   │   │           └── emscripten_c_dict_api.c.o.d
+│   │   │   │   │   ├── build.make
+│   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   ├── depend.make
+│   │   │   │   │   ├── flags.make
+│   │   │   │   │   ├── link.txt
+│   │   │   │   │   └── progress.make
+│   │   │   │   ├── CheckTypeSize
+│   │   │   │   │   ├── __INT16_LIBZIP.c
+│   │   │   │   │   ├── INT16_T_LIBZIP.bin
+│   │   │   │   │   ├── INT16_T_LIBZIP.c
+│   │   │   │   │   ├── __INT32_LIBZIP.c
+│   │   │   │   │   ├── INT32_T_LIBZIP.bin
+│   │   │   │   │   ├── INT32_T_LIBZIP.c
+│   │   │   │   │   ├── __INT64_LIBZIP.c
+│   │   │   │   │   ├── INT64_T_LIBZIP.bin
+│   │   │   │   │   ├── INT64_T_LIBZIP.c
+│   │   │   │   │   ├── __INT8_LIBZIP.c
+│   │   │   │   │   ├── INT8_T_LIBZIP.bin
+│   │   │   │   │   ├── INT8_T_LIBZIP.c
+│   │   │   │   │   ├── INT_LIBZIP.bin
+│   │   │   │   │   ├── INT_LIBZIP.c
+│   │   │   │   │   ├── LONG_LIBZIP.bin
+│   │   │   │   │   ├── LONG_LIBZIP.c
+│   │   │   │   │   ├── LONG_LONG_LIBZIP.bin
+│   │   │   │   │   ├── LONG_LONG_LIBZIP.c
+│   │   │   │   │   ├── SHORT_LIBZIP.bin
+│   │   │   │   │   ├── SHORT_LIBZIP.c
+│   │   │   │   │   ├── SIZEOF_OFF_T.bin
+│   │   │   │   │   ├── SIZEOF_OFF_T.c
+│   │   │   │   │   ├── SIZEOF_SIZE_T.bin
+│   │   │   │   │   ├── SIZEOF_SIZE_T.c
+│   │   │   │   │   ├── UINT16_T_LIBZIP.bin
+│   │   │   │   │   ├── UINT16_T_LIBZIP.c
+│   │   │   │   │   ├── UINT32_T_LIBZIP.bin
+│   │   │   │   │   ├── UINT32_T_LIBZIP.c
+│   │   │   │   │   ├── UINT64_T_LIBZIP.bin
+│   │   │   │   │   ├── UINT64_T_LIBZIP.c
+│   │   │   │   │   ├── UINT8_T_LIBZIP.bin
+│   │   │   │   │   └── UINT8_T_LIBZIP.c
+│   │   │   │   ├── cmake.check_cache
+│   │   │   │   ├── CMakeConfigureLog.yaml
+│   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   ├── CMakeError.log
+│   │   │   │   ├── CMakeOutput.log
+│   │   │   │   ├── CMakeRuleHashes.txt
+│   │   │   │   ├── CMakeTmp
+│   │   │   │   ├── Makefile2
+│   │   │   │   ├── Makefile.cmake
+│   │   │   │   ├── pkgRedirects
+│   │   │   │   ├── progress.marks
+│   │   │   │   └── TargetDirectories.txt
+│   │   │   ├── cmake_install.cmake
+│   │   │   ├── compile_commands.json
+│   │   │   ├── example_game_apidemo.zip
+│   │   │   ├── http_out
+│   │   │   │   ├── alexgames_wasm.data
+│   │   │   │   ├── alexgames_wasm.js
+│   │   │   │   ├── alexgames_wasm.wasm
+│   │   │   │   ├── cache.manifest
+│   │   │   │   ├── css
+│   │   │   │   │   ├── style_collapsable.css
+│   │   │   │   │   ├── style.css
+│   │   │   │   │   ├── style_dark.css
+│   │   │   │   │   └── style_very_dark.css
+│   │   │   │   ├── example_game_apidemo.zip
+│   │   │   │   ├── game_api_doc.html
+│   │   │   │   ├── icon
+│   │   │   │   │   └── logo.png
+│   │   │   │   ├── img
+│   │   │   │   │   ├── arrow.png
+│   │   │   │   │   ├── backgammon
+│   │   │   │   │   │   ├── black_triangle.png
+│   │   │   │   │   │   ├── triangle_black.png
+│   │   │   │   │   │   ├── triangle_highlight.png
+│   │   │   │   │   │   └── triangle_white.png
+│   │   │   │   │   ├── black_piece.png
+│   │   │   │   │   ├── black_piece.svg
+│   │   │   │   │   ├── brick_wall.png
+│   │   │   │   │   ├── cards
+│   │   │   │   │   │   ├── blank_card.png
+│   │   │   │   │   │   ├── blank_card.svg
+│   │   │   │   │   │   ├── card_facedown.png
+│   │   │   │   │   │   ├── card_facedown.svg
+│   │   │   │   │   │   ├── card_highlight.png
+│   │   │   │   │   │   ├── card_highlight.svg
+│   │   │   │   │   │   ├── clubs.png
+│   │   │   │   │   │   ├── clubs.svg
+│   │   │   │   │   │   ├── diamonds.png
+│   │   │   │   │   │   ├── diamonds.svg
+│   │   │   │   │   │   ├── hearts.png
+│   │   │   │   │   │   ├── hearts.svg
+│   │   │   │   │   │   ├── spades.png
+│   │   │   │   │   │   └── spades.svg
+│   │   │   │   │   ├── chess
+│   │   │   │   │   │   ├── bishop_black_dark.png
+│   │   │   │   │   │   ├── bishop_black.png
+│   │   │   │   │   │   ├── bishop_white.png
+│   │   │   │   │   │   ├── king_black_dark.png
+│   │   │   │   │   │   ├── king_black.png
+│   │   │   │   │   │   ├── king_white.png
+│   │   │   │   │   │   ├── knight_black_dark.png
+│   │   │   │   │   │   ├── knight_black.png
+│   │   │   │   │   │   ├── knight_white.png
+│   │   │   │   │   │   ├── pawn_black_dark.png
+│   │   │   │   │   │   ├── pawn_black.png
+│   │   │   │   │   │   ├── pawn_white.png
+│   │   │   │   │   │   ├── queen_black_dark.png
+│   │   │   │   │   │   ├── queen_black.png
+│   │   │   │   │   │   ├── queen_white.png
+│   │   │   │   │   │   ├── rook_black_dark.png
+│   │   │   │   │   │   ├── rook_black.png
+│   │   │   │   │   │   └── rook_white.png
+│   │   │   │   │   ├── credits
+│   │   │   │   │   │   └── Lua-Logo_128x128.png
+│   │   │   │   │   ├── dice
+│   │   │   │   │   │   ├── dice1.png
+│   │   │   │   │   │   ├── dice2.png
+│   │   │   │   │   │   ├── dice3.png
+│   │   │   │   │   │   ├── dice4.png
+│   │   │   │   │   │   ├── dice5.png
+│   │   │   │   │   │   └── dice6.png
+│   │   │   │   │   ├── favicon.png
+│   │   │   │   │   ├── game_icons
+│   │   │   │   │   │   ├── 31s.png
+│   │   │   │   │   │   ├── backgammon.png
+│   │   │   │   │   │   ├── card_sim.png
+│   │   │   │   │   │   ├── checkers.png
+│   │   │   │   │   │   ├── chess.png
+│   │   │   │   │   │   ├── crib.png
+│   │   │   │   │   │   ├── crossword_letters.png
+│   │   │   │   │   │   ├── endless_runner.png
+│   │   │   │   │   │   ├── fluid_mix.png
+│   │   │   │   │   │   ├── free_cell.png
+│   │   │   │   │   │   ├── gem_match.png
+│   │   │   │   │   │   ├── go.png
+│   │   │   │   │   │   ├── hospital.png
+│   │   │   │   │   │   ├── life.png
+│   │   │   │   │   │   ├── minesweeper.png
+│   │   │   │   │   │   ├── reversi.png
+│   │   │   │   │   │   ├── solitaire.png
+│   │   │   │   │   │   ├── spider_swing.png
+│   │   │   │   │   │   ├── thrust.png
+│   │   │   │   │   │   ├── word_mastermind.png
+│   │   │   │   │   │   └── wu.png
+│   │   │   │   │   ├── hospital
+│   │   │   │   │   │   ├── bed1-flipped.png
+│   │   │   │   │   │   ├── bed1.png
+│   │   │   │   │   │   ├── defibrillator_sabrina.png
+│   │   │   │   │   │   ├── doctor1.png
+│   │   │   │   │   │   ├── doctor2.png
+│   │   │   │   │   │   ├── doctor3.png
+│   │   │   │   │   │   ├── doctor4.png
+│   │   │   │   │   │   ├── doctor-head.png
+│   │   │   │   │   │   ├── doctor-outline.png
+│   │   │   │   │   │   ├── favicon.png
+│   │   │   │   │   │   ├── floor_highlight.png
+│   │   │   │   │   │   ├── floor_tile_bad.png
+│   │   │   │   │   │   ├── floor_tile.png
+│   │   │   │   │   │   ├── green_cross_icon.png
+│   │   │   │   │   │   ├── iv_stand_bag1.png
+│   │   │   │   │   │   ├── oxygen_tank.png
+│   │   │   │   │   │   ├── patient1.png
+│   │   │   │   │   │   ├── patient_in_bed-flipped.png
+│   │   │   │   │   │   ├── patient_in_bed.png
+│   │   │   │   │   │   ├── patient_need_icons
+│   │   │   │   │   │   │   ├── attention.png
+│   │   │   │   │   │   │   ├── bg_fixer.png
+│   │   │   │   │   │   │   ├── bg.png
+│   │   │   │   │   │   │   ├── broken_bone.png
+│   │   │   │   │   │   │   ├── low_fluids.png
+│   │   │   │   │   │   │   ├── low_oxygen.png
+│   │   │   │   │   │   │   └── no_heartbeat.png
+│   │   │   │   │   │   ├── patient_progress_bar_icon_needs.png
+│   │   │   │   │   │   ├── patient_progress_bar_icon_satisfied.png
+│   │   │   │   │   │   ├── ui
+│   │   │   │   │   │   │   ├── action_needed_arrow.png
+│   │   │   │   │   │   │   ├── dirpad.png
+│   │   │   │   │   │   │   ├── menu_button.png
+│   │   │   │   │   │   │   ├── progress_circle.png
+│   │   │   │   │   │   │   ├── thumb_buttons.png
+│   │   │   │   │   │   │   └── tutorial
+│   │   │   │   │   │   │       ├── need_aed.png
+│   │   │   │   │   │   │       └── need_cpr.png
+│   │   │   │   │   │   ├── ventilator.png
+│   │   │   │   │   │   ├── xray_sheet.png
+│   │   │   │   │   │   └── xray_source.png
+│   │   │   │   │   ├── logo.png
+│   │   │   │   │   ├── logo-transparent.png
+│   │   │   │   │   ├── minesweeper
+│   │   │   │   │   │   ├── box1.png
+│   │   │   │   │   │   ├── box2.png
+│   │   │   │   │   │   ├── box3.png
+│   │   │   │   │   │   ├── box4.png
+│   │   │   │   │   │   ├── box5.png
+│   │   │   │   │   │   ├── box6.png
+│   │   │   │   │   │   ├── box7.png
+│   │   │   │   │   │   ├── box8.png
+│   │   │   │   │   │   ├── box_empty.png
+│   │   │   │   │   │   ├── box_flagged_blue.png
+│   │   │   │   │   │   ├── box_flagged_red.png
+│   │   │   │   │   │   ├── box_unclicked.png
+│   │   │   │   │   │   └── mine.png
+│   │   │   │   │   ├── more_info_btn.png
+│   │   │   │   │   ├── more_info_btn.svg
+│   │   │   │   │   ├── piece_highlight.png
+│   │   │   │   │   ├── piece_highlight.svg
+│   │   │   │   │   ├── piece_king_icon.png
+│   │   │   │   │   ├── piece_king_icon.svg
+│   │   │   │   │   ├── space
+│   │   │   │   │   │   ├── lunar_lander.png
+│   │   │   │   │   │   └── ship1.png
+│   │   │   │   │   ├── spider.png
+│   │   │   │   │   ├── swarm
+│   │   │   │   │   │   └── grass_bg1.png
+│   │   │   │   │   ├── white_piece.png
+│   │   │   │   │   ├── white_piece.svg
+│   │   │   │   │   ├── wooden_board.png
+│   │   │   │   │   └── wooden_board.svg
+│   │   │   │   ├── index.html
+│   │   │   │   ├── js
+│   │   │   │   │   ├── alexgames_c_dict.js
+│   │   │   │   │   ├── alexgames_colour_pref.js
+│   │   │   │   │   ├── alexgames_dict.js
+│   │   │   │   │   ├── alexgames.js
+│   │   │   │   │   ├── alexgames_wasm_api.js
+│   │   │   │   │   ├── alexgames_wasm_wrapper.js
+│   │   │   │   │   ├── alexgames_ws.js
+│   │   │   │   │   ├── collapsable.js
+│   │   │   │   │   └── url_args.js
+│   │   │   │   ├── licenses.html
+│   │   │   │   ├── manifest.json
+│   │   │   │   └── words-en.txt
+│   │   │   ├── Makefile
+│   │   │   ├── out
+│   │   │   │   ├── alexgames_core
+│   │   │   │   │   ├── alexgames_config.h
+│   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   ├── alexgames_c_dict.dir
+│   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   ├── dictionary
+│   │   │   │   │   │   │   │   ├── c_dictionary.c.o
+│   │   │   │   │   │   │   │   └── c_dictionary.c.o.d
+│   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   ├── alexgames_core.dir
+│   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   ├── cpp_libs
+│   │   │   │   │   │   │   │   ├── button_helper
+│   │   │   │   │   │   │   │   │   ├── button_helper.cpp.o
+│   │   │   │   │   │   │   │   │   └── button_helper.cpp.o.d
+│   │   │   │   │   │   │   │   ├── game_api_helper
+│   │   │   │   │   │   │   │   │   ├── game_api_helper.cpp.o
+│   │   │   │   │   │   │   │   │   └── game_api_helper.cpp.o.d
+│   │   │   │   │   │   │   │   ├── history_browse_ui
+│   │   │   │   │   │   │   │   │   ├── history_browse_ui.cpp.o
+│   │   │   │   │   │   │   │   │   └── history_browse_ui.cpp.o.d
+│   │   │   │   │   │   │   │   ├── mouse_scroll_handler
+│   │   │   │   │   │   │   │   │   ├── mouse_scroll_handler.cpp.o
+│   │   │   │   │   │   │   │   │   └── mouse_scroll_handler.cpp.o.d
+│   │   │   │   │   │   │   │   ├── saved_state_db
+│   │   │   │   │   │   │   │   │   ├── saved_state_db_c_api.cpp.o
+│   │   │   │   │   │   │   │   │   ├── saved_state_db_c_api.cpp.o.d
+│   │   │   │   │   │   │   │   │   ├── saved_state_db.cpp.o
+│   │   │   │   │   │   │   │   │   └── saved_state_db.cpp.o.d
+│   │   │   │   │   │   │   │   ├── touch_press_handler
+│   │   │   │   │   │   │   │   │   ├── touch_press_handler.cpp.o
+│   │   │   │   │   │   │   │   │   └── touch_press_handler.cpp.o.d
+│   │   │   │   │   │   │   │   └── touch_scroll_handler
+│   │   │   │   │   │   │   │       ├── touch_scroll_handler.cpp.o
+│   │   │   │   │   │   │   │       └── touch_scroll_handler.cpp.o.d
+│   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   ├── game_api
+│   │   │   │   │   │   │   │   ├── game_api.c.o
+│   │   │   │   │   │   │   │   ├── game_api.c.o.d
+│   │   │   │   │   │   │   │   ├── game_api_utils.c.o
+│   │   │   │   │   │   │   │   ├── game_api_utils.c.o.d
+│   │   │   │   │   │   │   │   ├── game_api_words.c.o
+│   │   │   │   │   │   │   │   └── game_api_words.c.o.d
+│   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   ├── lua_api
+│   │   │   │   │   │   │   │   ├── lua_api.c.o
+│   │   │   │   │   │   │   │   ├── lua_api.c.o.d
+│   │   │   │   │   │   │   │   ├── lua_api_dict.c.o
+│   │   │   │   │   │   │   │   ├── lua_api_dict.c.o.d
+│   │   │   │   │   │   │   │   ├── lua_api_utils.c.o
+│   │   │   │   │   │   │   │   └── lua_api_utils.c.o.d
+│   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   ├── alexgames_rust_api.dir
+│   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   └── rust_games
+│   │   │   │   │   │   │       ├── rust_game_api.c.o
+│   │   │   │   │   │   │       └── rust_game_api.c.o.d
+│   │   │   │   │   │   ├── alexgames_rust_lib.dir
+│   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   ├── lua.dir
+│   │   │   │   │   │   │   ├── app
+│   │   │   │   │   │   │   │   └── third_party
+│   │   │   │   │   │   │   │       └── lua
+│   │   │   │   │   │   │   │           ├── lapi.c.o
+│   │   │   │   │   │   │   │           ├── lapi.c.o.d
+│   │   │   │   │   │   │   │           ├── lauxlib.c.o
+│   │   │   │   │   │   │   │           ├── lauxlib.c.o.d
+│   │   │   │   │   │   │   │           ├── lbaselib.c.o
+│   │   │   │   │   │   │   │           ├── lbaselib.c.o.d
+│   │   │   │   │   │   │   │           ├── lcode.c.o
+│   │   │   │   │   │   │   │           ├── lcode.c.o.d
+│   │   │   │   │   │   │   │           ├── lcorolib.c.o
+│   │   │   │   │   │   │   │           ├── lcorolib.c.o.d
+│   │   │   │   │   │   │   │           ├── lctype.c.o
+│   │   │   │   │   │   │   │           ├── lctype.c.o.d
+│   │   │   │   │   │   │   │           ├── ldblib.c.o
+│   │   │   │   │   │   │   │           ├── ldblib.c.o.d
+│   │   │   │   │   │   │   │           ├── ldebug.c.o
+│   │   │   │   │   │   │   │           ├── ldebug.c.o.d
+│   │   │   │   │   │   │   │           ├── ldo.c.o
+│   │   │   │   │   │   │   │           ├── ldo.c.o.d
+│   │   │   │   │   │   │   │           ├── ldump.c.o
+│   │   │   │   │   │   │   │           ├── ldump.c.o.d
+│   │   │   │   │   │   │   │           ├── lfunc.c.o
+│   │   │   │   │   │   │   │           ├── lfunc.c.o.d
+│   │   │   │   │   │   │   │           ├── lgc.c.o
+│   │   │   │   │   │   │   │           ├── lgc.c.o.d
+│   │   │   │   │   │   │   │           ├── linit.c.o
+│   │   │   │   │   │   │   │           ├── linit.c.o.d
+│   │   │   │   │   │   │   │           ├── liolib.c.o
+│   │   │   │   │   │   │   │           ├── liolib.c.o.d
+│   │   │   │   │   │   │   │           ├── llex.c.o
+│   │   │   │   │   │   │   │           ├── llex.c.o.d
+│   │   │   │   │   │   │   │           ├── lmathlib.c.o
+│   │   │   │   │   │   │   │           ├── lmathlib.c.o.d
+│   │   │   │   │   │   │   │           ├── lmem.c.o
+│   │   │   │   │   │   │   │           ├── lmem.c.o.d
+│   │   │   │   │   │   │   │           ├── loadlib.c.o
+│   │   │   │   │   │   │   │           ├── loadlib.c.o.d
+│   │   │   │   │   │   │   │           ├── lobject.c.o
+│   │   │   │   │   │   │   │           ├── lobject.c.o.d
+│   │   │   │   │   │   │   │           ├── lopcodes.c.o
+│   │   │   │   │   │   │   │           ├── lopcodes.c.o.d
+│   │   │   │   │   │   │   │           ├── loslib.c.o
+│   │   │   │   │   │   │   │           ├── loslib.c.o.d
+│   │   │   │   │   │   │   │           ├── lparser.c.o
+│   │   │   │   │   │   │   │           ├── lparser.c.o.d
+│   │   │   │   │   │   │   │           ├── lstate.c.o
+│   │   │   │   │   │   │   │           ├── lstate.c.o.d
+│   │   │   │   │   │   │   │           ├── lstring.c.o
+│   │   │   │   │   │   │   │           ├── lstring.c.o.d
+│   │   │   │   │   │   │   │           ├── lstrlib.c.o
+│   │   │   │   │   │   │   │           ├── lstrlib.c.o.d
+│   │   │   │   │   │   │   │           ├── ltable.c.o
+│   │   │   │   │   │   │   │           ├── ltable.c.o.d
+│   │   │   │   │   │   │   │           ├── ltablib.c.o
+│   │   │   │   │   │   │   │           ├── ltablib.c.o.d
+│   │   │   │   │   │   │   │           ├── ltests.c.o
+│   │   │   │   │   │   │   │           ├── ltests.c.o.d
+│   │   │   │   │   │   │   │           ├── ltm.c.o
+│   │   │   │   │   │   │   │           ├── ltm.c.o.d
+│   │   │   │   │   │   │   │           ├── lundump.c.o
+│   │   │   │   │   │   │   │           ├── lundump.c.o.d
+│   │   │   │   │   │   │   │           ├── lutf8lib.c.o
+│   │   │   │   │   │   │   │           ├── lutf8lib.c.o.d
+│   │   │   │   │   │   │   │           ├── lvm.c.o
+│   │   │   │   │   │   │   │           ├── lvm.c.o.d
+│   │   │   │   │   │   │   │           ├── lzio.c.o
+│   │   │   │   │   │   │   │           └── lzio.c.o.d
+│   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   └── progress.marks
+│   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   ├── libalexgames_c_dict.a
+│   │   │   │   │   ├── libalexgames_core.a
+│   │   │   │   │   ├── libalexgames_rust_api.a
+│   │   │   │   │   ├── liblua.a
+│   │   │   │   │   ├── libzip_out
+│   │   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   │   ├── distcheck.dir
+│   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   ├── dist.dir
+│   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   ├── Export
+│   │   │   │   │   │   │   │   └── ab63c3a9eda5ec24a2943b813039874c
+│   │   │   │   │   │   │   │       ├── libzip-bin-targets.cmake
+│   │   │   │   │   │   │   │       ├── libzip-bin-targets-noconfig.cmake
+│   │   │   │   │   │   │   │       ├── libzip-targets.cmake
+│   │   │   │   │   │   │   │       └── libzip-targets-noconfig.cmake
+│   │   │   │   │   │   │   └── progress.marks
+│   │   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   │   ├── config.h
+│   │   │   │   │   │   ├── CTestTestfile.cmake
+│   │   │   │   │   │   ├── examples
+│   │   │   │   │   │   │   ├── add-compressed-data.js
+│   │   │   │   │   │   │   ├── add-compressed-data.wasm
+│   │   │   │   │   │   │   ├── autoclose-archive.js
+│   │   │   │   │   │   │   ├── autoclose-archive.wasm
+│   │   │   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   │   │   ├── add-compressed-data.dir
+│   │   │   │   │   │   │   │   │   ├── add-compressed-data.c.o
+│   │   │   │   │   │   │   │   │   ├── add-compressed-data.c.o.d
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   ├── autoclose-archive.dir
+│   │   │   │   │   │   │   │   │   ├── autoclose-archive.c.o
+│   │   │   │   │   │   │   │   │   ├── autoclose-archive.c.o.d
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   │   │   ├── in-memory.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── in-memory.c.o
+│   │   │   │   │   │   │   │   │   ├── in-memory.c.o.d
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   └── progress.marks
+│   │   │   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   │   │   ├── CTestTestfile.cmake
+│   │   │   │   │   │   │   ├── in-memory.js
+│   │   │   │   │   │   │   ├── in-memory.wasm
+│   │   │   │   │   │   │   └── Makefile
+│   │   │   │   │   │   ├── lib
+│   │   │   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   │   │   ├── progress.marks
+│   │   │   │   │   │   │   │   ├── zip.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── cmake_clean_target.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── siphash.c.o
+│   │   │   │   │   │   │   │   │   ├── siphash.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_add.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_add.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_add_dir.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_add_dir.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_add_entry.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_add_entry.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_algorithm_deflate.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_algorithm_deflate.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_buffer.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_buffer.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_close.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_close.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_delete.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_delete.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_dir_add.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_dir_add.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_dirent.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_dirent.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_discard.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_discard.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_entry.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_entry.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_error_clear.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_error_clear.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_error.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_error.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_error_get.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_error_get.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_error_get_sys_type.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_error_get_sys_type.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_error_strerror.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_error_strerror.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_error_to_str.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_error_to_str.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_err_str.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_err_str.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_extra_field_api.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_extra_field_api.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_extra_field.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_extra_field.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fclose.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fclose.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fdopen.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fdopen.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_add.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_add.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_error_clear.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_error_clear.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_error_get.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_error_get.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_get_comment.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_get_comment.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_get_external_attributes.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_get_external_attributes.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_get_offset.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_get_offset.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_rename.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_rename.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_replace.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_replace.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_comment.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_comment.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_encryption.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_encryption.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_external_attributes.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_external_attributes.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_mtime.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_set_mtime.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_file_strerror.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_file_strerror.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fopen.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fopen.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fopen_encrypted.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fopen_encrypted.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fopen_index.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fopen_index.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fopen_index_encrypted.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fopen_index_encrypted.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fread.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fread.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_fseek.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_fseek.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_ftell.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_ftell.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_archive_comment.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_archive_comment.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_archive_flag.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_archive_flag.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_encryption_implementation.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_encryption_implementation.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_file_comment.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_file_comment.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_name.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_name.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_num_entries.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_num_entries.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_get_num_files.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_get_num_files.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_hash.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_hash.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_io_util.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_io_util.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_libzip_version.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_libzip_version.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_memdup.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_memdup.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_name_locate.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_name_locate.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_new.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_new.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_open.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_open.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_pkware.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_pkware.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_progress.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_progress.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_random_unix.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_random_unix.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_realloc.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_realloc.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_rename.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_rename.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_replace.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_replace.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_set_archive_comment.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_set_archive_comment.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_set_archive_flag.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_set_archive_flag.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_set_default_password.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_set_default_password.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_set_file_comment.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_set_file_comment.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_set_file_compression.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_set_file_compression.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_set_name.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_set_name.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_accept_empty.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_accept_empty.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_at_eof.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_at_eof.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_begin_write_cloning.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_begin_write_cloning.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_begin_write.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_begin_write.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_buffer.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_buffer.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_call.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_call.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_close.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_close.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_commit_write.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_commit_write.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_compress.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_compress.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_crc.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_crc.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_error.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_error.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_file_common.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_file_common.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_file_stdio.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_file_stdio.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_file_stdio_named.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_file_stdio_named.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_free.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_free.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_function.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_function.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_get_dostime.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_get_dostime.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_get_file_attributes.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_get_file_attributes.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_is_deleted.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_is_deleted.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_layered.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_layered.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_open.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_open.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_pass_to_lower_layer.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_pass_to_lower_layer.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_pkware_decode.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_pkware_decode.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_pkware_encode.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_pkware_encode.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_read.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_read.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_remove.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_remove.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_rollback_write.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_rollback_write.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_seek.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_seek.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_seek_write.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_seek_write.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_stat.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_stat.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_supports.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_supports.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_tell.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_tell.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_tell_write.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_tell_write.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_window.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_window.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_write.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_write.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_zip.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_zip.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_source_zip_new.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_source_zip_new.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_stat.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_stat.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_stat_index.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_stat_index.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_stat_init.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_stat_init.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_strerror.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_strerror.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_string.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_string.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_unchange_all.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_unchange_all.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_unchange_archive.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_unchange_archive.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_unchange.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_unchange.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_unchange_data.c.o
+│   │   │   │   │   │   │   │   │   ├── zip_unchange_data.c.o.d
+│   │   │   │   │   │   │   │   │   ├── zip_utf-8.c.o
+│   │   │   │   │   │   │   │   │   └── zip_utf-8.c.o.d
+│   │   │   │   │   │   │   │   └── zip_nonrandom.dir
+│   │   │   │   │   │   │   │       ├── app
+│   │   │   │   │   │   │   │       │   └── third_party
+│   │   │   │   │   │   │   │       │       └── libzip
+│   │   │   │   │   │   │   │       │           └── regress
+│   │   │   │   │   │   │   │       │               └── programs
+│   │   │   │   │   │   │   │       │                   ├── zip_nonrandom.c.o
+│   │   │   │   │   │   │   │       │                   └── zip_nonrandom.c.o.d
+│   │   │   │   │   │   │   │       ├── build.make
+│   │   │   │   │   │   │   │       ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │       ├── cmake_clean_target.cmake
+│   │   │   │   │   │   │   │       ├── compiler_depend.internal
+│   │   │   │   │   │   │   │       ├── compiler_depend.make
+│   │   │   │   │   │   │   │       ├── compiler_depend.ts
+│   │   │   │   │   │   │   │       ├── DependInfo.cmake
+│   │   │   │   │   │   │   │       ├── depend.make
+│   │   │   │   │   │   │   │       ├── flags.make
+│   │   │   │   │   │   │   │       ├── link.txt
+│   │   │   │   │   │   │   │       ├── progress.make
+│   │   │   │   │   │   │   │       ├── siphash.c.o
+│   │   │   │   │   │   │   │       ├── siphash.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_add.c.o
+│   │   │   │   │   │   │   │       ├── zip_add.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_add_dir.c.o
+│   │   │   │   │   │   │   │       ├── zip_add_dir.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_add_entry.c.o
+│   │   │   │   │   │   │   │       ├── zip_add_entry.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_algorithm_deflate.c.o
+│   │   │   │   │   │   │   │       ├── zip_algorithm_deflate.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_buffer.c.o
+│   │   │   │   │   │   │   │       ├── zip_buffer.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_close.c.o
+│   │   │   │   │   │   │   │       ├── zip_close.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_delete.c.o
+│   │   │   │   │   │   │   │       ├── zip_delete.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_dir_add.c.o
+│   │   │   │   │   │   │   │       ├── zip_dir_add.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_dirent.c.o
+│   │   │   │   │   │   │   │       ├── zip_dirent.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_discard.c.o
+│   │   │   │   │   │   │   │       ├── zip_discard.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_entry.c.o
+│   │   │   │   │   │   │   │       ├── zip_entry.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_error_clear.c.o
+│   │   │   │   │   │   │   │       ├── zip_error_clear.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_error.c.o
+│   │   │   │   │   │   │   │       ├── zip_error.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_error_get.c.o
+│   │   │   │   │   │   │   │       ├── zip_error_get.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_error_get_sys_type.c.o
+│   │   │   │   │   │   │   │       ├── zip_error_get_sys_type.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_error_strerror.c.o
+│   │   │   │   │   │   │   │       ├── zip_error_strerror.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_error_to_str.c.o
+│   │   │   │   │   │   │   │       ├── zip_error_to_str.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_err_str.c.o
+│   │   │   │   │   │   │   │       ├── zip_err_str.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_extra_field_api.c.o
+│   │   │   │   │   │   │   │       ├── zip_extra_field_api.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_extra_field.c.o
+│   │   │   │   │   │   │   │       ├── zip_extra_field.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fclose.c.o
+│   │   │   │   │   │   │   │       ├── zip_fclose.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fdopen.c.o
+│   │   │   │   │   │   │   │       ├── zip_fdopen.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_add.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_add.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_error_clear.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_error_clear.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_error_get.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_error_get.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_get_comment.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_get_comment.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_get_external_attributes.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_get_external_attributes.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_get_offset.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_get_offset.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_rename.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_rename.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_replace.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_replace.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_set_comment.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_set_comment.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_set_encryption.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_set_encryption.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_set_external_attributes.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_set_external_attributes.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_set_mtime.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_set_mtime.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_file_strerror.c.o
+│   │   │   │   │   │   │   │       ├── zip_file_strerror.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fopen.c.o
+│   │   │   │   │   │   │   │       ├── zip_fopen.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fopen_encrypted.c.o
+│   │   │   │   │   │   │   │       ├── zip_fopen_encrypted.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fopen_index.c.o
+│   │   │   │   │   │   │   │       ├── zip_fopen_index.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fopen_index_encrypted.c.o
+│   │   │   │   │   │   │   │       ├── zip_fopen_index_encrypted.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fread.c.o
+│   │   │   │   │   │   │   │       ├── zip_fread.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_fseek.c.o
+│   │   │   │   │   │   │   │       ├── zip_fseek.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_ftell.c.o
+│   │   │   │   │   │   │   │       ├── zip_ftell.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_archive_comment.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_archive_comment.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_archive_flag.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_archive_flag.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_encryption_implementation.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_encryption_implementation.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_file_comment.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_file_comment.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_name.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_name.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_num_entries.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_num_entries.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_get_num_files.c.o
+│   │   │   │   │   │   │   │       ├── zip_get_num_files.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_hash.c.o
+│   │   │   │   │   │   │   │       ├── zip_hash.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_io_util.c.o
+│   │   │   │   │   │   │   │       ├── zip_io_util.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_libzip_version.c.o
+│   │   │   │   │   │   │   │       ├── zip_libzip_version.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_memdup.c.o
+│   │   │   │   │   │   │   │       ├── zip_memdup.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_name_locate.c.o
+│   │   │   │   │   │   │   │       ├── zip_name_locate.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_new.c.o
+│   │   │   │   │   │   │   │       ├── zip_new.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_open.c.o
+│   │   │   │   │   │   │   │       ├── zip_open.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_pkware.c.o
+│   │   │   │   │   │   │   │       ├── zip_pkware.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_progress.c.o
+│   │   │   │   │   │   │   │       ├── zip_progress.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_random_unix.c.o
+│   │   │   │   │   │   │   │       ├── zip_random_unix.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_realloc.c.o
+│   │   │   │   │   │   │   │       ├── zip_realloc.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_rename.c.o
+│   │   │   │   │   │   │   │       ├── zip_rename.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_replace.c.o
+│   │   │   │   │   │   │   │       ├── zip_replace.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_set_archive_comment.c.o
+│   │   │   │   │   │   │   │       ├── zip_set_archive_comment.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_set_archive_flag.c.o
+│   │   │   │   │   │   │   │       ├── zip_set_archive_flag.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_set_default_password.c.o
+│   │   │   │   │   │   │   │       ├── zip_set_default_password.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_set_file_comment.c.o
+│   │   │   │   │   │   │   │       ├── zip_set_file_comment.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_set_file_compression.c.o
+│   │   │   │   │   │   │   │       ├── zip_set_file_compression.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_set_name.c.o
+│   │   │   │   │   │   │   │       ├── zip_set_name.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_accept_empty.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_accept_empty.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_at_eof.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_at_eof.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_begin_write_cloning.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_begin_write_cloning.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_begin_write.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_begin_write.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_buffer.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_buffer.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_call.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_call.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_close.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_close.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_commit_write.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_commit_write.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_compress.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_compress.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_crc.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_crc.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_error.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_error.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_file_common.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_file_common.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_file_stdio.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_file_stdio.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_file_stdio_named.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_file_stdio_named.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_free.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_free.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_function.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_function.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_get_dostime.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_get_dostime.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_get_file_attributes.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_get_file_attributes.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_is_deleted.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_is_deleted.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_layered.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_layered.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_open.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_open.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_pass_to_lower_layer.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_pass_to_lower_layer.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_pkware_decode.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_pkware_decode.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_pkware_encode.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_pkware_encode.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_read.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_read.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_remove.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_remove.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_rollback_write.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_rollback_write.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_seek.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_seek.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_seek_write.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_seek_write.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_stat.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_stat.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_supports.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_supports.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_tell.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_tell.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_tell_write.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_tell_write.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_window.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_window.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_write.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_write.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_zip.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_zip.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_source_zip_new.c.o
+│   │   │   │   │   │   │   │       ├── zip_source_zip_new.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_stat.c.o
+│   │   │   │   │   │   │   │       ├── zip_stat.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_stat_index.c.o
+│   │   │   │   │   │   │   │       ├── zip_stat_index.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_stat_init.c.o
+│   │   │   │   │   │   │   │       ├── zip_stat_init.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_strerror.c.o
+│   │   │   │   │   │   │   │       ├── zip_strerror.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_string.c.o
+│   │   │   │   │   │   │   │       ├── zip_string.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_unchange_all.c.o
+│   │   │   │   │   │   │   │       ├── zip_unchange_all.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_unchange_archive.c.o
+│   │   │   │   │   │   │   │       ├── zip_unchange_archive.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_unchange.c.o
+│   │   │   │   │   │   │   │       ├── zip_unchange.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_unchange_data.c.o
+│   │   │   │   │   │   │   │       ├── zip_unchange_data.c.o.d
+│   │   │   │   │   │   │   │       ├── zip_utf-8.c.o
+│   │   │   │   │   │   │   │       └── zip_utf-8.c.o.d
+│   │   │   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   │   │   ├── CTestTestfile.cmake
+│   │   │   │   │   │   │   ├── libzip.a
+│   │   │   │   │   │   │   ├── libzip_nonrandom.a
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   └── zip_err_str.c
+│   │   │   │   │   │   ├── libzip-config.cmake
+│   │   │   │   │   │   ├── libzip-config-version.cmake
+│   │   │   │   │   │   ├── libzip.pc
+│   │   │   │   │   │   ├── libzip-targets.cmake
+│   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   ├── man
+│   │   │   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   │   │   ├── man.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   ├── progress.marks
+│   │   │   │   │   │   │   │   ├── update-html.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   ├── update-man.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   └── update_zip_errors.dir
+│   │   │   │   │   │   │   │       ├── build.make
+│   │   │   │   │   │   │   │       ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │       ├── compiler_depend.make
+│   │   │   │   │   │   │   │       ├── compiler_depend.ts
+│   │   │   │   │   │   │   │       ├── DependInfo.cmake
+│   │   │   │   │   │   │   │       └── progress.make
+│   │   │   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   │   │   ├── CTestTestfile.cmake
+│   │   │   │   │   │   │   ├── libzip.3
+│   │   │   │   │   │   │   ├── libzip.html
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── zip.5
+│   │   │   │   │   │   │   ├── zip_add.3
+│   │   │   │   │   │   │   ├── zip_add_dir.3
+│   │   │   │   │   │   │   ├── zip_add_dir.html
+│   │   │   │   │   │   │   ├── zip_add.html
+│   │   │   │   │   │   │   ├── zip_close.3
+│   │   │   │   │   │   │   ├── zip_close.html
+│   │   │   │   │   │   │   ├── zipcmp.1
+│   │   │   │   │   │   │   ├── zipcmp.html
+│   │   │   │   │   │   │   ├── zip_compression_method_supported.3
+│   │   │   │   │   │   │   ├── zip_compression_method_supported.html
+│   │   │   │   │   │   │   ├── zip_delete.3
+│   │   │   │   │   │   │   ├── zip_delete.html
+│   │   │   │   │   │   │   ├── zip_dir_add.3
+│   │   │   │   │   │   │   ├── zip_dir_add.html
+│   │   │   │   │   │   │   ├── zip_discard.3
+│   │   │   │   │   │   │   ├── zip_discard.html
+│   │   │   │   │   │   │   ├── zip_encryption_method_supported.3
+│   │   │   │   │   │   │   ├── zip_encryption_method_supported.html
+│   │   │   │   │   │   │   ├── zip_error.5
+│   │   │   │   │   │   │   ├── zip_error_clear.3
+│   │   │   │   │   │   │   ├── zip_error_clear.html
+│   │   │   │   │   │   │   ├── zip_error_code_system.3
+│   │   │   │   │   │   │   ├── zip_error_code_system.html
+│   │   │   │   │   │   │   ├── zip_error_code_zip.3
+│   │   │   │   │   │   │   ├── zip_error_code_zip.html
+│   │   │   │   │   │   │   ├── zip_error_fini.3
+│   │   │   │   │   │   │   ├── zip_error_fini.html
+│   │   │   │   │   │   │   ├── zip_error_get.3
+│   │   │   │   │   │   │   ├── zip_error_get.html
+│   │   │   │   │   │   │   ├── zip_error_get_sys_type.3
+│   │   │   │   │   │   │   ├── zip_error_get_sys_type.html
+│   │   │   │   │   │   │   ├── zip_error.html
+│   │   │   │   │   │   │   ├── zip_error_init.3
+│   │   │   │   │   │   │   ├── zip_error_init.html
+│   │   │   │   │   │   │   ├── zip_errors.3
+│   │   │   │   │   │   │   ├── zip_error_set.3
+│   │   │   │   │   │   │   ├── zip_error_set_from_source.3
+│   │   │   │   │   │   │   ├── zip_error_set_from_source.html
+│   │   │   │   │   │   │   ├── zip_error_set.html
+│   │   │   │   │   │   │   ├── zip_errors.html
+│   │   │   │   │   │   │   ├── zip_error_strerror.3
+│   │   │   │   │   │   │   ├── zip_error_strerror.html
+│   │   │   │   │   │   │   ├── zip_error_system_type.3
+│   │   │   │   │   │   │   ├── zip_error_system_type.html
+│   │   │   │   │   │   │   ├── zip_error_to_data.3
+│   │   │   │   │   │   │   ├── zip_error_to_data.html
+│   │   │   │   │   │   │   ├── zip_error_to_str.3
+│   │   │   │   │   │   │   ├── zip_error_to_str.html
+│   │   │   │   │   │   │   ├── zip_fclose.3
+│   │   │   │   │   │   │   ├── zip_fclose.html
+│   │   │   │   │   │   │   ├── zip_fdopen.3
+│   │   │   │   │   │   │   ├── zip_fdopen.html
+│   │   │   │   │   │   │   ├── zip_file.5
+│   │   │   │   │   │   │   ├── zip_file_add.3
+│   │   │   │   │   │   │   ├── zip_file_add.html
+│   │   │   │   │   │   │   ├── zip_file_attributes_init.3
+│   │   │   │   │   │   │   ├── zip_file_attributes_init.html
+│   │   │   │   │   │   │   ├── zip_file_extra_field_delete.3
+│   │   │   │   │   │   │   ├── zip_file_extra_field_delete.html
+│   │   │   │   │   │   │   ├── zip_file_extra_field_get.3
+│   │   │   │   │   │   │   ├── zip_file_extra_field_get.html
+│   │   │   │   │   │   │   ├── zip_file_extra_fields_count.3
+│   │   │   │   │   │   │   ├── zip_file_extra_fields_count.html
+│   │   │   │   │   │   │   ├── zip_file_extra_field_set.3
+│   │   │   │   │   │   │   ├── zip_file_extra_field_set.html
+│   │   │   │   │   │   │   ├── zip_file_get_comment.3
+│   │   │   │   │   │   │   ├── zip_file_get_comment.html
+│   │   │   │   │   │   │   ├── zip_file_get_error.3
+│   │   │   │   │   │   │   ├── zip_file_get_error.html
+│   │   │   │   │   │   │   ├── zip_file_get_external_attributes.3
+│   │   │   │   │   │   │   ├── zip_file_get_external_attributes.html
+│   │   │   │   │   │   │   ├── zip_file.html
+│   │   │   │   │   │   │   ├── zip_file_rename.3
+│   │   │   │   │   │   │   ├── zip_file_rename.html
+│   │   │   │   │   │   │   ├── zip_file_set_comment.3
+│   │   │   │   │   │   │   ├── zip_file_set_comment.html
+│   │   │   │   │   │   │   ├── zip_file_set_encryption.3
+│   │   │   │   │   │   │   ├── zip_file_set_encryption.html
+│   │   │   │   │   │   │   ├── zip_file_set_external_attributes.3
+│   │   │   │   │   │   │   ├── zip_file_set_external_attributes.html
+│   │   │   │   │   │   │   ├── zip_file_set_mtime.3
+│   │   │   │   │   │   │   ├── zip_file_set_mtime.html
+│   │   │   │   │   │   │   ├── zip_file_strerror.3
+│   │   │   │   │   │   │   ├── zip_file_strerror.html
+│   │   │   │   │   │   │   ├── zip_fopen.3
+│   │   │   │   │   │   │   ├── zip_fopen_encrypted.3
+│   │   │   │   │   │   │   ├── zip_fopen_encrypted.html
+│   │   │   │   │   │   │   ├── zip_fopen.html
+│   │   │   │   │   │   │   ├── zip_fread.3
+│   │   │   │   │   │   │   ├── zip_fread.html
+│   │   │   │   │   │   │   ├── zip_fseek.3
+│   │   │   │   │   │   │   ├── zip_fseek.html
+│   │   │   │   │   │   │   ├── zip_ftell.3
+│   │   │   │   │   │   │   ├── zip_ftell.html
+│   │   │   │   │   │   │   ├── zip_get_archive_comment.3
+│   │   │   │   │   │   │   ├── zip_get_archive_comment.html
+│   │   │   │   │   │   │   ├── zip_get_archive_flag.3
+│   │   │   │   │   │   │   ├── zip_get_archive_flag.html
+│   │   │   │   │   │   │   ├── zip_get_error.3
+│   │   │   │   │   │   │   ├── zip_get_error.html
+│   │   │   │   │   │   │   ├── zip_get_file_comment.3
+│   │   │   │   │   │   │   ├── zip_get_file_comment.html
+│   │   │   │   │   │   │   ├── zip_get_name.3
+│   │   │   │   │   │   │   ├── zip_get_name.html
+│   │   │   │   │   │   │   ├── zip_get_num_entries.3
+│   │   │   │   │   │   │   ├── zip_get_num_entries.html
+│   │   │   │   │   │   │   ├── zip_get_num_files.3
+│   │   │   │   │   │   │   ├── zip_get_num_files.html
+│   │   │   │   │   │   │   ├── zip.html
+│   │   │   │   │   │   │   ├── zip_libzip_version.3
+│   │   │   │   │   │   │   ├── zip_libzip_version.html
+│   │   │   │   │   │   │   ├── zipmerge.1
+│   │   │   │   │   │   │   ├── zipmerge.html
+│   │   │   │   │   │   │   ├── zip_name_locate.3
+│   │   │   │   │   │   │   ├── zip_name_locate.html
+│   │   │   │   │   │   │   ├── zip_open.3
+│   │   │   │   │   │   │   ├── zip_open.html
+│   │   │   │   │   │   │   ├── zip_register_cancel_callback_with_state.3
+│   │   │   │   │   │   │   ├── zip_register_cancel_callback_with_state.html
+│   │   │   │   │   │   │   ├── zip_register_progress_callback.3
+│   │   │   │   │   │   │   ├── zip_register_progress_callback.html
+│   │   │   │   │   │   │   ├── zip_register_progress_callback_with_state.3
+│   │   │   │   │   │   │   ├── zip_register_progress_callback_with_state.html
+│   │   │   │   │   │   │   ├── zip_rename.3
+│   │   │   │   │   │   │   ├── zip_rename.html
+│   │   │   │   │   │   │   ├── zip_set_archive_comment.3
+│   │   │   │   │   │   │   ├── zip_set_archive_comment.html
+│   │   │   │   │   │   │   ├── zip_set_archive_flag.3
+│   │   │   │   │   │   │   ├── zip_set_archive_flag.html
+│   │   │   │   │   │   │   ├── zip_set_default_password.3
+│   │   │   │   │   │   │   ├── zip_set_default_password.html
+│   │   │   │   │   │   │   ├── zip_set_file_comment.3
+│   │   │   │   │   │   │   ├── zip_set_file_comment.html
+│   │   │   │   │   │   │   ├── zip_set_file_compression.3
+│   │   │   │   │   │   │   ├── zip_set_file_compression.html
+│   │   │   │   │   │   │   ├── zip_source.5
+│   │   │   │   │   │   │   ├── zip_source_at_eof.3
+│   │   │   │   │   │   │   ├── zip_source_at_eof.html
+│   │   │   │   │   │   │   ├── zip_source_begin_write.3
+│   │   │   │   │   │   │   ├── zip_source_begin_write.html
+│   │   │   │   │   │   │   ├── zip_source_buffer.3
+│   │   │   │   │   │   │   ├── zip_source_buffer_fragment.3
+│   │   │   │   │   │   │   ├── zip_source_buffer_fragment.html
+│   │   │   │   │   │   │   ├── zip_source_buffer.html
+│   │   │   │   │   │   │   ├── zip_source_close.3
+│   │   │   │   │   │   │   ├── zip_source_close.html
+│   │   │   │   │   │   │   ├── zip_source_commit_write.3
+│   │   │   │   │   │   │   ├── zip_source_commit_write.html
+│   │   │   │   │   │   │   ├── zip_source_error.3
+│   │   │   │   │   │   │   ├── zip_source_error.html
+│   │   │   │   │   │   │   ├── zip_source_file.3
+│   │   │   │   │   │   │   ├── zip_source_file.html
+│   │   │   │   │   │   │   ├── zip_source_filep.3
+│   │   │   │   │   │   │   ├── zip_source_filep.html
+│   │   │   │   │   │   │   ├── zip_source_free.3
+│   │   │   │   │   │   │   ├── zip_source_free.html
+│   │   │   │   │   │   │   ├── zip_source_function.3
+│   │   │   │   │   │   │   ├── zip_source_function.html
+│   │   │   │   │   │   │   ├── ZIP_SOURCE_GET_ARGS.3
+│   │   │   │   │   │   │   ├── ZIP_SOURCE_GET_ARGS.html
+│   │   │   │   │   │   │   ├── zip_source.html
+│   │   │   │   │   │   │   ├── zip_source_is_deleted.3
+│   │   │   │   │   │   │   ├── zip_source_is_deleted.html
+│   │   │   │   │   │   │   ├── zip_source_is_seekable.3
+│   │   │   │   │   │   │   ├── zip_source_is_seekable.html
+│   │   │   │   │   │   │   ├── zip_source_keep.3
+│   │   │   │   │   │   │   ├── zip_source_keep.html
+│   │   │   │   │   │   │   ├── zip_source_layered.3
+│   │   │   │   │   │   │   ├── zip_source_layered.html
+│   │   │   │   │   │   │   ├── zip_source_make_command_bitmap.3
+│   │   │   │   │   │   │   ├── zip_source_make_command_bitmap.html
+│   │   │   │   │   │   │   ├── zip_source_open.3
+│   │   │   │   │   │   │   ├── zip_source_open.html
+│   │   │   │   │   │   │   ├── zip_source_pass_to_lower_layer.3
+│   │   │   │   │   │   │   ├── zip_source_pass_to_lower_layer.html
+│   │   │   │   │   │   │   ├── zip_source_read.3
+│   │   │   │   │   │   │   ├── zip_source_read.html
+│   │   │   │   │   │   │   ├── zip_source_rollback_write.3
+│   │   │   │   │   │   │   ├── zip_source_rollback_write.html
+│   │   │   │   │   │   │   ├── zip_source_seek.3
+│   │   │   │   │   │   │   ├── zip_source_seek_compute_offset.3
+│   │   │   │   │   │   │   ├── zip_source_seek_compute_offset.html
+│   │   │   │   │   │   │   ├── zip_source_seek.html
+│   │   │   │   │   │   │   ├── zip_source_seek_write.3
+│   │   │   │   │   │   │   ├── zip_source_seek_write.html
+│   │   │   │   │   │   │   ├── zip_source_stat.3
+│   │   │   │   │   │   │   ├── zip_source_stat.html
+│   │   │   │   │   │   │   ├── zip_source_tell.3
+│   │   │   │   │   │   │   ├── zip_source_tell.html
+│   │   │   │   │   │   │   ├── zip_source_tell_write.3
+│   │   │   │   │   │   │   ├── zip_source_tell_write.html
+│   │   │   │   │   │   │   ├── zip_source_win32a.3
+│   │   │   │   │   │   │   ├── zip_source_win32a.html
+│   │   │   │   │   │   │   ├── zip_source_win32handle.3
+│   │   │   │   │   │   │   ├── zip_source_win32handle.html
+│   │   │   │   │   │   │   ├── zip_source_win32w.3
+│   │   │   │   │   │   │   ├── zip_source_win32w.html
+│   │   │   │   │   │   │   ├── zip_source_window_create.3
+│   │   │   │   │   │   │   ├── zip_source_window_create.html
+│   │   │   │   │   │   │   ├── zip_source_write.3
+│   │   │   │   │   │   │   ├── zip_source_write.html
+│   │   │   │   │   │   │   ├── zip_source_zip.3
+│   │   │   │   │   │   │   ├── zip_source_zip_file.3
+│   │   │   │   │   │   │   ├── zip_source_zip_file.html
+│   │   │   │   │   │   │   ├── zip_source_zip.html
+│   │   │   │   │   │   │   ├── zip_stat.3
+│   │   │   │   │   │   │   ├── zip_stat.html
+│   │   │   │   │   │   │   ├── zip_stat_init.3
+│   │   │   │   │   │   │   ├── zip_stat_init.html
+│   │   │   │   │   │   │   ├── ziptool.1
+│   │   │   │   │   │   │   ├── ziptool.html
+│   │   │   │   │   │   │   ├── zip_unchange.3
+│   │   │   │   │   │   │   ├── zip_unchange_all.3
+│   │   │   │   │   │   │   ├── zip_unchange_all.html
+│   │   │   │   │   │   │   ├── zip_unchange_archive.3
+│   │   │   │   │   │   │   ├── zip_unchange_archive.html
+│   │   │   │   │   │   │   └── zip_unchange.html
+│   │   │   │   │   │   ├── ossfuzz
+│   │   │   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   │   │   ├── list-fuzzers.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   └── progress.make
+│   │   │   │   │   │   │   │   ├── progress.marks
+│   │   │   │   │   │   │   │   ├── zip_read_file_fuzzer.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o.d
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zip_read_file_fuzzer.c.o
+│   │   │   │   │   │   │   │   │   └── zip_read_file_fuzzer.c.o.d
+│   │   │   │   │   │   │   │   ├── zip_read_fuzzer.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o.d
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zip_read_fuzzer.c.o
+│   │   │   │   │   │   │   │   │   └── zip_read_fuzzer.c.o.d
+│   │   │   │   │   │   │   │   ├── zip_read_metadata_fuzzer.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o.d
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zip_read_metadata_fuzzer.c.o
+│   │   │   │   │   │   │   │   │   └── zip_read_metadata_fuzzer.c.o.d
+│   │   │   │   │   │   │   │   ├── zip_write_encrypt_aes256_file_fuzzer.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o.d
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zip_write_encrypt_aes256_file_fuzzer.c.o
+│   │   │   │   │   │   │   │   │   └── zip_write_encrypt_aes256_file_fuzzer.c.o.d
+│   │   │   │   │   │   │   │   ├── zip_write_encrypt_pkware_file_fuzzer.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o
+│   │   │   │   │   │   │   │   │   ├── fuzz_main.c.o.d
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zip_write_encrypt_pkware_file_fuzzer.c.o
+│   │   │   │   │   │   │   │   │   └── zip_write_encrypt_pkware_file_fuzzer.c.o.d
+│   │   │   │   │   │   │   │   └── zip_write_roundtrip_fuzzer.dir
+│   │   │   │   │   │   │   │       ├── build.make
+│   │   │   │   │   │   │   │       ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │       ├── compiler_depend.internal
+│   │   │   │   │   │   │   │       ├── compiler_depend.make
+│   │   │   │   │   │   │   │       ├── compiler_depend.ts
+│   │   │   │   │   │   │   │       ├── DependInfo.cmake
+│   │   │   │   │   │   │   │       ├── depend.make
+│   │   │   │   │   │   │   │       ├── flags.make
+│   │   │   │   │   │   │   │       ├── fuzz_main.c.o
+│   │   │   │   │   │   │   │       ├── fuzz_main.c.o.d
+│   │   │   │   │   │   │   │       ├── link.txt
+│   │   │   │   │   │   │   │       ├── progress.make
+│   │   │   │   │   │   │   │       ├── zip_write_roundtrip_fuzzer.c.o
+│   │   │   │   │   │   │   │       └── zip_write_roundtrip_fuzzer.c.o.d
+│   │   │   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   │   │   ├── CTestTestfile.cmake
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── zip_read_file_fuzzer.js
+│   │   │   │   │   │   │   ├── zip_read_file_fuzzer.wasm
+│   │   │   │   │   │   │   ├── zip_read_fuzzer.js
+│   │   │   │   │   │   │   ├── zip_read_fuzzer.wasm
+│   │   │   │   │   │   │   ├── zip_read_metadata_fuzzer.js
+│   │   │   │   │   │   │   ├── zip_read_metadata_fuzzer.wasm
+│   │   │   │   │   │   │   ├── zip_write_encrypt_aes256_file_fuzzer.js
+│   │   │   │   │   │   │   ├── zip_write_encrypt_aes256_file_fuzzer.wasm
+│   │   │   │   │   │   │   ├── zip_write_encrypt_pkware_file_fuzzer.js
+│   │   │   │   │   │   │   ├── zip_write_encrypt_pkware_file_fuzzer.wasm
+│   │   │   │   │   │   │   ├── zip_write_roundtrip_fuzzer.js
+│   │   │   │   │   │   │   └── zip_write_roundtrip_fuzzer.wasm
+│   │   │   │   │   │   ├── src
+│   │   │   │   │   │   │   ├── CMakeFiles
+│   │   │   │   │   │   │   │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │   │   │   │   │   ├── progress.marks
+│   │   │   │   │   │   │   │   ├── zipcmp.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── diff_output.c.o
+│   │   │   │   │   │   │   │   │   ├── diff_output.c.o.d
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zipcmp.c.o
+│   │   │   │   │   │   │   │   │   └── zipcmp.c.o.d
+│   │   │   │   │   │   │   │   ├── zipmerge.dir
+│   │   │   │   │   │   │   │   │   ├── build.make
+│   │   │   │   │   │   │   │   │   ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.internal
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.make
+│   │   │   │   │   │   │   │   │   ├── compiler_depend.ts
+│   │   │   │   │   │   │   │   │   ├── DependInfo.cmake
+│   │   │   │   │   │   │   │   │   ├── depend.make
+│   │   │   │   │   │   │   │   │   ├── flags.make
+│   │   │   │   │   │   │   │   │   ├── link.txt
+│   │   │   │   │   │   │   │   │   ├── progress.make
+│   │   │   │   │   │   │   │   │   ├── zipmerge.c.o
+│   │   │   │   │   │   │   │   │   └── zipmerge.c.o.d
+│   │   │   │   │   │   │   │   └── ziptool.dir
+│   │   │   │   │   │   │   │       ├── build.make
+│   │   │   │   │   │   │   │       ├── cmake_clean.cmake
+│   │   │   │   │   │   │   │       ├── compiler_depend.internal
+│   │   │   │   │   │   │   │       ├── compiler_depend.make
+│   │   │   │   │   │   │   │       ├── compiler_depend.ts
+│   │   │   │   │   │   │   │       ├── DependInfo.cmake
+│   │   │   │   │   │   │   │       ├── depend.make
+│   │   │   │   │   │   │   │       ├── flags.make
+│   │   │   │   │   │   │   │       ├── link.txt
+│   │   │   │   │   │   │   │       ├── progress.make
+│   │   │   │   │   │   │   │       ├── ziptool.c.o
+│   │   │   │   │   │   │   │       └── ziptool.c.o.d
+│   │   │   │   │   │   │   ├── cmake_install.cmake
+│   │   │   │   │   │   │   ├── CTestTestfile.cmake
+│   │   │   │   │   │   │   ├── Makefile
+│   │   │   │   │   │   │   ├── zipcmp.js
+│   │   │   │   │   │   │   ├── zipcmp.wasm
+│   │   │   │   │   │   │   ├── zipmerge.js
+│   │   │   │   │   │   │   ├── zipmerge.wasm
+│   │   │   │   │   │   │   ├── ziptool.js
+│   │   │   │   │   │   │   └── ziptool.wasm
+│   │   │   │   │   │   └── zipconf.h
+│   │   │   │   │   └── Makefile
+│   │   │   │   └── dictionary
+│   │   │   │       ├── CMakeFiles
+│   │   │   │       │   ├── CMakeDirectoryInformation.cmake
+│   │   │   │       │   ├── generate_dict_file.dir
+│   │   │   │       │   │   ├── build.make
+│   │   │   │       │   │   ├── cmake_clean.cmake
+│   │   │   │       │   │   ├── compiler_depend.make
+│   │   │   │       │   │   ├── compiler_depend.ts
+│   │   │   │       │   │   ├── DependInfo.cmake
+│   │   │   │       │   │   └── progress.make
+│   │   │   │       │   └── progress.marks
+│   │   │   │       ├── cmake_install.cmake
+│   │   │   │       └── Makefile
+│   │   │   └── preload
+│   │   │       ├── games
+│   │   │       │   ├── 31s
+│   │   │       │   │   ├── 31s_core.lua
+│   │   │       │   │   ├── 31s_draw.lua
+│   │   │       │   │   └── 31s_main.lua
+│   │   │       │   ├── api_demo
+│   │   │       │   │   ├── game_core.lua
+│   │   │       │   │   ├── game_draw.lua
+│   │   │       │   │   └── game.lua
+│   │   │       │   ├── backgammon
+│   │   │       │   │   ├── backgammon_core.lua
+│   │   │       │   │   ├── backgammon_draw.lua
+│   │   │       │   │   ├── backgammon_main.lua
+│   │   │       │   │   └── backgammon_serialize.lua
+│   │   │       │   ├── blue
+│   │   │       │   │   ├── blue_core.lua
+│   │   │       │   │   ├── blue_draw.lua
+│   │   │       │   │   ├── blue_main.lua
+│   │   │       │   │   └── blue_ui.lua
+│   │   │       │   ├── bound
+│   │   │       │   │   ├── bound_core.lua
+│   │   │       │   │   ├── bound_draw.lua
+│   │   │       │   │   ├── bound_main.lua
+│   │   │       │   │   └── bound_serialize.lua
+│   │   │       │   ├── card_sim
+│   │   │       │   │   ├── card_generic_core.lua
+│   │   │       │   │   ├── card_generic_draw.lua
+│   │   │       │   │   ├── card_generic_main.lua
+│   │   │       │   │   └── card_generic_serialize.lua
+│   │   │       │   ├── checkers
+│   │   │       │   │   ├── checkers_core.lua
+│   │   │       │   │   ├── checkers_draw.lua
+│   │   │       │   │   ├── checkers_main.lua
+│   │   │       │   │   └── checkers_serialize.lua
+│   │   │       │   ├── chess
+│   │   │       │   │   ├── chess_core.lua
+│   │   │       │   │   ├── chess_draw.lua
+│   │   │       │   │   ├── chess_main.lua
+│   │   │       │   │   └── chess_serialize.lua
+│   │   │       │   ├── crib
+│   │   │       │   │   ├── crib_core.lua
+│   │   │       │   │   ├── crib_draw.lua
+│   │   │       │   │   ├── crib_main.lua
+│   │   │       │   │   ├── crib_serialize.lua
+│   │   │       │   │   └── crib_test.lua
+│   │   │       │   ├── crossword_builder
+│   │   │       │   │   ├── crossword_builder_core.lua
+│   │   │       │   │   ├── crossword_builder_draw.lua
+│   │   │       │   │   └── crossword_builder_main.lua
+│   │   │       │   ├── crossword_letters
+│   │   │       │   │   ├── crossword_letters_core.lua
+│   │   │       │   │   ├── crossword_letters_draw.lua
+│   │   │       │   │   ├── crossword_letters_gen_puzzles.lua
+│   │   │       │   │   ├── crossword_letters_main.lua
+│   │   │       │   │   ├── crossword_letters_puzzles.lua
+│   │   │       │   │   ├── crossword_letters_serialize.lua
+│   │   │       │   │   ├── gen_crossword_letters2.py
+│   │   │       │   │   ├── gen_crossword_letters.py
+│   │   │       │   │   ├── list_puzzle_words.lua
+│   │   │       │   │   └── list_right_diffs.py
+│   │   │       │   ├── endless_runner
+│   │   │       │   │   ├── endless_runner_core.lua
+│   │   │       │   │   ├── endless_runner_draw.lua
+│   │   │       │   │   └── endless_runner_main.lua
+│   │   │       │   ├── fluid_mix
+│   │   │       │   │   ├── fluid_mix_core.lua
+│   │   │       │   │   ├── fluid_mix_draw.lua
+│   │   │       │   │   ├── fluid_mix_main.lua
+│   │   │       │   │   └── fluid_mix_serialize.lua
+│   │   │       │   ├── go
+│   │   │       │   │   ├── go_core.lua
+│   │   │       │   │   ├── go_ctrl.lua
+│   │   │       │   │   ├── go_main.lua
+│   │   │       │   │   └── go_ui.lua
+│   │   │       │   ├── haxball
+│   │   │       │   │   ├── game_core.lua
+│   │   │       │   │   ├── game_draw.lua
+│   │   │       │   │   └── game_main.lua
+│   │   │       │   ├── hospital
+│   │   │       │   │   ├── hospital_core.lua
+│   │   │       │   │   ├── hospital_draw.lua
+│   │   │       │   │   ├── hospital_main.lua
+│   │   │       │   │   └── hospital_serialize.lua
+│   │   │       │   ├── life
+│   │   │       │   │   ├── life_core.lua
+│   │   │       │   │   ├── life_draw.lua
+│   │   │       │   │   └── life_main.lua
+│   │   │       │   ├── minesweeper
+│   │   │       │   │   ├── minesweeper_core.lua
+│   │   │       │   │   ├── minesweeper_draw.lua
+│   │   │       │   │   ├── minesweeper_main.lua
+│   │   │       │   │   └── minesweeper_serialize.lua
+│   │   │       │   ├── minesweeper_life
+│   │   │       │   │   ├── minesweeper_draw.lua
+│   │   │       │   │   ├── minesweeper_life_core.lua
+│   │   │       │   │   ├── minesweeper_life_main.lua
+│   │   │       │   │   └── minesweeper_serialize.lua
+│   │   │       │   ├── poker_chips
+│   │   │       │   │   ├── poker_chips_core.lua
+│   │   │       │   │   ├── poker_chips_main.lua
+│   │   │       │   │   ├── poker_chips_serialize.lua
+│   │   │       │   │   ├── poker_chips_ui.lua
+│   │   │       │   │   └── ui
+│   │   │       │   │       ├── bet_input.lua
+│   │   │       │   │       ├── control.lua
+│   │   │       │   │       └── view_others.lua
+│   │   │       │   ├── solitaire
+│   │   │       │   │   ├── solitaire_core.lua
+│   │   │       │   │   ├── solitaire_draw.lua
+│   │   │       │   │   ├── solitaire_main.lua
+│   │   │       │   │   ├── solitaire_serialize.lua
+│   │   │       │   │   └── solitaire_solve.lua
+│   │   │       │   ├── spider_swing
+│   │   │       │   │   ├── spider_swing_core.lua
+│   │   │       │   │   ├── spider_swing_draw.lua
+│   │   │       │   │   └── spider_swing_main.lua
+│   │   │       │   ├── sudoku
+│   │   │       │   │   ├── sudoku_core.lua
+│   │   │       │   │   ├── sudoku_draw.lua
+│   │   │       │   │   └── sudoku_main.lua
+│   │   │       │   ├── swarm
+│   │   │       │   │   ├── swarm_core.lua
+│   │   │       │   │   ├── swarm_draw.lua
+│   │   │       │   │   ├── swarm_keyboard_input.lua
+│   │   │       │   │   └── swarm_main.lua
+│   │   │       │   ├── test
+│   │   │       │   │   ├── card_angle_test.lua
+│   │   │       │   │   ├── draw_graphics_test.lua
+│   │   │       │   │   └── timer_test.lua
+│   │   │       │   ├── thrust
+│   │   │       │   │   ├── thrust_core.lua
+│   │   │       │   │   ├── thrust_draw.lua
+│   │   │       │   │   ├── thrust_keyboard_input.lua
+│   │   │       │   │   └── thrust_main.lua
+│   │   │       │   ├── touch_test
+│   │   │       │   │   └── touch_test.lua
+│   │   │       │   ├── word_mastermind
+│   │   │       │   │   ├── word_mastermind_core.lua
+│   │   │       │   │   ├── word_mastermind_draw.lua
+│   │   │       │   │   ├── word_mastermind_main.lua
+│   │   │       │   │   └── word_mastermind_serialize.lua
+│   │   │       │   └── wu
+│   │   │       │       ├── wu_core.lua
+│   │   │       │       ├── wu_ctrl.lua
+│   │   │       │       └── wu_main.lua
+│   │   │       └── libs
+│   │   │           ├── cards
+│   │   │           │   ├── cards_draw.lua
+│   │   │           │   ├── cards.lua
+│   │   │           │   ├── cards_set.lua
+│   │   │           │   └── card_test.lua
+│   │   │           ├── combinations.lua
+│   │   │           ├── dice
+│   │   │           │   ├── dice_draw.lua
+│   │   │           │   └── dice.lua
+│   │   │           ├── draw
+│   │   │           │   ├── draw_celebration_anim.lua
+│   │   │           │   ├── draw_colours.lua
+│   │   │           │   ├── draw_keyboard.lua
+│   │   │           │   ├── draw_more.lua
+│   │   │           │   └── draw_shapes.lua
+│   │   │           ├── letter_tiles.lua
+│   │   │           ├── multiplayer
+│   │   │           │   ├── two_player.lua
+│   │   │           │   └── wait_for_players.lua
+│   │   │           ├── serialize
+│   │   │           │   ├── bit_pack.lua
+│   │   │           │   ├── serialize.lua
+│   │   │           │   └── storage_helpers.lua
+│   │   │           ├── shuffle.lua
+│   │   │           ├── touch_to_mouse_evts.lua
+│   │   │           ├── ui
+│   │   │           │   ├── buttons.lua
+│   │   │           │   ├── show_buttons_popup.lua
+│   │   │           │   ├── soft_numpad.lua
+│   │   │           │   └── touchpad.lua
+│   │   │           ├── utils.lua
+│   │   │           └── words.lua
+│   │   ├── push.sh
+│   │   └── setup_env.sh
+│   └── wxWidgets
+│       ├── build.bat
+│       ├── build.sh
+│       ├── CMakeLists.txt
+│       └── README.md
+├── BUILD.md
+├── clean.sh
+├── docker
+│   ├── http_server
+│   │   ├── build.sh
+│   │   ├── Dockerfile.build_wasm
+│   │   └── start_http_server.sh
+│   └── ws_server
+│       └── Dockerfile
+├── docker-compose.yml
+├── estructura.txt
+├── img
+│   ├── arrow.png
+│   ├── backgammon
+│   │   ├── black_triangle.png
+│   │   ├── triangle_black.png
+│   │   ├── triangle_highlight.png
+│   │   └── triangle_white.png
+│   ├── black_piece.png
+│   ├── black_piece.svg
+│   ├── brick_wall.png
+│   ├── cards
+│   │   ├── blank_card.png
+│   │   ├── blank_card.svg
+│   │   ├── card_facedown.png
+│   │   ├── card_facedown.svg
+│   │   ├── card_highlight.png
+│   │   ├── card_highlight.svg
+│   │   ├── clubs.png
+│   │   ├── clubs.svg
+│   │   ├── diamonds.png
+│   │   ├── diamonds.svg
+│   │   ├── hearts.png
+│   │   ├── hearts.svg
+│   │   ├── spades.png
+│   │   └── spades.svg
+│   ├── chess
+│   │   ├── bishop_black_dark.png
+│   │   ├── bishop_black.png
+│   │   ├── bishop_white.png
+│   │   ├── king_black_dark.png
+│   │   ├── king_black.png
+│   │   ├── king_white.png
+│   │   ├── knight_black_dark.png
+│   │   ├── knight_black.png
+│   │   ├── knight_white.png
+│   │   ├── pawn_black_dark.png
+│   │   ├── pawn_black.png
+│   │   ├── pawn_white.png
+│   │   ├── queen_black_dark.png
+│   │   ├── queen_black.png
+│   │   ├── queen_white.png
+│   │   ├── rook_black_dark.png
+│   │   ├── rook_black.png
+│   │   └── rook_white.png
+│   ├── credits
+│   │   └── Lua-Logo_128x128.png
+│   ├── dice
+│   │   ├── dice1.png
+│   │   ├── dice2.png
+│   │   ├── dice3.png
+│   │   ├── dice4.png
+│   │   ├── dice5.png
+│   │   └── dice6.png
+│   ├── favicon.png
+│   ├── game_icons
+│   │   ├── 31s.png
+│   │   ├── backgammon.png
+│   │   ├── card_sim.png
+│   │   ├── checkers.png
+│   │   ├── chess.png
+│   │   ├── crib.png
+│   │   ├── crossword_letters.png
+│   │   ├── endless_runner.png
+│   │   ├── fluid_mix.png
+│   │   ├── free_cell.png
+│   │   ├── gem_match.png
+│   │   ├── go.png
+│   │   ├── hospital.png
+│   │   ├── life.png
+│   │   ├── minesweeper.png
+│   │   ├── reversi.png
+│   │   ├── solitaire.png
+│   │   ├── spider_swing.png
+│   │   ├── thrust.png
+│   │   ├── word_mastermind.png
+│   │   └── wu.png
+│   ├── hospital
+│   │   ├── bed1-flipped.png
+│   │   ├── bed1.png
+│   │   ├── defibrillator_sabrina.png
+│   │   ├── doctor1.png
+│   │   ├── doctor2.png
+│   │   ├── doctor3.png
+│   │   ├── doctor4.png
+│   │   ├── doctor-head.png
+│   │   ├── doctor-outline.png
+│   │   ├── favicon.png
+│   │   ├── floor_highlight.png
+│   │   ├── floor_tile_bad.png
+│   │   ├── floor_tile.png
+│   │   ├── green_cross_icon.png
+│   │   ├── iv_stand_bag1.png
+│   │   ├── oxygen_tank.png
+│   │   ├── patient1.png
+│   │   ├── patient_in_bed-flipped.png
+│   │   ├── patient_in_bed.png
+│   │   ├── patient_need_icons
+│   │   │   ├── attention.png
+│   │   │   ├── bg_fixer.png
+│   │   │   ├── bg.png
+│   │   │   ├── broken_bone.png
+│   │   │   ├── low_fluids.png
+│   │   │   ├── low_oxygen.png
+│   │   │   └── no_heartbeat.png
+│   │   ├── patient_progress_bar_icon_needs.png
+│   │   ├── patient_progress_bar_icon_satisfied.png
+│   │   ├── ui
+│   │   │   ├── action_needed_arrow.png
+│   │   │   ├── dirpad.png
+│   │   │   ├── menu_button.png
+│   │   │   ├── progress_circle.png
+│   │   │   ├── thumb_buttons.png
+│   │   │   └── tutorial
+│   │   │       ├── need_aed.png
+│   │   │       └── need_cpr.png
+│   │   ├── ventilator.png
+│   │   ├── xray_sheet.png
+│   │   └── xray_source.png
+│   ├── logo.png
+│   ├── logo-transparent.png
+│   ├── minesweeper
+│   │   ├── box1.png
+│   │   ├── box2.png
+│   │   ├── box3.png
+│   │   ├── box4.png
+│   │   ├── box5.png
+│   │   ├── box6.png
+│   │   ├── box7.png
+│   │   ├── box8.png
+│   │   ├── box_empty.png
+│   │   ├── box_flagged_blue.png
+│   │   ├── box_flagged_red.png
+│   │   ├── box_unclicked.png
+│   │   └── mine.png
+│   ├── more_info_btn.png
+│   ├── more_info_btn.svg
+│   ├── piece_highlight.png
+│   ├── piece_highlight.svg
+│   ├── piece_king_icon.png
+│   ├── piece_king_icon.svg
+│   ├── space
+│   │   ├── lunar_lander.png
+│   │   └── ship1.png
+│   ├── spider.png
+│   ├── swarm
+│   │   └── grass_bg1.png
+│   ├── white_piece.png
+│   ├── white_piece.svg
+│   ├── wooden_board.png
+│   └── wooden_board.svg
+├── LICENSE
+├── local_env.cmake
+├── metadata
+│   └── en-US
+│       ├── changelogs
+│       │   └── 1.txt
+│       ├── full_description.txt
+│       ├── images
+│       │   ├── icon.png
+│       │   └── phoneScreenshots
+│       │       ├── screenshot1-solitaire.png
+│       │       ├── screenshot2-crossword_letters.png
+│       │       ├── screenshot3-chess.png
+│       │       ├── screenshot4-word_mastermind.png
+│       │       └── screenshot5-play_or_host.png
+│       └── short_description.txt
+├── out
+│   └── words-en.txt
+├── README.md
+├── src
+│   ├── alexgames_config.h.in
+│   ├── android
+│   │   ├── adb_copy_files.sh
+│   │   ├── app
+│   │   │   ├── build.gradle
+│   │   │   ├── proguard-rules.pro
+│   │   │   └── src
+│   │   │       └── main
+│   │   │           ├── AndroidManifest.xml
+│   │   │           ├── assets
+│   │   │           ├── cpp
+│   │   │           │   ├── alex_games_android_jni.cpp
+│   │   │           │   └── CMakeLists.txt
+│   │   │           ├── ic_launcher-playstore.png
+│   │   │           ├── java
+│   │   │           │   └── net
+│   │   │           │       └── alexbarry
+│   │   │           │           └── alexgames
+│   │   │           │               ├── AlexConstants.java
+│   │   │           │               ├── AlexGamesJni.java
+│   │   │           │               ├── AlexGamesViewModel.java
+│   │   │           │               ├── FirstFragment.java
+│   │   │           │               ├── graphics
+│   │   │           │               │   ├── AlexGamesCanvas.java
+│   │   │           │               │   ├── GraphicsManager.java
+│   │   │           │               │   └── IAlexGamesCanvas.java
+│   │   │           │               ├── HostOrLocalFragment.kt
+│   │   │           │               ├── local_client
+│   │   │           │               │   └── LocalClient.java
+│   │   │           │               ├── LocalClientWebView.kt
+│   │   │           │               ├── MainActivity.java
+│   │   │           │               ├── network
+│   │   │           │               │   ├── ClientSession.java
+│   │   │           │               │   ├── IMsgRecvd.java
+│   │   │           │               │   ├── ISendMsg.java
+│   │   │           │               │   └── SocketServer.java
+│   │   │           │               ├── popup
+│   │   │           │               │   ├── IAlexGamesPopupManager.java
+│   │   │           │               │   └── PopupManagerImpl.java
+│   │   │           │               ├── SecondFragment.java
+│   │   │           │               ├── server
+│   │   │           │               │   ├── AlexGamesNetworkHandler.java
+│   │   │           │               │   ├── GameServerBinder.java
+│   │   │           │               │   ├── GameServerService.java
+│   │   │           │               │   ├── HttpServer.java
+│   │   │           │               │   ├── ServerDownloadStatsHelper.java
+│   │   │           │               │   ├── ServerMonitorActivity.java
+│   │   │           │               │   ├── ServerMonitorFragment.java
+│   │   │           │               │   ├── ServerMonitorViewModel.java
+│   │   │           │               │   ├── WebServer.java
+│   │   │           │               │   └── WebsocketServer.java
+│   │   │           │               ├── ServerCreationFragment.kt
+│   │   │           │               └── util
+│   │   │           │                   ├── AssetRawToFilesDir.java
+│   │   │           │                   ├── StringFuncs.java
+│   │   │           │                   └── TouchEvtToClickEvt.java
+│   │   │           └── res
+│   │   │               ├── drawable
+│   │   │               │   ├── ic_launcher_foreground.xml
+│   │   │               │   └── ic_stop.xml
+│   │   │               ├── layout
+│   │   │               │   ├── activity_main.xml
+│   │   │               │   ├── content_main.xml
+│   │   │               │   ├── content_server_monitoring.xml
+│   │   │               │   ├── fragment_first.xml
+│   │   │               │   ├── fragment_host_or_local.xml
+│   │   │               │   ├── fragment_local_client_web_view.xml
+│   │   │               │   ├── fragment_second.xml
+│   │   │               │   ├── fragment_server_creation.xml
+│   │   │               │   ├── server_monitor_activity.xml
+│   │   │               │   └── server_monitor_fragment.xml
+│   │   │               ├── menu
+│   │   │               │   └── menu_main.xml
+│   │   │               ├── mipmap-anydpi-v26
+│   │   │               │   ├── ic_launcher_round.xml
+│   │   │               │   └── ic_launcher.xml
+│   │   │               ├── mipmap-hdpi
+│   │   │               │   ├── ic_launcher_round.webp
+│   │   │               │   └── ic_launcher.webp
+│   │   │               ├── mipmap-mdpi
+│   │   │               │   ├── ic_launcher_round.webp
+│   │   │               │   └── ic_launcher.webp
+│   │   │               ├── mipmap-xhdpi
+│   │   │               │   ├── ic_launcher_round.webp
+│   │   │               │   └── ic_launcher.webp
+│   │   │               ├── mipmap-xxhdpi
+│   │   │               │   ├── ic_launcher_round.webp
+│   │   │               │   └── ic_launcher.webp
+│   │   │               ├── mipmap-xxxhdpi
+│   │   │               │   ├── ic_launcher_round.webp
+│   │   │               │   └── ic_launcher.webp
+│   │   │               ├── navigation
+│   │   │               │   ├── nav_graph.xml
+│   │   │               │   └── server_monitoring_nav_graph.xml
+│   │   │               └── values
+│   │   │                   ├── colors.xml
+│   │   │                   ├── dimens.xml
+│   │   │                   ├── ic_launcher_background.xml
+│   │   │                   ├── strings.xml
+│   │   │                   └── styles.xml
+│   │   ├── build.gradle
+│   │   ├── cp_games_assets.sh
+│   │   ├── gradle
+│   │   │   └── wrapper
+│   │   │       ├── gradle-wrapper.jar
+│   │   │       └── gradle-wrapper.properties
+│   │   ├── gradle.properties
+│   │   ├── gradlew
+│   │   ├── gradlew.bat
+│   │   ├── README.md
+│   │   └── settings.gradle
+│   ├── CMakeLists.txt
+│   ├── cpp_libs
+│   │   ├── button_helper
+│   │   │   ├── button_helper.cpp
+│   │   │   └── button_helper.h
+│   │   ├── game_api_helper
+│   │   │   ├── game_api_helper.cpp
+│   │   │   └── game_api_helper.h
+│   │   ├── history_browse_ui
+│   │   │   ├── history_browse_ui.cpp
+│   │   │   └── history_browse_ui.h
+│   │   ├── mouse_scroll_handler
+│   │   │   ├── mouse_scroll_handler.cpp
+│   │   │   └── mouse_scroll_handler.h
+│   │   ├── saved_state_db
+│   │   │   ├── README.md
+│   │   │   ├── saved_state_db_c_api.cpp
+│   │   │   ├── saved_state_db_c_api.h
+│   │   │   ├── saved_state_db.cpp
+│   │   │   └── saved_state_db.h
+│   │   ├── sqlite_saved_state
+│   │   │   ├── CMakeLists.txt
+│   │   │   ├── README.md
+│   │   │   ├── sqlite_saved_state.c
+│   │   │   └── sqlite_saved_state.h
+│   │   ├── touch_press_handler
+│   │   │   ├── touch_press_handler.cpp
+│   │   │   └── touch_press_handler.h
+│   │   ├── touch_scroll_handler
+│   │   │   ├── touch_scroll_handler.cpp
+│   │   │   └── touch_scroll_handler.h
+│   │   └── utils
+│   │       └── str_eq_literal.h
+│   ├── dictionary
+│   │   ├── build_word_list_w_freq.py
+│   │   ├── c_dictionary.c
+│   │   ├── c_dictionary.h
+│   │   ├── CMakeLists.txt
+│   │   ├── dictionary.c
+│   │   ├── dictionary.h
+│   │   ├── dict_utils.py
+│   │   ├── __pycache__
+│   │   │   └── dict_utils.cpython-313.pyc
+│   │   └── wip
+│   │       ├── vulgar_or_weird_words.txt
+│   │       └── words_to_remove.txt
+│   ├── emscripten
+│   │   ├── emscripten_api.c
+│   │   ├── emscripten_c_dict_api.c
+│   │   ├── emscripten_dict_api.c
+│   │   └── emscripten_dict_api.h
+│   ├── game_api
+│   │   ├── game_api.c
+│   │   ├── game_api.h
+│   │   ├── game_api_utils.c
+│   │   ├── game_api_utils.h
+│   │   ├── game_api_words.c
+│   │   └── game_api_words.h
+│   ├── html
+│   │   ├── cache.manifest
+│   │   ├── css
+│   │   │   ├── style_collapsable.css
+│   │   │   ├── style.css
+│   │   │   ├── style_dark.css
+│   │   │   └── style_very_dark.css
+│   │   ├── game_api_doc.html
+│   │   ├── index.html
+│   │   ├── js
+│   │   │   ├── alexgames_c_dict.js
+│   │   │   ├── alexgames_colour_pref.js
+│   │   │   ├── alexgames_dict.js
+│   │   │   ├── alexgames.js
+│   │   │   ├── alexgames_wasm_api.js
+│   │   │   ├── alexgames_wasm_wrapper.js
+│   │   │   ├── alexgames_ws.js
+│   │   │   ├── collapsable.js
+│   │   │   └── url_args.js
+│   │   ├── licenses.html
+│   │   └── manifest.json
+│   ├── lua_api
+│   │   ├── lua_api.c
+│   │   ├── lua_api_dict.c
+│   │   ├── lua_api_dict.h
+│   │   ├── lua_api.h
+│   │   ├── lua_api_utils.c
+│   │   ├── lua_api_utils.h
+│   │   └── lua_user_cfg.h
+│   ├── lua_scripts
+│   │   ├── games
+│   │   │   ├── 31s
+│   │   │   │   ├── 31s_core.lua
+│   │   │   │   ├── 31s_draw.lua
+│   │   │   │   └── 31s_main.lua
+│   │   │   ├── api_demo
+│   │   │   │   ├── game_core.lua
+│   │   │   │   ├── game_draw.lua
+│   │   │   │   └── game.lua
+│   │   │   ├── backgammon
+│   │   │   │   ├── backgammon_core.lua
+│   │   │   │   ├── backgammon_draw.lua
+│   │   │   │   ├── backgammon_main.lua
+│   │   │   │   └── backgammon_serialize.lua
+│   │   │   ├── blue
+│   │   │   │   ├── blue_core.lua
+│   │   │   │   ├── blue_draw.lua
+│   │   │   │   ├── blue_main.lua
+│   │   │   │   └── blue_ui.lua
+│   │   │   ├── bound
+│   │   │   │   ├── bound_core.lua
+│   │   │   │   ├── bound_draw.lua
+│   │   │   │   ├── bound_main.lua
+│   │   │   │   └── bound_serialize.lua
+│   │   │   ├── card_sim
+│   │   │   │   ├── card_generic_core.lua
+│   │   │   │   ├── card_generic_draw.lua
+│   │   │   │   ├── card_generic_main.lua
+│   │   │   │   └── card_generic_serialize.lua
+│   │   │   ├── checkers
+│   │   │   │   ├── checkers_core.lua
+│   │   │   │   ├── checkers_draw.lua
+│   │   │   │   ├── checkers_main.lua
+│   │   │   │   └── checkers_serialize.lua
+│   │   │   ├── chess
+│   │   │   │   ├── chess_core.lua
+│   │   │   │   ├── chess_draw.lua
+│   │   │   │   ├── chess_main.lua
+│   │   │   │   └── chess_serialize.lua
+│   │   │   ├── crib
+│   │   │   │   ├── crib_core.lua
+│   │   │   │   ├── crib_draw.lua
+│   │   │   │   ├── crib_main.lua
+│   │   │   │   ├── crib_serialize.lua
+│   │   │   │   └── crib_test.lua
+│   │   │   ├── crossword_builder
+│   │   │   │   ├── crossword_builder_core.lua
+│   │   │   │   ├── crossword_builder_draw.lua
+│   │   │   │   └── crossword_builder_main.lua
+│   │   │   ├── crossword_letters
+│   │   │   │   ├── crossword_letters_core.lua
+│   │   │   │   ├── crossword_letters_draw.lua
+│   │   │   │   ├── crossword_letters_gen_puzzles.lua
+│   │   │   │   ├── crossword_letters_main.lua
+│   │   │   │   ├── crossword_letters_puzzles.lua
+│   │   │   │   ├── crossword_letters_serialize.lua
+│   │   │   │   ├── gen_crossword_letters2.py
+│   │   │   │   ├── gen_crossword_letters.py
+│   │   │   │   ├── list_puzzle_words.lua
+│   │   │   │   └── list_right_diffs.py
+│   │   │   ├── endless_runner
+│   │   │   │   ├── endless_runner_core.lua
+│   │   │   │   ├── endless_runner_draw.lua
+│   │   │   │   └── endless_runner_main.lua
+│   │   │   ├── fluid_mix
+│   │   │   │   ├── fluid_mix_core.lua
+│   │   │   │   ├── fluid_mix_draw.lua
+│   │   │   │   ├── fluid_mix_main.lua
+│   │   │   │   └── fluid_mix_serialize.lua
+│   │   │   ├── go
+│   │   │   │   ├── go_core.lua
+│   │   │   │   ├── go_ctrl.lua
+│   │   │   │   ├── go_main.lua
+│   │   │   │   └── go_ui.lua
+│   │   │   ├── haxball
+│   │   │   │   ├── game_core.lua
+│   │   │   │   ├── game_draw.lua
+│   │   │   │   └── game_main.lua
+│   │   │   ├── hospital
+│   │   │   │   ├── hospital_core.lua
+│   │   │   │   ├── hospital_draw.lua
+│   │   │   │   ├── hospital_main.lua
+│   │   │   │   └── hospital_serialize.lua
+│   │   │   ├── life
+│   │   │   │   ├── life_core.lua
+│   │   │   │   ├── life_draw.lua
+│   │   │   │   └── life_main.lua
+│   │   │   ├── minesweeper
+│   │   │   │   ├── minesweeper_core.lua
+│   │   │   │   ├── minesweeper_draw.lua
+│   │   │   │   ├── minesweeper_main.lua
+│   │   │   │   └── minesweeper_serialize.lua
+│   │   │   ├── minesweeper_life
+│   │   │   │   ├── minesweeper_draw.lua
+│   │   │   │   ├── minesweeper_life_core.lua
+│   │   │   │   ├── minesweeper_life_main.lua
+│   │   │   │   └── minesweeper_serialize.lua
+│   │   │   ├── poker_chips
+│   │   │   │   ├── poker_chips_core.lua
+│   │   │   │   ├── poker_chips_main.lua
+│   │   │   │   ├── poker_chips_serialize.lua
+│   │   │   │   ├── poker_chips_ui.lua
+│   │   │   │   └── ui
+│   │   │   │       ├── bet_input.lua
+│   │   │   │       ├── control.lua
+│   │   │   │       └── view_others.lua
+│   │   │   ├── solitaire
+│   │   │   │   ├── solitaire_core.lua
+│   │   │   │   ├── solitaire_draw.lua
+│   │   │   │   ├── solitaire_main.lua
+│   │   │   │   ├── solitaire_serialize.lua
+│   │   │   │   └── solitaire_solve.lua
+│   │   │   ├── spider_swing
+│   │   │   │   ├── spider_swing_core.lua
+│   │   │   │   ├── spider_swing_draw.lua
+│   │   │   │   └── spider_swing_main.lua
+│   │   │   ├── sudoku
+│   │   │   │   ├── sudoku_core.lua
+│   │   │   │   ├── sudoku_draw.lua
+│   │   │   │   └── sudoku_main.lua
+│   │   │   ├── swarm
+│   │   │   │   ├── swarm_core.lua
+│   │   │   │   ├── swarm_draw.lua
+│   │   │   │   ├── swarm_keyboard_input.lua
+│   │   │   │   └── swarm_main.lua
+│   │   │   ├── test
+│   │   │   │   ├── card_angle_test.lua
+│   │   │   │   ├── draw_graphics_test.lua
+│   │   │   │   └── timer_test.lua
+│   │   │   ├── thrust
+│   │   │   │   ├── thrust_core.lua
+│   │   │   │   ├── thrust_draw.lua
+│   │   │   │   ├── thrust_keyboard_input.lua
+│   │   │   │   └── thrust_main.lua
+│   │   │   ├── touch_test
+│   │   │   │   └── touch_test.lua
+│   │   │   ├── word_mastermind
+│   │   │   │   ├── word_mastermind_core.lua
+│   │   │   │   ├── word_mastermind_draw.lua
+│   │   │   │   ├── word_mastermind_main.lua
+│   │   │   │   └── word_mastermind_serialize.lua
+│   │   │   └── wu
+│   │   │       ├── wu_core.lua
+│   │   │       ├── wu_ctrl.lua
+│   │   │       └── wu_main.lua
+│   │   └── libs
+│   │       ├── cards
+│   │       │   ├── cards_draw.lua
+│   │       │   ├── cards.lua
+│   │       │   ├── cards_set.lua
+│   │       │   └── card_test.lua
+│   │       ├── combinations.lua
+│   │       ├── dice
+│   │       │   ├── dice_draw.lua
+│   │       │   └── dice.lua
+│   │       ├── draw
+│   │       │   ├── draw_celebration_anim.lua
+│   │       │   ├── draw_colours.lua
+│   │       │   ├── draw_keyboard.lua
+│   │       │   ├── draw_more.lua
+│   │       │   └── draw_shapes.lua
+│   │       ├── letter_tiles.lua
+│   │       ├── multiplayer
+│   │       │   ├── two_player.lua
+│   │       │   └── wait_for_players.lua
+│   │       ├── serialize
+│   │       │   ├── bit_pack.lua
+│   │       │   ├── serialize.lua
+│   │       │   └── storage_helpers.lua
+│   │       ├── shuffle.lua
+│   │       ├── touch_to_mouse_evts.lua
+│   │       ├── ui
+│   │       │   ├── buttons.lua
+│   │       │   ├── show_buttons_popup.lua
+│   │       │   ├── soft_numpad.lua
+│   │       │   └── touchpad.lua
+│   │       ├── utils.lua
+│   │       └── words.lua
+│   ├── misc
+│   │   └── generate_apple_icons.py
+│   ├── rust_games
+│   │   ├── Cargo.lock
+│   │   ├── Cargo.toml
+│   │   ├── config.toml
+│   │   ├── free_cell
+│   │   │   ├── free_cell_core.rs
+│   │   │   ├── free_cell_draw.rs
+│   │   │   ├── free_cell_main.rs
+│   │   │   ├── free_cell_serialize.rs
+│   │   │   └── mod.rs
+│   │   ├── gem_match
+│   │   │   ├── gem_match_core.rs
+│   │   │   ├── gem_match_draw.rs
+│   │   │   ├── gem_match_main.rs
+│   │   │   ├── gem_match_serialize.rs
+│   │   │   └── mod.rs
+│   │   ├── libs
+│   │   │   ├── cards.rs
+│   │   │   ├── celebrations
+│   │   │   │   ├── fireworks.rs
+│   │   │   │   └── mod.rs
+│   │   │   ├── draw.rs
+│   │   │   ├── mod.rs
+│   │   │   ├── point.rs
+│   │   │   └── swipe_tracker.rs
+│   │   ├── morse
+│   │   │   ├── mod.rs
+│   │   │   ├── morse_core.rs
+│   │   │   ├── morse_draw.rs
+│   │   │   └── morse_main.rs
+│   │   ├── README.md
+│   │   ├── reversi
+│   │   │   ├── mod.rs
+│   │   │   ├── reversi_core.rs
+│   │   │   └── reversi_main.rs
+│   │   ├── rust_game_api.c
+│   │   ├── rust_game_api.h
+│   │   ├── rust_game_api.rs
+│   │   ├── rust_game_handler.rs
+│   │   ├── target
+│   │   │   ├── CACHEDIR.TAG
+│   │   │   ├── debug
+│   │   │   │   ├── build
+│   │   │   │   │   ├── libc-d84f5d4b13cae869
+│   │   │   │   │   │   ├── build-script-build
+│   │   │   │   │   │   ├── build_script_build-d84f5d4b13cae869
+│   │   │   │   │   │   └── build_script_build-d84f5d4b13cae869.d
+│   │   │   │   │   ├── proc-macro2-59ae52475f90ca03
+│   │   │   │   │   │   ├── invoked.timestamp
+│   │   │   │   │   │   ├── out
+│   │   │   │   │   │   ├── output
+│   │   │   │   │   │   ├── root-output
+│   │   │   │   │   │   └── stderr
+│   │   │   │   │   ├── proc-macro2-ede6d37f0f902913
+│   │   │   │   │   │   ├── build-script-build
+│   │   │   │   │   │   ├── build_script_build-ede6d37f0f902913
+│   │   │   │   │   │   └── build_script_build-ede6d37f0f902913.d
+│   │   │   │   │   ├── quote-4d5c9a960077bd5d
+│   │   │   │   │   │   ├── build-script-build
+│   │   │   │   │   │   ├── build_script_build-4d5c9a960077bd5d
+│   │   │   │   │   │   └── build_script_build-4d5c9a960077bd5d.d
+│   │   │   │   │   ├── quote-68375a32e9145edc
+│   │   │   │   │   │   ├── invoked.timestamp
+│   │   │   │   │   │   ├── out
+│   │   │   │   │   │   ├── output
+│   │   │   │   │   │   ├── root-output
+│   │   │   │   │   │   └── stderr
+│   │   │   │   │   ├── serde-0cfeea31d34cfe04
+│   │   │   │   │   │   ├── build-script-build
+│   │   │   │   │   │   ├── build_script_build-0cfeea31d34cfe04
+│   │   │   │   │   │   └── build_script_build-0cfeea31d34cfe04.d
+│   │   │   │   │   ├── serde_core-b60c65c8b4784629
+│   │   │   │   │   │   ├── build-script-build
+│   │   │   │   │   │   ├── build_script_build-b60c65c8b4784629
+│   │   │   │   │   │   └── build_script_build-b60c65c8b4784629.d
+│   │   │   │   │   └── zerocopy-975e30688ad08766
+│   │   │   │   │       ├── build-script-build
+│   │   │   │   │       ├── build_script_build-975e30688ad08766
+│   │   │   │   │       └── build_script_build-975e30688ad08766.d
+│   │   │   │   ├── deps
+│   │   │   │   │   ├── libproc_macro2-1e08942d9bf282f2.rlib
+│   │   │   │   │   ├── libproc_macro2-1e08942d9bf282f2.rmeta
+│   │   │   │   │   ├── libquote-71045cceb4ca201d.rlib
+│   │   │   │   │   ├── libquote-71045cceb4ca201d.rmeta
+│   │   │   │   │   ├── libserde_derive-e2191418717eb9ae.so
+│   │   │   │   │   ├── libsyn-10028d4af3ed8967.rlib
+│   │   │   │   │   ├── libsyn-10028d4af3ed8967.rmeta
+│   │   │   │   │   ├── libunicode_ident-092dd8320acc1894.rlib
+│   │   │   │   │   ├── libunicode_ident-092dd8320acc1894.rmeta
+│   │   │   │   │   ├── proc_macro2-1e08942d9bf282f2.d
+│   │   │   │   │   ├── quote-71045cceb4ca201d.d
+│   │   │   │   │   ├── serde_derive-e2191418717eb9ae.d
+│   │   │   │   │   ├── syn-10028d4af3ed8967.d
+│   │   │   │   │   └── unicode_ident-092dd8320acc1894.d
+│   │   │   │   ├── examples
+│   │   │   │   └── incremental
+│   │   │   └── wasm32-unknown-emscripten
+│   │   │       ├── CACHEDIR.TAG
+│   │   │       └── debug
+│   │   │           ├── build
+│   │   │           │   ├── libc-334d71a50b006791
+│   │   │           │   │   ├── invoked.timestamp
+│   │   │           │   │   ├── out
+│   │   │           │   │   ├── output
+│   │   │           │   │   ├── root-output
+│   │   │           │   │   └── stderr
+│   │   │           │   ├── serde-3e117ad566b5bb12
+│   │   │           │   │   ├── invoked.timestamp
+│   │   │           │   │   ├── out
+│   │   │           │   │   │   └── private.rs
+│   │   │           │   │   ├── output
+│   │   │           │   │   ├── root-output
+│   │   │           │   │   └── stderr
+│   │   │           │   ├── serde_core-866e5046232ed2b2
+│   │   │           │   │   ├── invoked.timestamp
+│   │   │           │   │   ├── out
+│   │   │           │   │   │   └── private.rs
+│   │   │           │   │   ├── output
+│   │   │           │   │   ├── root-output
+│   │   │           │   │   └── stderr
+│   │   │           │   └── zerocopy-8a34dc87714494a9
+│   │   │           │       ├── invoked.timestamp
+│   │   │           │       ├── out
+│   │   │           │       ├── output
+│   │   │           │       ├── root-output
+│   │   │           │       └── stderr
+│   │   │           ├── deps
+│   │   │           │   ├── alexgames_rust-fa78ff03fbeba8d0.d
+│   │   │           │   ├── bincode-e415a0aad61b6062.d
+│   │   │           │   ├── cfg_if-8adf8f580382ee06.d
+│   │   │           │   ├── getrandom-4cf147b3014b214c.d
+│   │   │           │   ├── lazy_static-be963e5b9986b7f4.d
+│   │   │           │   ├── libalexgames_rust-fa78ff03fbeba8d0.a
+│   │   │           │   ├── libbincode-e415a0aad61b6062.rlib
+│   │   │           │   ├── libbincode-e415a0aad61b6062.rmeta
+│   │   │           │   ├── libc-4e1da6a1caebe2ed.d
+│   │   │           │   ├── libcfg_if-8adf8f580382ee06.rlib
+│   │   │           │   ├── libcfg_if-8adf8f580382ee06.rmeta
+│   │   │           │   ├── libgetrandom-4cf147b3014b214c.rlib
+│   │   │           │   ├── libgetrandom-4cf147b3014b214c.rmeta
+│   │   │           │   ├── liblazy_static-be963e5b9986b7f4.rlib
+│   │   │           │   ├── liblazy_static-be963e5b9986b7f4.rmeta
+│   │   │           │   ├── liblibc-4e1da6a1caebe2ed.rlib
+│   │   │           │   ├── liblibc-4e1da6a1caebe2ed.rmeta
+│   │   │           │   ├── libppv_lite86-2ebfec9442e740cd.rlib
+│   │   │           │   ├── libppv_lite86-2ebfec9442e740cd.rmeta
+│   │   │           │   ├── librand_chacha-adb00c9437f65279.rlib
+│   │   │           │   ├── librand_chacha-adb00c9437f65279.rmeta
+│   │   │           │   ├── librand_core-bd7370af9e3cd798.rlib
+│   │   │           │   ├── librand_core-bd7370af9e3cd798.rmeta
+│   │   │           │   ├── librand-e2feacaecaec5ae5.rlib
+│   │   │           │   ├── librand-e2feacaecaec5ae5.rmeta
+│   │   │           │   ├── libserde-3b6f851316c89a67.rlib
+│   │   │           │   ├── libserde-3b6f851316c89a67.rmeta
+│   │   │           │   ├── libserde_core-8c8e8544d7743617.rlib
+│   │   │           │   ├── libserde_core-8c8e8544d7743617.rmeta
+│   │   │           │   ├── libzerocopy-1c35b426d3964b20.rlib
+│   │   │           │   ├── libzerocopy-1c35b426d3964b20.rmeta
+│   │   │           │   ├── ppv_lite86-2ebfec9442e740cd.d
+│   │   │           │   ├── rand_chacha-adb00c9437f65279.d
+│   │   │           │   ├── rand_core-bd7370af9e3cd798.d
+│   │   │           │   ├── rand-e2feacaecaec5ae5.d
+│   │   │           │   ├── serde-3b6f851316c89a67.d
+│   │   │           │   ├── serde_core-8c8e8544d7743617.d
+│   │   │           │   └── zerocopy-1c35b426d3964b20.d
+│   │   │           ├── examples
+│   │   │           ├── incremental
+│   │   │           │   └── alexgames_rust-2ae2qgile9fcn
+│   │   │           │       ├── s-hme00p6plj-1gh6kp9-ehr7foa9uqqalzl8g8a0phyr7
+│   │   │           │       │   ├── 00mjhn2rshxpc3jpwsi2mzue6.o
+│   │   │           │       │   ├── 00rwcv7isvbwu7e0wqu2poe9h.o
+│   │   │           │       │   ├── 01bvtxo6n14pqrywmzu1lk0xa.o
+│   │   │           │       │   ├── 08lxwygnj6k79832jkgem0i9p.o
+│   │   │           │       │   ├── 0dkj3expdy83w1gyy0jnjgyim.o
+│   │   │           │       │   ├── 0u4n4x0t3z913gbd38f5fmnsm.o
+│   │   │           │       │   ├── 0w2mkahrb7jwgjjwqv3h055dw.o
+│   │   │           │       │   ├── 0x1r77n6bi5mir444lvpe7bcb.o
+│   │   │           │       │   ├── 0xcrhy0m9qh3r3p4qamzawll3.o
+│   │   │           │       │   ├── 0zrd6dy33dwsfqq2twh9ialef.o
+│   │   │           │       │   ├── 126btqu7osqvj0yrw3s346vzy.o
+│   │   │           │       │   ├── 15yhb6im0xgaceqrzvqn9dz8j.o
+│   │   │           │       │   ├── 1adp25v3v4bhhn8esj0ypbj3p.o
+│   │   │           │       │   ├── 1d5nx6k3ee2x92t095bs1rzug.o
+│   │   │           │       │   ├── 1dbew3qe49rrcljf8790miy5a.o
+│   │   │           │       │   ├── 1f2fv38nf8o13v9sgrtlyy7cj.o
+│   │   │           │       │   ├── 1fwucn3fenerpdsnf15mpbkxe.o
+│   │   │           │       │   ├── 1rtbrxgj6cra68pgipb2ojk2o.o
+│   │   │           │       │   ├── 21rwopcu7veqak86xh770a8qx.o
+│   │   │           │       │   ├── 23ix0j6qsdqta6shjydaonfts.o
+│   │   │           │       │   ├── 25mm4sp1dsso2u2msr8cmonsr.o
+│   │   │           │       │   ├── 27b4dtt2jsz8xel53fcpw6tw5.o
+│   │   │           │       │   ├── 28sbb05cm6z6cxt4xifpzo33h.o
+│   │   │           │       │   ├── 2ddlik4dkmu2qodtc7tbj44sz.o
+│   │   │           │       │   ├── 2fmecq0berlfujszubmp83sgv.o
+│   │   │           │       │   ├── 2hmegdt40k2d8jrnew3bx4ru9.o
+│   │   │           │       │   ├── 2hyn237nwjfbkuky7tkztkhsv.o
+│   │   │           │       │   ├── 2n1m3xh8z02npu6b75hvob2au.o
+│   │   │           │       │   ├── 2n6lp4q9erabfx324irdtlx44.o
+│   │   │           │       │   ├── 2uu69h1kkacxewqk6gp8ui6af.o
+│   │   │           │       │   ├── 2wmljrbgk1lebpdesq4z3zh9v.o
+│   │   │           │       │   ├── 32e22w9lvzjge6cpfybo4b64v.o
+│   │   │           │       │   ├── 32i2a8e38m4f5of58v8sgj4yt.o
+│   │   │           │       │   ├── 34fgbebo9h0fv19vrwsf1rtl7.o
+│   │   │           │       │   ├── 3ae3u2ybuildby5jy6fyoy7jl.o
+│   │   │           │       │   ├── 3bwlkzx43uo2tlnbhnua2m81q.o
+│   │   │           │       │   ├── 3fqbifgb2pnz6no6yi7x63d2p.o
+│   │   │           │       │   ├── 3gapfbjrsfwh5zeeo3tt5bwkd.o
+│   │   │           │       │   ├── 3llgtiyflu7tbiabqf7awxu4o.o
+│   │   │           │       │   ├── 3oyf2ny9kbwilf1q7frhskfch.o
+│   │   │           │       │   ├── 3sy7xubw6a1hox1ig4xje6pc7.o
+│   │   │           │       │   ├── 3u39m356ps20n3qp5e3gk3aur.o
+│   │   │           │       │   ├── 3vi0v5kofuwe604qbdhdqwwvx.o
+│   │   │           │       │   ├── 3wi71rmhlsbueb9unwgsvqa3y.o
+│   │   │           │       │   ├── 4iipng5pqn7rtbdytx5qtgw4f.o
+│   │   │           │       │   ├── 4kf8z2xnbusktxntas4k03ajp.o
+│   │   │           │       │   ├── 4ym6cb9fdfz9df94xfj62w3qk.o
+│   │   │           │       │   ├── 4zonzwdo4rjimztwr632xfu44.o
+│   │   │           │       │   ├── 50dyob6zdj7tdaqsvzogij6pd.o
+│   │   │           │       │   ├── 51zsnij0vm4m9rgc8xzms912r.o
+│   │   │           │       │   ├── 55xls7ss317ykktigm7l6g5ju.o
+│   │   │           │       │   ├── 5d5ze66k673rvzuq3lj14hz3a.o
+│   │   │           │       │   ├── 5gn0f7d8pjtugcotet3k4dxzb.o
+│   │   │           │       │   ├── 5i0gakfbtec4ggr1cmepkoj1a.o
+│   │   │           │       │   ├── 5lhjvfgn4pyfy1rr6mmj1x86k.o
+│   │   │           │       │   ├── 5xlzawmrs4mtayzk6x2b0dwdx.o
+│   │   │           │       │   ├── 5y6i38kydqqvpvau88pal9nf9.o
+│   │   │           │       │   ├── 6369y3vtbdl0q9upankkqnxei.o
+│   │   │           │       │   ├── 659me6vcyos1mb84hxsyl8dss.o
+│   │   │           │       │   ├── 65br592dgdjm7ic09bc6vn838.o
+│   │   │           │       │   ├── 6jt8d6qtvdgbq798zaiwxmw0s.o
+│   │   │           │       │   ├── 6oa1uxyn6xor5jmqrh7ge7dvu.o
+│   │   │           │       │   ├── 6oyh53bhkhwg0q2fpaowwvk59.o
+│   │   │           │       │   ├── 6pzpp8bq9ve98w00bpll2nwob.o
+│   │   │           │       │   ├── 7aha30b2o3rqr5cbq5s6fm5b7.o
+│   │   │           │       │   ├── 7b4g7i24ek37fs5haa19jeb5l.o
+│   │   │           │       │   ├── 7dmijttx3m2zqqddxu9vx9vqe.o
+│   │   │           │       │   ├── 7i7wogtuxkaj67wmltx78z6nm.o
+│   │   │           │       │   ├── 7jsfefdxjwrpvbz3ugrr3ll0a.o
+│   │   │           │       │   ├── 7lhxiqj79c2ot5lhpjmqbcu2c.o
+│   │   │           │       │   ├── 7phhzjvu8z5qtkt36gq6gymc7.o
+│   │   │           │       │   ├── 7qoaxvl51lfe6e4eo0eqmif47.o
+│   │   │           │       │   ├── 7vhhdu4iuik82oj66mw1addpg.o
+│   │   │           │       │   ├── 7xfis1u13ihju2c6w8z7ap5hy.o
+│   │   │           │       │   ├── 7xgcrba9v2ywl5vs48kzx9px1.o
+│   │   │           │       │   ├── 80x9c9ci1aevrp6qs5y1rpzr4.o
+│   │   │           │       │   ├── 82k29ew1lyh2svc6b34777c0h.o
+│   │   │           │       │   ├── 8kxidj2dov42hx7buvdup0pew.o
+│   │   │           │       │   ├── 8oseu8w77nkjhrcup016gii14.o
+│   │   │           │       │   ├── 8xt3ae0ezmpezb80urrchxb4z.o
+│   │   │           │       │   ├── 94ul6eryjjcrxrefuu42k3i55.o
+│   │   │           │       │   ├── 98cfwykw9zv0bv3ge3haja11j.o
+│   │   │           │       │   ├── 99yqqav2r66p2z3a9xwv2bb8p.o
+│   │   │           │       │   ├── 9bn4b9m3b0yea794s7ilpo516.o
+│   │   │           │       │   ├── 9cjlsnu6902ej8s5hca3micun.o
+│   │   │           │       │   ├── 9dg6b4d3y07g45d0ojujcqiz8.o
+│   │   │           │       │   ├── 9e2q74g6sz98kpx2mj7ov4ejy.o
+│   │   │           │       │   ├── 9ek2mn8enntvzultc367fjud8.o
+│   │   │           │       │   ├── 9kw5625k1ai66eprb0z4m3npk.o
+│   │   │           │       │   ├── 9q19asfnq4sqfsvpxt82rjr75.o
+│   │   │           │       │   ├── 9wg8mdvx5d23uovsp7nmawi8v.o
+│   │   │           │       │   ├── 9xnuhcoecvgiodheaiew3bvk2.o
+│   │   │           │       │   ├── a8lirz7jy0cd38z9hu1wdqk5w.o
+│   │   │           │       │   ├── ac5z9j9mfave1xyvx4d9dqi3j.o
+│   │   │           │       │   ├── ag9onp54cxbq3zws241rjyuh9.o
+│   │   │           │       │   ├── akgv9wqlct5if04tdcjiwciv7.o
+│   │   │           │       │   ├── ao35sek542wkn38fncldn8oz0.o
+│   │   │           │       │   ├── aucj1vzc748sp6g3nyfn2iwlk.o
+│   │   │           │       │   ├── b0m9jrso3l1wlcukk222wpiyb.o
+│   │   │           │       │   ├── b8u971g2xqzhg61r7iqyw0a1n.o
+│   │   │           │       │   ├── b9gfbcbmk90iqlia3wyi0idjn.o
+│   │   │           │       │   ├── b9k78o4qvcgrfvuq7o5sbsw0n.o
+│   │   │           │       │   ├── bbwpwynlo6eghfnv0zeaheqdg.o
+│   │   │           │       │   ├── beaog1uggtw0kj4nuyn9b5k53.o
+│   │   │           │       │   ├── bix8qv2hqopiz329y94utny8f.o
+│   │   │           │       │   ├── bqjkjbtpt399oqsrm9cv269hh.o
+│   │   │           │       │   ├── bvqon671mrjyn3auxebtkpdm2.o
+│   │   │           │       │   ├── bzzm6gg95pxj5eov8g5j0azdr.o
+│   │   │           │       │   ├── c1dwcjdtydyx3x8nof69r7t48.o
+│   │   │           │       │   ├── c1ntlmes6z3orihwj1mgp7knw.o
+│   │   │           │       │   ├── c3gygj0yvhsv45yb7qu2vkf4k.o
+│   │   │           │       │   ├── c4br0wemsm4lfycc5vepuvpix.o
+│   │   │           │       │   ├── c75pwc02k21w9icvkhrjrbsek.o
+│   │   │           │       │   ├── cifjb29c5nn6v3euok74kdxyg.o
+│   │   │           │       │   ├── cvvkza30hmzfavrn4nxkr40j2.o
+│   │   │           │       │   ├── d00uyn8ogqh236numrq4fdi90.o
+│   │   │           │       │   ├── dcm34jlu4314kds2p2vbl8prd.o
+│   │   │           │       │   ├── dep-graph.bin
+│   │   │           │       │   ├── dm38931ibekwu32lcchl4an6o.o
+│   │   │           │       │   ├── dr4dch5fliwdr6zjamqqz37l0.o
+│   │   │           │       │   ├── ds2dcat4naupf1ji7aek62nd9.o
+│   │   │           │       │   ├── dssmzpyopl2xyb33j4uyb3v8p.o
+│   │   │           │       │   ├── dvvrxls59nakikcziabo5gxmp.o
+│   │   │           │       │   ├── dx9qyfg0bjjzdpsj4zesj417c.o
+│   │   │           │       │   ├── e24b5lecfdv2tygqb5iffzyws.o
+│   │   │           │       │   ├── e4c7ksnrefyouhplvtzv5cggx.o
+│   │   │           │       │   ├── e6patuo3ew2cq78x3z507d2dy.o
+│   │   │           │       │   ├── efnzq8uuygdju6vxd6v1abo01.o
+│   │   │           │       │   ├── ekjes6jpgsnc5xwf04eu85qph.o
+│   │   │           │       │   ├── ekk6ugxg8t4mtzue4p6rstdwq.o
+│   │   │           │       │   ├── elgumonm2h94x5476haotwi77.o
+│   │   │           │       │   ├── em3eb4p38w2ia0q4y14hvlro4.o
+│   │   │           │       │   ├── eqjs8zsl0u24ctadpu8nmcd29.o
+│   │   │           │       │   ├── etgnrbs5l2dprhjd9y8jtpuq5.o
+│   │   │           │       │   ├── ez63feo0ixk7as48ooc0fce3d.o
+│   │   │           │       │   ├── ezv07rhd7ypbqt14vbufilyi4.o
+│   │   │           │       │   ├── f0tddjx97k7v9oiakmxdz9wf3.o
+│   │   │           │       │   ├── f18f147srw0ige8hhrdtjc0pn.o
+│   │   │           │       │   ├── f26cb8by1ut0vu7bnpvskkr90.o
+│   │   │           │       │   ├── f2v0oq9jh11y7ij7pv0bgj5hn.o
+│   │   │           │       │   ├── f4d2hwgbnmk3s29x5pke1d6rn.o
+│   │   │           │       │   ├── f4jumt9z4pz00q3itc3z8qjm2.o
+│   │   │           │       │   ├── f5cblytxpi1rcrhl8dw4zpstz.o
+│   │   │           │       │   ├── query-cache.bin
+│   │   │           │       │   └── work-products.bin
+│   │   │           │       └── s-hme00p6plj-1gh6kp9.lock
+│   │   │           ├── libalexgames_rust.a
+│   │   │           └── libalexgames_rust.d
+│   │   └── trivia
+│   │       ├── mod.rs
+│   │       └── trivia_main.rs
+│   ├── server
+│   │   ├── socket
+│   │   │   ├── socket_server.h
+│   │   │   ├── socket_server_impl.c
+│   │   │   └── test
+│   │   │       ├── build_client.sh
+│   │   │       ├── build_server.sh
+│   │   │       ├── test_client.c
+│   │   │       └── test_server.c
+│   │   └── ws
+│   │       ├── requirements.txt
+│   │       └── ws_server.py
+│   └── ui_wxWidgets
+│       ├── wx_game_popup.cpp
+│       ├── wx_game_popup.h
+│       ├── wx_main.cpp
+│       ├── wx_network.cpp
+│       ├── wx_network.h
+│       ├── wx_network_ui.cpp
+│       └── wx_network_ui.h
+├── tests
+│   ├── chess
+│   │   ├── chess_castling_test.lua
+│   │   └── chess_test.lua
+│   ├── CMakeLists.txt
+│   ├── crib
+│   │   └── crib_test.lua
+│   ├── go
+│   │   └── go_tests.lua
+│   ├── saved_state
+│   │   ├── CMakeLists.txt
+│   │   ├── test_saved_state_db.cpp
+│   │   └── test.sh
+│   ├── solitaire
+│   │   ├── solitaire_draw_three_test.lua
+│   │   └── solitaire_solve_test.lua
+│   ├── tetris
+│   │   └── tetris_test.lua
+│   └── wu
+│       └── test_wu.lua
+└── third_party
+    ├── libzip
+    │   ├── android
+    │   │   ├── docker
+    │   │   │   └── Dockerfile
+    │   │   ├── do.sh
+    │   │   └── readme.txt
+    │   ├── API-CHANGES.md
+    │   ├── appveyor.yml
+    │   ├── AUTHORS
+    │   ├── cmake
+    │   │   ├── Dist.cmake
+    │   │   ├── FindNettle.cmake
+    │   │   ├── Findzstd.cmake
+    │   │   └── GenerateZipErrorStrings.cmake
+    │   ├── cmake-compat
+    │   │   ├── CheckLibraryExists.cmake
+    │   │   ├── CheckSymbolExists.cmake
+    │   │   ├── CMakePushCheckState.cmake
+    │   │   ├── FindBZip2.cmake
+    │   │   ├── FindGnuTLS.cmake
+    │   │   ├── FindLibLZMA.cmake
+    │   │   ├── FindPackageHandleStandardArgs.cmake
+    │   │   ├── FindPackageMessage.cmake
+    │   │   └── SelectLibraryConfigurations.cmake
+    │   ├── CMakeLists.txt
+    │   ├── config.h.in
+    │   ├── examples
+    │   │   ├── add-compressed-data.c
+    │   │   ├── autoclose-archive.c
+    │   │   ├── CMakeLists.txt
+    │   │   ├── cmake-project
+    │   │   │   ├── cmake-example.c
+    │   │   │   └── CMakeLists.txt
+    │   │   ├── in-memory.c
+    │   │   └── windows-open.c
+    │   ├── INSTALL.md
+    │   ├── lib
+    │   │   ├── CMakeLists.txt
+    │   │   ├── compat.h
+    │   │   ├── siphash.c
+    │   │   ├── siphash.h
+    │   │   ├── zip_add.c
+    │   │   ├── zip_add_dir.c
+    │   │   ├── zip_add_entry.c
+    │   │   ├── zip_algorithm_bzip2.c
+    │   │   ├── zip_algorithm_deflate.c
+    │   │   ├── zip_algorithm_xz.c
+    │   │   ├── zip_algorithm_zstd.c
+    │   │   ├── zip_buffer.c
+    │   │   ├── zip_close.c
+    │   │   ├── zip_crypto_commoncrypto.c
+    │   │   ├── zip_crypto_commoncrypto.h
+    │   │   ├── zip_crypto_gnutls.c
+    │   │   ├── zip_crypto_gnutls.h
+    │   │   ├── zip_crypto.h
+    │   │   ├── zip_crypto_openssl.c
+    │   │   ├── zip_crypto_openssl.h
+    │   │   ├── zip_crypto_win.c
+    │   │   ├── zip_crypto_win.h
+    │   │   ├── zip_delete.c
+    │   │   ├── zip_dir_add.c
+    │   │   ├── zip_dirent.c
+    │   │   ├── zip_discard.c
+    │   │   ├── zip_entry.c
+    │   │   ├── zip_error.c
+    │   │   ├── zip_error_clear.c
+    │   │   ├── zip_error_get.c
+    │   │   ├── zip_error_get_sys_type.c
+    │   │   ├── zip_error_strerror.c
+    │   │   ├── zip_error_to_str.c
+    │   │   ├── zip_extra_field_api.c
+    │   │   ├── zip_extra_field.c
+    │   │   ├── zip_fclose.c
+    │   │   ├── zip_fdopen.c
+    │   │   ├── zip_file_add.c
+    │   │   ├── zip_file_error_clear.c
+    │   │   ├── zip_file_error_get.c
+    │   │   ├── zip_file_get_comment.c
+    │   │   ├── zip_file_get_external_attributes.c
+    │   │   ├── zip_file_get_offset.c
+    │   │   ├── zip_file_rename.c
+    │   │   ├── zip_file_replace.c
+    │   │   ├── zip_file_set_comment.c
+    │   │   ├── zip_file_set_encryption.c
+    │   │   ├── zip_file_set_external_attributes.c
+    │   │   ├── zip_file_set_mtime.c
+    │   │   ├── zip_file_strerror.c
+    │   │   ├── zip_fopen.c
+    │   │   ├── zip_fopen_encrypted.c
+    │   │   ├── zip_fopen_index.c
+    │   │   ├── zip_fopen_index_encrypted.c
+    │   │   ├── zip_fread.c
+    │   │   ├── zip_fseek.c
+    │   │   ├── zip_ftell.c
+    │   │   ├── zip_get_archive_comment.c
+    │   │   ├── zip_get_archive_flag.c
+    │   │   ├── zip_get_encryption_implementation.c
+    │   │   ├── zip_get_file_comment.c
+    │   │   ├── zip_get_name.c
+    │   │   ├── zip_get_num_entries.c
+    │   │   ├── zip_get_num_files.c
+    │   │   ├── zip.h
+    │   │   ├── zip_hash.c
+    │   │   ├── zipint.h
+    │   │   ├── zip_io_util.c
+    │   │   ├── zip_libzip_version.c
+    │   │   ├── zip_memdup.c
+    │   │   ├── zip_name_locate.c
+    │   │   ├── zip_new.c
+    │   │   ├── zip_open.c
+    │   │   ├── zip_pkware.c
+    │   │   ├── zip_progress.c
+    │   │   ├── zip_random.h
+    │   │   ├── zip_random_unix.c
+    │   │   ├── zip_random_uwp.c
+    │   │   ├── zip_random_win32.c
+    │   │   ├── zip_realloc.c
+    │   │   ├── zip_rename.c
+    │   │   ├── zip_replace.c
+    │   │   ├── zip_set_archive_comment.c
+    │   │   ├── zip_set_archive_flag.c
+    │   │   ├── zip_set_default_password.c
+    │   │   ├── zip_set_file_comment.c
+    │   │   ├── zip_set_file_compression.c
+    │   │   ├── zip_set_name.c
+    │   │   ├── zip_source_accept_empty.c
+    │   │   ├── zip_source_at_eof.c
+    │   │   ├── zip_source_begin_write.c
+    │   │   ├── zip_source_begin_write_cloning.c
+    │   │   ├── zip_source_buffer.c
+    │   │   ├── zip_source_call.c
+    │   │   ├── zip_source_close.c
+    │   │   ├── zip_source_commit_write.c
+    │   │   ├── zip_source_compress.c
+    │   │   ├── zip_source_crc.c
+    │   │   ├── zip_source_error.c
+    │   │   ├── zip_source_file_common.c
+    │   │   ├── zip_source_file.h
+    │   │   ├── zip_source_file_stdio.c
+    │   │   ├── zip_source_file_stdio.h
+    │   │   ├── zip_source_file_stdio_named.c
+    │   │   ├── zip_source_file_win32_ansi.c
+    │   │   ├── zip_source_file_win32.c
+    │   │   ├── zip_source_file_win32.h
+    │   │   ├── zip_source_file_win32_named.c
+    │   │   ├── zip_source_file_win32_utf16.c
+    │   │   ├── zip_source_file_win32_utf8.c
+    │   │   ├── zip_source_free.c
+    │   │   ├── zip_source_function.c
+    │   │   ├── zip_source_get_dostime.c
+    │   │   ├── zip_source_get_file_attributes.c
+    │   │   ├── zip_source_is_deleted.c
+    │   │   ├── zip_source_layered.c
+    │   │   ├── zip_source_open.c
+    │   │   ├── zip_source_pass_to_lower_layer.c
+    │   │   ├── zip_source_pkware_decode.c
+    │   │   ├── zip_source_pkware_encode.c
+    │   │   ├── zip_source_read.c
+    │   │   ├── zip_source_remove.c
+    │   │   ├── zip_source_rollback_write.c
+    │   │   ├── zip_source_seek.c
+    │   │   ├── zip_source_seek_write.c
+    │   │   ├── zip_source_stat.c
+    │   │   ├── zip_source_supports.c
+    │   │   ├── zip_source_tell.c
+    │   │   ├── zip_source_tell_write.c
+    │   │   ├── zip_source_window.c
+    │   │   ├── zip_source_winzip_aes_decode.c
+    │   │   ├── zip_source_winzip_aes_encode.c
+    │   │   ├── zip_source_write.c
+    │   │   ├── zip_source_zip.c
+    │   │   ├── zip_source_zip_new.c
+    │   │   ├── zip_stat.c
+    │   │   ├── zip_stat_index.c
+    │   │   ├── zip_stat_init.c
+    │   │   ├── zip_strerror.c
+    │   │   ├── zip_string.c
+    │   │   ├── zip_unchange_all.c
+    │   │   ├── zip_unchange_archive.c
+    │   │   ├── zip_unchange.c
+    │   │   ├── zip_unchange_data.c
+    │   │   ├── zip_utf-8.c
+    │   │   └── zip_winzip_aes.c
+    │   ├── libzip-config.cmake.in
+    │   ├── libzip.pc.in
+    │   ├── LICENSE
+    │   ├── man
+    │   │   ├── CMakeLists.txt
+    │   │   ├── fix-man-links.sh
+    │   │   ├── libzip.html
+    │   │   ├── libzip.man
+    │   │   ├── libzip.mdoc
+    │   │   ├── links
+    │   │   ├── make_zip_errors.sh
+    │   │   ├── mkdocset.pl
+    │   │   ├── nih-man.css
+    │   │   ├── update-html.cmake
+    │   │   ├── update-man.cmake
+    │   │   ├── zip_add_dir.html
+    │   │   ├── zip_add_dir.man
+    │   │   ├── zip_add_dir.mdoc
+    │   │   ├── zip_add.html
+    │   │   ├── zip_add.man
+    │   │   ├── zip_add.mdoc
+    │   │   ├── zip_close.html
+    │   │   ├── zip_close.man
+    │   │   ├── zip_close.mdoc
+    │   │   ├── zipcmp.html
+    │   │   ├── zipcmp.man
+    │   │   ├── zipcmp.mdoc
+    │   │   ├── zip_compression_method_supported.html
+    │   │   ├── zip_compression_method_supported.man
+    │   │   ├── zip_compression_method_supported.mdoc
+    │   │   ├── zip_delete.html
+    │   │   ├── zip_delete.man
+    │   │   ├── zip_delete.mdoc
+    │   │   ├── zip_dir_add.html
+    │   │   ├── zip_dir_add.man
+    │   │   ├── zip_dir_add.mdoc
+    │   │   ├── zip_discard.html
+    │   │   ├── zip_discard.man
+    │   │   ├── zip_discard.mdoc
+    │   │   ├── zip_encryption_method_supported.html
+    │   │   ├── zip_encryption_method_supported.man
+    │   │   ├── zip_encryption_method_supported.mdoc
+    │   │   ├── zip_error_clear.html
+    │   │   ├── zip_error_clear.man
+    │   │   ├── zip_error_clear.mdoc
+    │   │   ├── zip_error_code_system.html
+    │   │   ├── zip_error_code_system.man
+    │   │   ├── zip_error_code_system.mdoc
+    │   │   ├── zip_error_code_zip.html
+    │   │   ├── zip_error_code_zip.man
+    │   │   ├── zip_error_code_zip.mdoc
+    │   │   ├── zip_error_fini.html
+    │   │   ├── zip_error_fini.man
+    │   │   ├── zip_error_fini.mdoc
+    │   │   ├── zip_error_get.html
+    │   │   ├── zip_error_get.man
+    │   │   ├── zip_error_get.mdoc
+    │   │   ├── zip_error_get_sys_type.html
+    │   │   ├── zip_error_get_sys_type.man
+    │   │   ├── zip_error_get_sys_type.mdoc
+    │   │   ├── zip_error.html
+    │   │   ├── zip_error_init.html
+    │   │   ├── zip_error_init.man
+    │   │   ├── zip_error_init.mdoc
+    │   │   ├── zip_error.man
+    │   │   ├── zip_error.mdoc
+    │   │   ├── zip_error_set_from_source.html
+    │   │   ├── zip_error_set_from_source.man
+    │   │   ├── zip_error_set_from_source.mdoc
+    │   │   ├── zip_error_set.html
+    │   │   ├── zip_error_set.man
+    │   │   ├── zip_error_set.mdoc
+    │   │   ├── zip_errors.html
+    │   │   ├── zip_errors.man
+    │   │   ├── zip_errors.mdoc
+    │   │   ├── zip_error_strerror.html
+    │   │   ├── zip_error_strerror.man
+    │   │   ├── zip_error_strerror.mdoc
+    │   │   ├── zip_error_system_type.html
+    │   │   ├── zip_error_system_type.man
+    │   │   ├── zip_error_system_type.mdoc
+    │   │   ├── zip_error_to_data.html
+    │   │   ├── zip_error_to_data.man
+    │   │   ├── zip_error_to_data.mdoc
+    │   │   ├── zip_error_to_str.html
+    │   │   ├── zip_error_to_str.man
+    │   │   ├── zip_error_to_str.mdoc
+    │   │   ├── zip_fclose.html
+    │   │   ├── zip_fclose.man
+    │   │   ├── zip_fclose.mdoc
+    │   │   ├── zip_fdopen.html
+    │   │   ├── zip_fdopen.man
+    │   │   ├── zip_fdopen.mdoc
+    │   │   ├── zip_file_add.html
+    │   │   ├── zip_file_add.man
+    │   │   ├── zip_file_add.mdoc
+    │   │   ├── zip_file_attributes_init.html
+    │   │   ├── zip_file_attributes_init.man
+    │   │   ├── zip_file_attributes_init.mdoc
+    │   │   ├── zip_file_extra_field_delete.html
+    │   │   ├── zip_file_extra_field_delete.man
+    │   │   ├── zip_file_extra_field_delete.mdoc
+    │   │   ├── zip_file_extra_field_get.html
+    │   │   ├── zip_file_extra_field_get.man
+    │   │   ├── zip_file_extra_field_get.mdoc
+    │   │   ├── zip_file_extra_fields_count.html
+    │   │   ├── zip_file_extra_fields_count.man
+    │   │   ├── zip_file_extra_fields_count.mdoc
+    │   │   ├── zip_file_extra_field_set.html
+    │   │   ├── zip_file_extra_field_set.man
+    │   │   ├── zip_file_extra_field_set.mdoc
+    │   │   ├── zip_file_get_comment.html
+    │   │   ├── zip_file_get_comment.man
+    │   │   ├── zip_file_get_comment.mdoc
+    │   │   ├── zip_file_get_error.html
+    │   │   ├── zip_file_get_error.man
+    │   │   ├── zip_file_get_error.mdoc
+    │   │   ├── zip_file_get_external_attributes.html
+    │   │   ├── zip_file_get_external_attributes.man
+    │   │   ├── zip_file_get_external_attributes.mdoc
+    │   │   ├── zip_file.html
+    │   │   ├── zip_file.man
+    │   │   ├── zip_file.mdoc
+    │   │   ├── zip_file_rename.html
+    │   │   ├── zip_file_rename.man
+    │   │   ├── zip_file_rename.mdoc
+    │   │   ├── zip_file_set_comment.html
+    │   │   ├── zip_file_set_comment.man
+    │   │   ├── zip_file_set_comment.mdoc
+    │   │   ├── zip_file_set_encryption.html
+    │   │   ├── zip_file_set_encryption.man
+    │   │   ├── zip_file_set_encryption.mdoc
+    │   │   ├── zip_file_set_external_attributes.html
+    │   │   ├── zip_file_set_external_attributes.man
+    │   │   ├── zip_file_set_external_attributes.mdoc
+    │   │   ├── zip_file_set_mtime.html
+    │   │   ├── zip_file_set_mtime.man
+    │   │   ├── zip_file_set_mtime.mdoc
+    │   │   ├── zip_file_strerror.html
+    │   │   ├── zip_file_strerror.man
+    │   │   ├── zip_file_strerror.mdoc
+    │   │   ├── zip_fopen_encrypted.html
+    │   │   ├── zip_fopen_encrypted.man
+    │   │   ├── zip_fopen_encrypted.mdoc
+    │   │   ├── zip_fopen.html
+    │   │   ├── zip_fopen.man
+    │   │   ├── zip_fopen.mdoc
+    │   │   ├── zip_fread.html
+    │   │   ├── zip_fread.man
+    │   │   ├── zip_fread.mdoc
+    │   │   ├── zip_fseek.html
+    │   │   ├── zip_fseek.man
+    │   │   ├── zip_fseek.mdoc
+    │   │   ├── zip_ftell.html
+    │   │   ├── zip_ftell.man
+    │   │   ├── zip_ftell.mdoc
+    │   │   ├── zip_get_archive_comment.html
+    │   │   ├── zip_get_archive_comment.man
+    │   │   ├── zip_get_archive_comment.mdoc
+    │   │   ├── zip_get_archive_flag.html
+    │   │   ├── zip_get_archive_flag.man
+    │   │   ├── zip_get_archive_flag.mdoc
+    │   │   ├── zip_get_error.html
+    │   │   ├── zip_get_error.man
+    │   │   ├── zip_get_error.mdoc
+    │   │   ├── zip_get_file_comment.html
+    │   │   ├── zip_get_file_comment.man
+    │   │   ├── zip_get_file_comment.mdoc
+    │   │   ├── zip_get_name.html
+    │   │   ├── zip_get_name.man
+    │   │   ├── zip_get_name.mdoc
+    │   │   ├── zip_get_num_entries.html
+    │   │   ├── zip_get_num_entries.man
+    │   │   ├── zip_get_num_entries.mdoc
+    │   │   ├── zip_get_num_files.html
+    │   │   ├── zip_get_num_files.man
+    │   │   ├── zip_get_num_files.mdoc
+    │   │   ├── zip.html
+    │   │   ├── zip_libzip_version.html
+    │   │   ├── zip_libzip_version.man
+    │   │   ├── zip_libzip_version.mdoc
+    │   │   ├── zip.man
+    │   │   ├── zip.mdoc
+    │   │   ├── zipmerge.html
+    │   │   ├── zipmerge.man
+    │   │   ├── zipmerge.mdoc
+    │   │   ├── zip_name_locate.html
+    │   │   ├── zip_name_locate.man
+    │   │   ├── zip_name_locate.mdoc
+    │   │   ├── zip_open.html
+    │   │   ├── zip_open.man
+    │   │   ├── zip_open.mdoc
+    │   │   ├── zip_register_cancel_callback_with_state.html
+    │   │   ├── zip_register_cancel_callback_with_state.man
+    │   │   ├── zip_register_cancel_callback_with_state.mdoc
+    │   │   ├── zip_register_progress_callback.html
+    │   │   ├── zip_register_progress_callback.man
+    │   │   ├── zip_register_progress_callback.mdoc
+    │   │   ├── zip_register_progress_callback_with_state.html
+    │   │   ├── zip_register_progress_callback_with_state.man
+    │   │   ├── zip_register_progress_callback_with_state.mdoc
+    │   │   ├── zip_rename.html
+    │   │   ├── zip_rename.man
+    │   │   ├── zip_rename.mdoc
+    │   │   ├── zip_set_archive_comment.html
+    │   │   ├── zip_set_archive_comment.man
+    │   │   ├── zip_set_archive_comment.mdoc
+    │   │   ├── zip_set_archive_flag.html
+    │   │   ├── zip_set_archive_flag.man
+    │   │   ├── zip_set_archive_flag.mdoc
+    │   │   ├── zip_set_default_password.html
+    │   │   ├── zip_set_default_password.man
+    │   │   ├── zip_set_default_password.mdoc
+    │   │   ├── zip_set_file_comment.html
+    │   │   ├── zip_set_file_comment.man
+    │   │   ├── zip_set_file_comment.mdoc
+    │   │   ├── zip_set_file_compression.html
+    │   │   ├── zip_set_file_compression.man
+    │   │   ├── zip_set_file_compression.mdoc
+    │   │   ├── zip_source_at_eof.html
+    │   │   ├── zip_source_at_eof.mdoc
+    │   │   ├── zip_source_begin_write.html
+    │   │   ├── zip_source_begin_write.man
+    │   │   ├── zip_source_begin_write.mdoc
+    │   │   ├── zip_source_buffer_fragment.html
+    │   │   ├── zip_source_buffer_fragment.man
+    │   │   ├── zip_source_buffer_fragment.mdoc
+    │   │   ├── zip_source_buffer.html
+    │   │   ├── zip_source_buffer.man
+    │   │   ├── zip_source_buffer.mdoc
+    │   │   ├── zip_source_close.html
+    │   │   ├── zip_source_close.man
+    │   │   ├── zip_source_close.mdoc
+    │   │   ├── zip_source_commit_write.html
+    │   │   ├── zip_source_commit_write.man
+    │   │   ├── zip_source_commit_write.mdoc
+    │   │   ├── zip_source_error.html
+    │   │   ├── zip_source_error.man
+    │   │   ├── zip_source_error.mdoc
+    │   │   ├── zip_source_file.html
+    │   │   ├── zip_source_file.man
+    │   │   ├── zip_source_file.mdoc
+    │   │   ├── zip_source_filep.html
+    │   │   ├── zip_source_filep.man
+    │   │   ├── zip_source_filep.mdoc
+    │   │   ├── zip_source_free.html
+    │   │   ├── zip_source_free.man
+    │   │   ├── zip_source_free.mdoc
+    │   │   ├── zip_source_function.html
+    │   │   ├── zip_source_function.man
+    │   │   ├── zip_source_function.mdoc
+    │   │   ├── ZIP_SOURCE_GET_ARGS.html
+    │   │   ├── ZIP_SOURCE_GET_ARGS.man
+    │   │   ├── ZIP_SOURCE_GET_ARGS.mdoc
+    │   │   ├── zip_source.html
+    │   │   ├── zip_source_is_deleted.html
+    │   │   ├── zip_source_is_deleted.man
+    │   │   ├── zip_source_is_deleted.mdoc
+    │   │   ├── zip_source_is_seekable.html
+    │   │   ├── zip_source_is_seekable.man
+    │   │   ├── zip_source_is_seekable.mdoc
+    │   │   ├── zip_source_keep.html
+    │   │   ├── zip_source_keep.man
+    │   │   ├── zip_source_keep.mdoc
+    │   │   ├── zip_source_layered.html
+    │   │   ├── zip_source_layered.man
+    │   │   ├── zip_source_layered.mdoc
+    │   │   ├── zip_source_make_command_bitmap.html
+    │   │   ├── zip_source_make_command_bitmap.man
+    │   │   ├── zip_source_make_command_bitmap.mdoc
+    │   │   ├── zip_source.man
+    │   │   ├── zip_source.mdoc
+    │   │   ├── zip_source_open.html
+    │   │   ├── zip_source_open.man
+    │   │   ├── zip_source_open.mdoc
+    │   │   ├── zip_source_pass_to_lower_layer.html
+    │   │   ├── zip_source_pass_to_lower_layer.mdoc
+    │   │   ├── zip_source_read.html
+    │   │   ├── zip_source_read.man
+    │   │   ├── zip_source_read.mdoc
+    │   │   ├── zip_source_rollback_write.html
+    │   │   ├── zip_source_rollback_write.man
+    │   │   ├── zip_source_rollback_write.mdoc
+    │   │   ├── zip_source_seek_compute_offset.html
+    │   │   ├── zip_source_seek_compute_offset.man
+    │   │   ├── zip_source_seek_compute_offset.mdoc
+    │   │   ├── zip_source_seek.html
+    │   │   ├── zip_source_seek.man
+    │   │   ├── zip_source_seek.mdoc
+    │   │   ├── zip_source_seek_write.html
+    │   │   ├── zip_source_seek_write.man
+    │   │   ├── zip_source_seek_write.mdoc
+    │   │   ├── zip_source_stat.html
+    │   │   ├── zip_source_stat.man
+    │   │   ├── zip_source_stat.mdoc
+    │   │   ├── zip_source_tell.html
+    │   │   ├── zip_source_tell.man
+    │   │   ├── zip_source_tell.mdoc
+    │   │   ├── zip_source_tell_write.html
+    │   │   ├── zip_source_tell_write.man
+    │   │   ├── zip_source_tell_write.mdoc
+    │   │   ├── zip_source_win32a.html
+    │   │   ├── zip_source_win32a.man
+    │   │   ├── zip_source_win32a.mdoc
+    │   │   ├── zip_source_win32handle.html
+    │   │   ├── zip_source_win32handle.man
+    │   │   ├── zip_source_win32handle.mdoc
+    │   │   ├── zip_source_win32w.html
+    │   │   ├── zip_source_win32w.man
+    │   │   ├── zip_source_win32w.mdoc
+    │   │   ├── zip_source_window_create.html
+    │   │   ├── zip_source_window_create.man
+    │   │   ├── zip_source_window_create.mdoc
+    │   │   ├── zip_source_write.html
+    │   │   ├── zip_source_write.man
+    │   │   ├── zip_source_write.mdoc
+    │   │   ├── zip_source_zip_file.html
+    │   │   ├── zip_source_zip_file.man
+    │   │   ├── zip_source_zip_file.mdoc
+    │   │   ├── zip_source_zip.html
+    │   │   ├── zip_source_zip.man
+    │   │   ├── zip_source_zip.mdoc
+    │   │   ├── zip_stat.html
+    │   │   ├── zip_stat_init.html
+    │   │   ├── zip_stat_init.man
+    │   │   ├── zip_stat_init.mdoc
+    │   │   ├── zip_stat.man
+    │   │   ├── zip_stat.mdoc
+    │   │   ├── ziptool.html
+    │   │   ├── ziptool.man
+    │   │   ├── ziptool.mdoc
+    │   │   ├── zip_unchange_all.html
+    │   │   ├── zip_unchange_all.man
+    │   │   ├── zip_unchange_all.mdoc
+    │   │   ├── zip_unchange_archive.html
+    │   │   ├── zip_unchange_archive.man
+    │   │   ├── zip_unchange_archive.mdoc
+    │   │   ├── zip_unchange.html
+    │   │   ├── zip_unchange.man
+    │   │   └── zip_unchange.mdoc
+    │   ├── NEWS.md
+    │   ├── ossfuzz
+    │   │   ├── CMakeLists.txt
+    │   │   ├── fuzz_main.c
+    │   │   ├── ossfuzz.sh
+    │   │   ├── zip_read_file_fuzzer.c
+    │   │   ├── zip_read_fuzzer.c
+    │   │   ├── zip_read_fuzzer_common.h
+    │   │   ├── zip_read_fuzzer.dict
+    │   │   ├── zip_read_metadata_fuzzer.c
+    │   │   ├── zip_write_encrypt_aes256_file_fuzzer.c
+    │   │   ├── zip_write_encrypt_aes256_file_fuzzer_seed_corpus.zip
+    │   │   ├── zip_write_encrypt_pkware_file_fuzzer.c
+    │   │   └── zip_write_roundtrip_fuzzer.c
+    │   ├── README.md
+    │   ├── regress
+    │   │   ├── add_dir.test
+    │   │   ├── add_from_buffer.test
+    │   │   ├── add_from_file_duplicate.test
+    │   │   ├── add_from_filep.test
+    │   │   ├── add_from_file.test
+    │   │   ├── add_from_file_twice_duplicate.test
+    │   │   ├── add_from_file_unchange.test
+    │   │   ├── add_from_stdin.test
+    │   │   ├── add_from_zip_closed.test
+    │   │   ├── add_from_zip_deflated2.test
+    │   │   ├── add_from_zip_deflated.test
+    │   │   ├── add_from_zip_partial_deflated.test
+    │   │   ├── add_from_zip_partial_stored.test
+    │   │   ├── add_from_zip_stored.test
+    │   │   ├── add_stored_in_memory.test
+    │   │   ├── add_stored.test
+    │   │   ├── buffer-fragment-read.test
+    │   │   ├── buffer-fragment-write.test
+    │   │   ├── cancel_45.test
+    │   │   ├── cancel_90.test
+    │   │   ├── changing-size-decreases-fixed.test
+    │   │   ├── changing-size-decreases.test
+    │   │   ├── changing-size-increases-fixed.test
+    │   │   ├── changing-size-increases.test
+    │   │   ├── changing-size-increases-unchecked.test
+    │   │   ├── check_torrentzip_fail.test
+    │   │   ├── check_torrentzip_modified.test
+    │   │   ├── check_torrentzip_success.test
+    │   │   ├── clone-buffer-add.test
+    │   │   ├── clone-buffer-delete.test
+    │   │   ├── clone-buffer-replace.test
+    │   │   ├── clone-fs-add.test
+    │   │   ├── clone-fs-delete.test
+    │   │   ├── clone-fs-replace.test
+    │   │   ├── CMakeLists.txt
+    │   │   ├── cm-default.test
+    │   │   ├── convert_to_torrentzip_ef.test
+    │   │   ├── convert_to_torrentzip.test
+    │   │   ├── count_entries.test
+    │   │   ├── create_empty_keep.test
+    │   │   ├── data
+    │   │   │   ├── aaaaaaaa-stored.zip
+    │   │   │   ├── bigstored.zh
+    │   │   │   ├── bigzero-zip.zip
+    │   │   │   ├── bogus.zip
+    │   │   │   ├── broken.zip
+    │   │   │   ├── changing-size-muchlonger.zip
+    │   │   │   ├── changing-size-muchlo.zip
+    │   │   │   ├── changing-size-muchl.zip
+    │   │   │   ├── changing-size.zip
+    │   │   │   ├── cm-default.zip
+    │   │   │   ├── empty-badmac-aes256.zip
+    │   │   │   ├── empty-pkware.zip
+    │   │   │   ├── encrypt-1234.zip
+    │   │   │   ├── encrypt-aes128-noentropy.zip
+    │   │   │   ├── encrypt-aes128.zip
+    │   │   │   ├── encrypt-aes192-noentropy.zip
+    │   │   │   ├── encrypt-aes192.zip
+    │   │   │   ├── encrypt-aes256-noentropy.zip
+    │   │   │   ├── encrypt-aes256.zip
+    │   │   │   ├── encrypt-none.zip
+    │   │   │   ├── encrypt-pkware-noentropy-2.zip
+    │   │   │   ├── encrypt-pkware-noentropy.zip
+    │   │   │   ├── encrypt_plus_extra-2.zip
+    │   │   │   ├── encrypt_plus_extra_modified_c.zip
+    │   │   │   ├── encrypt_plus_extra_modified_l.zip
+    │   │   │   ├── encrypt_plus_extra.zip
+    │   │   │   ├── encrypt.zip
+    │   │   │   ├── extra_field_align_1-0.zip
+    │   │   │   ├── extra_field_align_1-ef_00.zip
+    │   │   │   ├── extra_field_align_1-ef_ff.zip
+    │   │   │   ├── extra_field_align_1-ff.zip
+    │   │   │   ├── extra_field_align_2-0.zip
+    │   │   │   ├── extra_field_align_2-ef_00.zip
+    │   │   │   ├── extra_field_align_2-ef_ff.zip
+    │   │   │   ├── extra_field_align_2-ff.zip
+    │   │   │   ├── extra_field_align_3-0.zip
+    │   │   │   ├── extra_field_align_3-ef_00.zip
+    │   │   │   ├── extra_field_align_3-ef_ff.zip
+    │   │   │   ├── extra_field_align_3-ff.zip
+    │   │   │   ├── extra_field_align_4-ff.zip
+    │   │   │   ├── filename_duplicate_empty.zip
+    │   │   │   ├── filename_duplicate.zip
+    │   │   │   ├── filename_empty.zip
+    │   │   │   ├── fileorder.zip
+    │   │   │   ├── firstsecond-split-deflated.zip
+    │   │   │   ├── firstsecond-split-stored.zip
+    │   │   │   ├── firstsecond.zip
+    │   │   │   ├── foo-stored.zip
+    │   │   │   ├── gap-add.zip
+    │   │   │   ├── gap-delete.zip
+    │   │   │   ├── gap-replace.zip
+    │   │   │   ├── gap.zip
+    │   │   │   ├── hmac-error.zip
+    │   │   │   ├── incons-archive-comment-longer.zip
+    │   │   │   ├── incons-archive-comment-shorter.zip
+    │   │   │   ├── incons-cdoffset.zip
+    │   │   │   ├── incons-cdsize-large.zip
+    │   │   │   ├── incons-cdsize-small.zip
+    │   │   │   ├── incons-central-compression-method.zip
+    │   │   │   ├── incons-central-compsize-larger-toolarge.zip
+    │   │   │   ├── incons-central-compsize-larger.zip
+    │   │   │   ├── incons-central-compsize-smaller.zip
+    │   │   │   ├── incons-central-crc.zip
+    │   │   │   ├── incons-central-date.zip
+    │   │   │   ├── incons-central-file-comment-longer.zip
+    │   │   │   ├── incons-central-file-comment-shorter.zip
+    │   │   │   ├── incons-central-file-comment-utf8-ascii.zip
+    │   │   │   ├── incons-central-magic-bad2.zip
+    │   │   │   ├── incons-central-magic-bad.zip
+    │   │   │   ├── incons-central-size-larger.zip
+    │   │   │   ├── incons-data.zip
+    │   │   │   ├── incons-ef-central-size-wrong.zip
+    │   │   │   ├── incons-ef-local-dupe-utf8comment.zip
+    │   │   │   ├── incons-ef-local-dupe-utf8name.zip
+    │   │   │   ├── incons-ef-local-dupe-zip64-v1.zip
+    │   │   │   ├── incons-ef-local-dupe-zip64-v2.zip
+    │   │   │   ├── incons-ef-local-id-size.zip
+    │   │   │   ├── incons-ef-local-id.zip
+    │   │   │   ├── incons-ef-local-size.zip
+    │   │   │   ├── incons-ef-local-utf8name-ascii.zip
+    │   │   │   ├── incons-eocd64-gap.zip
+    │   │   │   ├── incons-eocd64.zip
+    │   │   │   ├── incons-eocd-magic-bad.zip
+    │   │   │   ├── incons-file-count-high.zip
+    │   │   │   ├── incons-file-count-low.zip
+    │   │   │   ├── incons-file-count-overflow.zip
+    │   │   │   ├── incons-filename-nul-byte.zip
+    │   │   │   ├── incons-gap-before-cd.zip
+    │   │   │   ├── incons-gap-before-eocd64loc.zip
+    │   │   │   ├── incons-gap-before-eocd64.zip
+    │   │   │   ├── incons-gap-before-eocd-after-eocd64loc.zip
+    │   │   │   ├── incons-gap-before-eocd.zip
+    │   │   │   ├── incons-gap-before-local.zip
+    │   │   │   ├── incons-local-compression-method.zip
+    │   │   │   ├── incons-local-compsize-larger.zip
+    │   │   │   ├── incons-local-compsize-smaller.zip
+    │   │   │   ├── incons-local-crc.zip
+    │   │   │   ├── incons-local-filename-long.zip
+    │   │   │   ├── incons-local-filename-missing.zip
+    │   │   │   ├── incons-local-filename-short.zip
+    │   │   │   ├── incons-local-filename.zip
+    │   │   │   ├── incons-local-magic-bad.zip
+    │   │   │   ├── incons-local-size-larger.zip
+    │   │   │   ├── incons-stored-size.zip
+    │   │   │   ├── incons-streamed-2.zip
+    │   │   │   ├── incons-streamed.zip
+    │   │   │   ├── incons-trailing-garbage.zip
+    │   │   │   ├── incons-zip64-checkcons-overflow.zip
+    │   │   │   ├── junk-at-end.zip
+    │   │   │   ├── junk-at-start.zip
+    │   │   │   ├── large-uncompressible
+    │   │   │   ├── lzma-no-eos.zip
+    │   │   │   ├── manyfiles-zip.zip
+    │   │   │   ├── mtime-default.zip
+    │   │   │   ├── mtime-dstpoint-deflated.zip
+    │   │   │   ├── mtime-dstpoint.zip
+    │   │   │   ├── mtime-post-dstpoint-deflated.zip
+    │   │   │   ├── mtime-post-dstpoint.zip
+    │   │   │   ├── mtime-pre-dstpoint-deflated.zip
+    │   │   │   ├── mtime-pre-dstpoint.zip
+    │   │   │   ├── multidisk.zip
+    │   │   │   ├── rename_ok.zip
+    │   │   │   ├── short
+    │   │   │   ├── stored-no-eos.zip
+    │   │   │   ├── streamed.zip
+    │   │   │   ├── streamed-zip64.zip
+    │   │   │   ├── test2.zip
+    │   │   │   ├── testbuffer_reopen.zip
+    │   │   │   ├── testbuffer.zip
+    │   │   │   ├── testbzip2broken.zip
+    │   │   │   ├── testbzip2.zip
+    │   │   │   ├── testchangedlocal.zip
+    │   │   │   ├── testchanged.zip
+    │   │   │   ├── testcomment13.zip
+    │   │   │   ├── testcommentremoved.zip
+    │   │   │   ├── testcomment.zip
+    │   │   │   ├── test-cp437-comment-utf-8.zip
+    │   │   │   ├── test-cp437-fc-utf-8-filename.zip
+    │   │   │   ├── test-cp437-fc.zip
+    │   │   │   ├── test-cp437.zip
+    │   │   │   ├── testdeflated2.zip
+    │   │   │   ├── testdeflated.zip
+    │   │   │   ├── testdir.zip
+    │   │   │   ├── testempty.zip
+    │   │   │   ├── testextrabytes.zip
+    │   │   │   ├── testfile0.zip
+    │   │   │   ├── testfile2014.zip
+    │   │   │   ├── testfile-cp437.zip
+    │   │   │   ├── testfile-ef.zip
+    │   │   │   ├── testfile-long-comment.zip
+    │   │   │   ├── testfile-lzma.zip
+    │   │   │   ├── testfile-plus-extra.zip
+    │   │   │   ├── testfile-stored-dos.zip
+    │   │   │   ├── testfile-torrentzip-modified.zip
+    │   │   │   ├── testfile-torrentzip.zip
+    │   │   │   ├── testfile-truncated.zip
+    │   │   │   ├── testfile.txt
+    │   │   │   ├── testfile-UTF8.zip
+    │   │   │   ├── testfile-xz.zip
+    │   │   │   ├── testfile.zip
+    │   │   │   ├── testfile-zstd.zip
+    │   │   │   ├── test_open_multiple.zip
+    │   │   │   ├── teststdin.zip
+    │   │   │   ├── teststored.zip
+    │   │   │   ├── test-utf8-unmarked.zip
+    │   │   │   ├── test-utf8.zip
+    │   │   │   ├── test.zip
+    │   │   │   ├── utf-8-standardization-input.zip
+    │   │   │   ├── utf-8-standardization-output.zip
+    │   │   │   ├── zip64-3mf.zip
+    │   │   │   ├── zip64-in-archive-comment.zip
+    │   │   │   ├── zip64.zip
+    │   │   │   ├── zipcmp_zip_dir.zip
+    │   │   │   └── zip-in-archive-comment.zip
+    │   │   ├── decrypt-correct-password-aes128.test
+    │   │   ├── decrypt-correct-password-aes192.test
+    │   │   ├── decrypt-correct-password-aes256.test
+    │   │   ├── decrypt-correct-password-pkware-2.test
+    │   │   ├── decrypt-correct-password-pkware.test
+    │   │   ├── decrypt-empty-file-badmac-aes256.test
+    │   │   ├── decrypt-empty-file-pkware.test
+    │   │   ├── decrypt-no-password-aes256.test
+    │   │   ├── decrypt-wrong-password-aes128.test
+    │   │   ├── decrypt-wrong-password-aes192.test
+    │   │   ├── decrypt-wrong-password-aes256.test
+    │   │   ├── decrypt-wrong-password-pkware-2.test
+    │   │   ├── decrypt-wrong-password-pkware.test
+    │   │   ├── delete_add_same.test
+    │   │   ├── delete_invalid.test
+    │   │   ├── delete_last_keep.test
+    │   │   ├── delete_last.test
+    │   │   ├── delete_multiple_last.test
+    │   │   ├── delete_multiple_partial.test
+    │   │   ├── delete_renamed_rename.test
+    │   │   ├── encryption-nonrandom-aes128.test
+    │   │   ├── encryption-nonrandom-aes192.test
+    │   │   ├── encryption-nonrandom-aes256.test
+    │   │   ├── encryption-nonrandom-pkware-2.test
+    │   │   ├── encryption-nonrandom-pkware.test
+    │   │   ├── encryption-random-aes128.test
+    │   │   ├── encryption-random-pkware.test
+    │   │   ├── encryption-remove.test
+    │   │   ├── encryption-stat.test
+    │   │   ├── encrypt.test
+    │   │   ├── exact-read-integrity.test
+    │   │   ├── extra_add_multiple.test
+    │   │   ├── extra_add.test
+    │   │   ├── extra_count_by_id.test
+    │   │   ├── extra_count_ignore_zip64.test
+    │   │   ├── extra_count.test
+    │   │   ├── extra_delete_by_id.test
+    │   │   ├── extra_delete.test
+    │   │   ├── extra_field_align.test
+    │   │   ├── extra_get_by_id.test
+    │   │   ├── extra_get.test
+    │   │   ├── extra_set_invalid_index.test
+    │   │   ├── extra_set_modify_c.test
+    │   │   ├── extra_set_modify_l.test
+    │   │   ├── extra_set.test
+    │   │   ├── fdopen_ok.test
+    │   │   ├── file_comment_encmismatch.test
+    │   │   ├── fopen_multiple_reopen.test
+    │   │   ├── fopen_multiple.test
+    │   │   ├── fopen_unchanged.test
+    │   │   ├── fread.test
+    │   │   ├── fseek_deflated.test
+    │   │   ├── fseek_fail.test
+    │   │   ├── fseek_ok.test
+    │   │   ├── get_comment_long.test
+    │   │   ├── get_comment.test
+    │   │   ├── hmac-error.test
+    │   │   ├── incons-utf8-name-surrogate.zip
+    │   │   ├── junk_at_end.test
+    │   │   ├── junk_at_start.test
+    │   │   ├── mtime-dstpoint.test
+    │   │   ├── mtime-post-dstpoint.test
+    │   │   ├── mtime-pre-dstpoint.test
+    │   │   ├── name_locate-cp437.test
+    │   │   ├── name_locate.test
+    │   │   ├── name_locate-utf8.test
+    │   │   ├── open_archive_comment_wrong.test
+    │   │   ├── open_cons_extrabytes.test
+    │   │   ├── open_empty_2.test
+    │   │   ├── open_empty.test
+    │   │   ├── open_extrabytes.test
+    │   │   ├── open_file_count.test
+    │   │   ├── open_filename_duplicate_consistency.test
+    │   │   ├── open_filename_duplicate_empty_consistency.test
+    │   │   ├── open_filename_duplicate_empty.test
+    │   │   ├── open_filename_duplicate.test
+    │   │   ├── open_filename_empty.test
+    │   │   ├── open_incons_eocd64_gap.test
+    │   │   ├── open_incons.test
+    │   │   ├── open_incons_utf8_surrogate.test
+    │   │   ├── open_incons_zip64_overflow.test
+    │   │   ├── open_many_fail.test
+    │   │   ├── open_many_ok.test
+    │   │   ├── open_multidisk.test
+    │   │   ├── open_new_but_exists.test
+    │   │   ├── open_new_ok.test
+    │   │   ├── open_nonarchive.test
+    │   │   ├── open_nosuchfile.test
+    │   │   ├── open_ok.test
+    │   │   ├── open_too_short.test
+    │   │   ├── open_truncated.test
+    │   │   ├── open_truncate.test
+    │   │   ├── open_zip64_3mf.test
+    │   │   ├── open_zip64_ok.test
+    │   │   ├── programs
+    │   │   │   ├── add_from_filep.c
+    │   │   │   ├── can_clone_file.c
+    │   │   │   ├── exact_read_integrity.c
+    │   │   │   ├── files_differ.c
+    │   │   │   ├── fopen_unchanged.c
+    │   │   │   ├── fread.c
+    │   │   │   ├── fseek.c
+    │   │   │   ├── hole.c
+    │   │   │   ├── source_hole.c
+    │   │   │   ├── source_seek.c
+    │   │   │   ├── tryopen.c
+    │   │   │   ├── zip_nonrandom.c
+    │   │   │   └── ziptool_regress.c
+    │   │   ├── progress.test
+    │   │   ├── read_incons.test
+    │   │   ├── read_past_eof.test
+    │   │   ├── read_seek_read.test
+    │   │   ├── rename_ascii.test
+    │   │   ├── rename_cp437.test
+    │   │   ├── rename_deleted.test
+    │   │   ├── rename_fail.test
+    │   │   ├── rename_ok.test
+    │   │   ├── rename_utf8_encmismatch.test
+    │   │   ├── rename_utf8.test
+    │   │   ├── reopen_partial_rest.test
+    │   │   ├── reopen_partial.test
+    │   │   ├── reopen.test
+    │   │   ├── replace_set_stored.test
+    │   │   ├── set_comment_all.test
+    │   │   ├── set_comment_localonly.test
+    │   │   ├── set_comment_removeglobal.test
+    │   │   ├── set_comment_revert.test
+    │   │   ├── set_compression_broken_bzip2_to_deflate.test
+    │   │   ├── set_compression_bzip2_to_deflate.test
+    │   │   ├── set_compression_deflate_to_bzip2.test
+    │   │   ├── set_compression_deflate_to_deflate.test
+    │   │   ├── set_compression_deflate_to_store.test
+    │   │   ├── set_compression_lzma_no_eos_to_store.test
+    │   │   ├── set_compression_lzma_to_store.test
+    │   │   ├── set_compression_store_to_bzip2.test
+    │   │   ├── set_compression_store_to_deflate.test
+    │   │   ├── set_compression_store_to_lzma.test
+    │   │   ├── set_compression_store_to_store.test
+    │   │   ├── set_compression_store_to_xz.test
+    │   │   ├── set_compression_store_to_zstd.test
+    │   │   ├── set_compression_unknown.test
+    │   │   ├── set_compression_xz_to_store.test
+    │   │   ├── set_compression_zstd_to_store.test
+    │   │   ├── set_file_dostime.test
+    │   │   ├── set_file_mtime_pkware.test
+    │   │   ├── set_file_mtime.test
+    │   │   ├── source_seek.test
+    │   │   ├── stat_index_cp437_guess.test
+    │   │   ├── stat_index_cp437_raw.test
+    │   │   ├── stat_index_cp437_strict.test
+    │   │   ├── stat_index_fileorder.test
+    │   │   ├── stat_index_streamed.test
+    │   │   ├── stat_index_streamed_zip64.test
+    │   │   ├── stat_index_utf8_guess.test
+    │   │   ├── stat_index_utf8_raw.test
+    │   │   ├── stat_index_utf8_strict.test
+    │   │   ├── stat_index_utf8_unmarked_strict.test
+    │   │   ├── stat_index_zip64.test
+    │   │   ├── support
+    │   │   │   ├── cleanup.cmake
+    │   │   │   └── nihtest.conf.in
+    │   │   ├── truncate_empty_keep.test
+    │   │   ├── unchange-delete-namelocate.test
+    │   │   ├── utf-8-standardization.test
+    │   │   ├── want_torrentzip_stat.test
+    │   │   ├── zip64_creation.test
+    │   │   ├── zip64-in-archive-comment.test
+    │   │   ├── zip64_stored_creation.test
+    │   │   ├── zipcmp_zip_dir_slash.test
+    │   │   ├── zipcmp_zip_dir.test
+    │   │   └── zip-in-archive-comment.test
+    │   ├── SECURITY.md
+    │   ├── src
+    │   │   ├── CMakeLists.txt
+    │   │   ├── diff_output.c
+    │   │   ├── diff_output.h
+    │   │   ├── getopt.c
+    │   │   ├── getopt.h
+    │   │   ├── zipcmp.c
+    │   │   ├── zipmerge.c
+    │   │   └── ziptool.c
+    │   ├── THANKS
+    │   ├── TODO.md
+    │   ├── vcpkg.json
+    │   └── zipconf.h.in
+    ├── lua
+    │   ├── all
+    │   ├── lapi.c
+    │   ├── lapi.h
+    │   ├── lauxlib.c
+    │   ├── lauxlib.h
+    │   ├── lbaselib.c
+    │   ├── lcode.c
+    │   ├── lcode.h
+    │   ├── lcorolib.c
+    │   ├── lctype.c
+    │   ├── lctype.h
+    │   ├── ldblib.c
+    │   ├── ldebug.c
+    │   ├── ldebug.h
+    │   ├── ldo.c
+    │   ├── ldo.h
+    │   ├── ldump.c
+    │   ├── lfunc.c
+    │   ├── lfunc.h
+    │   ├── lgc.c
+    │   ├── lgc.h
+    │   ├── linit.c
+    │   ├── liolib.c
+    │   ├── ljumptab.h
+    │   ├── llex.c
+    │   ├── llex.h
+    │   ├── llimits.h
+    │   ├── lmathlib.c
+    │   ├── lmem.c
+    │   ├── lmem.h
+    │   ├── loadlib.c
+    │   ├── lobject.c
+    │   ├── lobject.h
+    │   ├── lopcodes.c
+    │   ├── lopcodes.h
+    │   ├── lopnames.h
+    │   ├── loslib.c
+    │   ├── lparser.c
+    │   ├── lparser.h
+    │   ├── lprefix.h
+    │   ├── lstate.c
+    │   ├── lstate.h
+    │   ├── lstring.c
+    │   ├── lstring.h
+    │   ├── lstrlib.c
+    │   ├── ltable.c
+    │   ├── ltable.h
+    │   ├── ltablib.c
+    │   ├── ltests.c
+    │   ├── ltests.h
+    │   ├── ltm.c
+    │   ├── ltm.h
+    │   ├── lua.c
+    │   ├── luaconf.h
+    │   ├── lua.h
+    │   ├── lualib.h
+    │   ├── lundump.c
+    │   ├── lundump.h
+    │   ├── lutf8lib.c
+    │   ├── lvm.c
+    │   ├── lvm.h
+    │   ├── lzio.c
+    │   ├── lzio.h
+    │   ├── makefile
+    │   ├── manual
+    │   │   ├── 2html
+    │   │   └── manual.of
+    │   ├── onelua.c
+    │   ├── README.md
+    │   └── testes
+    │       ├── all.lua
+    │       ├── api.lua
+    │       ├── attrib.lua
+    │       ├── big.lua
+    │       ├── bitwise.lua
+    │       ├── bwcoercion.lua
+    │       ├── calls.lua
+    │       ├── closure.lua
+    │       ├── code.lua
+    │       ├── constructs.lua
+    │       ├── coroutine.lua
+    │       ├── cstack.lua
+    │       ├── db.lua
+    │       ├── errors.lua
+    │       ├── events.lua
+    │       ├── files.lua
+    │       ├── gc.lua
+    │       ├── gengc.lua
+    │       ├── goto.lua
+    │       ├── heavy.lua
+    │       ├── libs
+    │       │   ├── lib11.c
+    │       │   ├── lib1.c
+    │       │   ├── lib21.c
+    │       │   ├── lib22.c
+    │       │   ├── lib2.c
+    │       │   ├── makefile
+    │       │   └── P1
+    │       │       └── dummy
+    │       ├── literals.lua
+    │       ├── locals.lua
+    │       ├── main.lua
+    │       ├── math.lua
+    │       ├── nextvar.lua
+    │       ├── packtests
+    │       ├── pm.lua
+    │       ├── sort.lua
+    │       ├── strings.lua
+    │       ├── tpack.lua
+    │       ├── tracegc.lua
+    │       ├── utf8.lua
+    │       ├── vararg.lua
+    │       └── verybig.lua
+    ├── sqlite
+    │   ├── sqlite-amalgamation-3420000
+    │   │   ├── shell.c
+    │   │   ├── sqlite3.c
+    │   │   ├── sqlite3ext.h
+    │   │   └── sqlite3.h
+    │   └── sqlite.zip
+    ├── wordlist
+    │   ├── CHANGELOG.md
+    │   ├── code_of_conduct.md
+    │   ├── LICENSE
+    │   ├── previous_list
+    │   │   └── wordlist-20200727.txt
+    │   ├── README.md
+    │   └── wordlist-20210729.txt
+    └── zlib
+        ├── adler32.c
+        ├── amiga
+        │   ├── Makefile.pup
+        │   └── Makefile.sas
+        ├── build
+        │   └── wasm
+        │       ├── CMakeCache.txt
+        │       ├── CMakeFiles
+        │       │   ├── 3.31.6
+        │       │   │   ├── CMakeCCompiler.cmake
+        │       │   │   └── CMakeSystem.cmake
+        │       │   ├── CheckTypeSize
+        │       │   │   ├── OFF64_T.bin
+        │       │   │   └── OFF64_T.c
+        │       │   ├── cmake.check_cache
+        │       │   ├── CMakeConfigureLog.yaml
+        │       │   ├── CMakeDirectoryInformation.cmake
+        │       │   ├── CMakeOutput.log
+        │       │   ├── CMakeScratch
+        │       │   ├── CMakeTmp
+        │       │   ├── Export
+        │       │   │   └── 93f1ef598f1f2f8b07b376ab081bbce6
+        │       │   │       ├── ZLIB-static.cmake
+        │       │   │       └── ZLIB-static-noconfig.cmake
+        │       │   ├── Makefile2
+        │       │   ├── Makefile.cmake
+        │       │   ├── pkgRedirects
+        │       │   ├── progress.marks
+        │       │   ├── TargetDirectories.txt
+        │       │   └── zlibstatic.dir
+        │       │       ├── adler32.c.o
+        │       │       ├── adler32.c.o.d
+        │       │       ├── build.make
+        │       │       ├── cmake_clean.cmake
+        │       │       ├── cmake_clean_target.cmake
+        │       │       ├── compiler_depend.make
+        │       │       ├── compiler_depend.ts
+        │       │       ├── compress.c.o
+        │       │       ├── compress.c.o.d
+        │       │       ├── crc32.c.o
+        │       │       ├── crc32.c.o.d
+        │       │       ├── deflate.c.o
+        │       │       ├── deflate.c.o.d
+        │       │       ├── DependInfo.cmake
+        │       │       ├── depend.make
+        │       │       ├── flags.make
+        │       │       ├── gzclose.c.o
+        │       │       ├── gzclose.c.o.d
+        │       │       ├── gzlib.c.o
+        │       │       ├── gzlib.c.o.d
+        │       │       ├── gzread.c.o
+        │       │       ├── gzread.c.o.d
+        │       │       ├── gzwrite.c.o
+        │       │       ├── gzwrite.c.o.d
+        │       │       ├── infback.c.o
+        │       │       ├── infback.c.o.d
+        │       │       ├── inffast.c.o
+        │       │       ├── inffast.c.o.d
+        │       │       ├── inflate.c.o
+        │       │       ├── inflate.c.o.d
+        │       │       ├── inftrees.c.o
+        │       │       ├── inftrees.c.o.d
+        │       │       ├── link.txt
+        │       │       ├── progress.make
+        │       │       ├── trees.c.o
+        │       │       ├── trees.c.o.d
+        │       │       ├── uncompr.c.o
+        │       │       ├── uncompr.c.o.d
+        │       │       ├── zutil.c.o
+        │       │       └── zutil.c.o.d
+        │       ├── cmake_install.cmake
+        │       ├── contrib
+        │       │   ├── CMakeFiles
+        │       │   │   ├── CMakeDirectoryInformation.cmake
+        │       │   │   └── progress.marks
+        │       │   ├── cmake_install.cmake
+        │       │   ├── CTestTestfile.cmake
+        │       │   └── Makefile
+        │       ├── CPackConfig.cmake
+        │       ├── CPackSourceConfig.cmake
+        │       ├── CTestTestfile.cmake
+        │       ├── libz.a
+        │       ├── Makefile
+        │       ├── test
+        │       │   ├── CMakeFiles
+        │       │   │   ├── CMakeDirectoryInformation.cmake
+        │       │   │   ├── progress.marks
+        │       │   │   ├── zlib_example64static.dir
+        │       │   │   │   ├── build.make
+        │       │   │   │   ├── cmake_clean.cmake
+        │       │   │   │   ├── compiler_depend.make
+        │       │   │   │   ├── compiler_depend.ts
+        │       │   │   │   ├── DependInfo.cmake
+        │       │   │   │   ├── depend.make
+        │       │   │   │   ├── example.c.o
+        │       │   │   │   ├── example.c.o.d
+        │       │   │   │   ├── flags.make
+        │       │   │   │   ├── link.txt
+        │       │   │   │   └── progress.make
+        │       │   │   ├── zlib_examplestatic.dir
+        │       │   │   │   ├── build.make
+        │       │   │   │   ├── cmake_clean.cmake
+        │       │   │   │   ├── compiler_depend.make
+        │       │   │   │   ├── compiler_depend.ts
+        │       │   │   │   ├── DependInfo.cmake
+        │       │   │   │   ├── depend.make
+        │       │   │   │   ├── example.c.o
+        │       │   │   │   ├── example.c.o.d
+        │       │   │   │   ├── flags.make
+        │       │   │   │   ├── link.txt
+        │       │   │   │   └── progress.make
+        │       │   │   └── zlib_minigzipstatic.dir
+        │       │   │       ├── build.make
+        │       │   │       ├── cmake_clean.cmake
+        │       │   │       ├── compiler_depend.make
+        │       │   │       ├── compiler_depend.ts
+        │       │   │       ├── DependInfo.cmake
+        │       │   │       ├── depend.make
+        │       │   │       ├── flags.make
+        │       │   │       ├── link.txt
+        │       │   │       ├── minigzip.c.o
+        │       │   │       ├── minigzip.c.o.d
+        │       │   │       └── progress.make
+        │       │   ├── cmake_install.cmake
+        │       │   ├── CTestTestfile.cmake
+        │       │   ├── Makefile
+        │       │   ├── minigzipstatic.js
+        │       │   ├── minigzipstatic.wasm
+        │       │   ├── zlib_add_subdirectory_exclude_test
+        │       │   │   └── CMakeLists.txt
+        │       │   ├── zlib_add_subdirectory_test
+        │       │   │   └── CMakeLists.txt
+        │       │   ├── zlib_example64static.js
+        │       │   ├── zlib_example64static.wasm
+        │       │   ├── zlib_examplestatic.js
+        │       │   ├── zlib_examplestatic.wasm
+        │       │   ├── zlib_find_package_no_components_test
+        │       │   │   └── CMakeLists.txt
+        │       │   ├── zlib_find_package_test
+        │       │   │   └── CMakeLists.txt
+        │       │   └── zlib_findpackage_wrong_components_test
+        │       │       └── CMakeLists.txt
+        │       ├── zconf.h
+        │       ├── zconf.h.cmakein
+        │       ├── ZLIBConfig.cmake
+        │       ├── ZLIBConfigVersion.cmake
+        │       ├── zlib.h
+        │       └── zlib.pc
+        ├── BUILD.bazel
+        ├── ChangeLog
+        ├── CMakeLists.txt
+        ├── compress.c
+        ├── configure
+        ├── contrib
+        │   ├── ada
+        │   │   ├── buffer_demo.adb
+        │   │   ├── cmake
+        │   │   │   ├── binder_helper.cmake
+        │   │   │   ├── compile_helper.cmake
+        │   │   │   ├── exe_link_helper.cmake
+        │   │   │   ├── Modules
+        │   │   │   │   ├── CMakeADACompiler.cmake.in
+        │   │   │   │   ├── CMakeADAInformation.cmake
+        │   │   │   │   ├── CMakeDetermineADACompiler.cmake
+        │   │   │   │   └── CMakeTestADACompiler.cmake
+        │   │   │   ├── shared_link_helper.cmake
+        │   │   │   └── static_link_helper.cmake
+        │   │   ├── CMakeLists.txt
+        │   │   ├── mtest.adb
+        │   │   ├── read.adb
+        │   │   ├── readme.txt
+        │   │   ├── test
+        │   │   │   └── CMakeLists.txt
+        │   │   ├── test.adb
+        │   │   ├── zlib.adb
+        │   │   ├── zlib.ads
+        │   │   ├── zlib.gpr
+        │   │   ├── zlib-streams.adb
+        │   │   ├── zlib-streams.ads
+        │   │   ├── zlib-thin.adb
+        │   │   └── zlib-thin.ads
+        │   ├── blast
+        │   │   ├── blast.c
+        │   │   ├── blastConfig.cmake.in
+        │   │   ├── blast.h
+        │   │   ├── blast-test.c
+        │   │   ├── CMakeLists.txt
+        │   │   ├── Makefile
+        │   │   ├── README
+        │   │   └── test
+        │   │       ├── add_subdirectory_exclude_test.cmake.in
+        │   │       ├── add_subdirectory_test.cmake.in
+        │   │       ├── CMakeLists.txt
+        │   │       ├── find_package_no_components_test.cmake.in
+        │   │       ├── find_package_test.cmake.in
+        │   │       ├── find_package_wrong_components_test.cmake.in
+        │   │       ├── tester.cmake
+        │   │       ├── test.pk
+        │   │       └── test.txt
+        │   ├── CMakeLists.txt
+        │   ├── crc32vx
+        │   │   ├── CMakeLists.txt
+        │   │   ├── crc32_vx.c
+        │   │   ├── crc32_vx_hooks.h
+        │   │   └── README
+        │   ├── delphi
+        │   │   ├── readme.txt
+        │   │   ├── ZLibConst.pas
+        │   │   ├── zlibd32.mak
+        │   │   └── ZLib.pas
+        │   ├── dotzlib
+        │   │   ├── DotZLib
+        │   │   │   ├── AssemblyInfo.cs
+        │   │   │   ├── ChecksumImpl.cs
+        │   │   │   ├── CircularBuffer.cs
+        │   │   │   ├── CodecBase.cs
+        │   │   │   ├── Deflater.cs
+        │   │   │   ├── DotZLib.cs
+        │   │   │   ├── DotZLib.csproj
+        │   │   │   ├── GZipStream.cs
+        │   │   │   ├── Inflater.cs
+        │   │   │   └── UnitTests.cs
+        │   │   ├── DotZLib.build
+        │   │   ├── DotZLib.chm
+        │   │   ├── DotZLib.sln
+        │   │   ├── LICENSE_1_0.txt
+        │   │   └── readme.txt
+        │   ├── gcc_gvmat64
+        │   │   ├── CMakeLists.txt
+        │   │   └── gvmat64.S
+        │   ├── infback9
+        │   │   ├── CMakeLists.txt
+        │   │   ├── infback9.c
+        │   │   ├── infback9.h
+        │   │   ├── inffix9.h
+        │   │   ├── inflate9.h
+        │   │   ├── inftree9.c
+        │   │   ├── inftree9.h
+        │   │   └── README
+        │   ├── iostream
+        │   │   ├── test.cpp
+        │   │   ├── zfstream.cpp
+        │   │   └── zfstream.h
+        │   ├── iostream2
+        │   │   ├── zstream.h
+        │   │   └── zstream_test.cpp
+        │   ├── iostream3
+        │   │   ├── CMakeLists.txt
+        │   │   ├── iostream3Config.cmake.in
+        │   │   ├── README
+        │   │   ├── test
+        │   │   │   ├── add_subdirectory_exclude_test.cmake.in
+        │   │   │   ├── add_subdirectory_test.cmake.in
+        │   │   │   ├── CMakeLists.txt
+        │   │   │   ├── find_package_no_components_test.cmake.in
+        │   │   │   ├── find_package_test.cmake.in
+        │   │   │   └── find_package_wrong_components_test.cmake.in
+        │   │   ├── test.cc
+        │   │   ├── TODO
+        │   │   ├── zfstream.cc
+        │   │   └── zfstream.h
+        │   ├── minizip
+        │   │   ├── CMakeLists.txt
+        │   │   ├── configure.ac
+        │   │   ├── crypt.h
+        │   │   ├── ints.h
+        │   │   ├── ioapi.c
+        │   │   ├── ioapi.h
+        │   │   ├── iowin32.c
+        │   │   ├── iowin32.h
+        │   │   ├── LICENSE.Info-Zip
+        │   │   ├── Makefile
+        │   │   ├── Makefile.am
+        │   │   ├── make_vms.com
+        │   │   ├── miniunz.c
+        │   │   ├── miniunzip.1
+        │   │   ├── minizip.1
+        │   │   ├── MiniZip64_Changes.txt
+        │   │   ├── MiniZip64_info.txt
+        │   │   ├── minizip.c
+        │   │   ├── minizipConfig.cmake.in
+        │   │   ├── minizip.pc.in
+        │   │   ├── minizip.pc.txt
+        │   │   ├── mztools.c
+        │   │   ├── mztools.h
+        │   │   ├── skipset.h
+        │   │   ├── test
+        │   │   │   ├── add_subdirectory_exclude_test.cmake.in
+        │   │   │   ├── add_subdirectory_test.cmake.in
+        │   │   │   ├── CMakeLists.txt
+        │   │   │   ├── find_package_no_components_test.cmake.in
+        │   │   │   ├── find_package_test.cmake.in
+        │   │   │   ├── find_package_wrong_components_test.cmake.in
+        │   │   │   └── test_helper.cm
+        │   │   ├── unzip.c
+        │   │   ├── unzip.h
+        │   │   ├── zip.c
+        │   │   └── zip.h
+        │   ├── nuget
+        │   │   ├── nuget.csproj
+        │   │   └── nuget.sln
+        │   ├── pascal
+        │   │   ├── example.pas
+        │   │   ├── readme.txt
+        │   │   ├── zlibd32.mak
+        │   │   └── zlibpas.pas
+        │   ├── puff
+        │   │   ├── bin-writer.c
+        │   │   ├── CMakeLists.txt
+        │   │   ├── Makefile
+        │   │   ├── puff.c
+        │   │   ├── puffConfig.cmake.in
+        │   │   ├── puff.h
+        │   │   ├── pufftest.c
+        │   │   ├── README
+        │   │   ├── test
+        │   │   │   ├── add_subdirectory_exclude_test.cmake.in
+        │   │   │   ├── add_subdirectory_test.cmake.in
+        │   │   │   ├── CMakeLists.txt
+        │   │   │   ├── find_package_no_components_test.cmake.in
+        │   │   │   ├── find_package_test.cmake.in
+        │   │   │   ├── find_package_wrong_components_test.cmake.in
+        │   │   │   ├── tester.cmake
+        │   │   │   └── tester-cov.cmake
+        │   │   └── zeros.raw
+        │   ├── README.contrib
+        │   ├── testzlib
+        │   │   ├── CMakeLists.txt
+        │   │   ├── testzlib.c
+        │   │   └── testzlib.txt
+        │   ├── vstudio
+        │   │   └── readme.txt
+        │   └── zlib1-dll
+        │       ├── CMakeLists.txt
+        │       ├── readme.txt
+        │       ├── test
+        │       │   ├── add_subdirectory_exclude_test.cmake.in
+        │       │   ├── add_subdirectory_test.cmake.in
+        │       │   ├── CMakeLists.txt
+        │       │   └── find_package_test.cmake.in
+        │       ├── zlib1dllConfig.cmake.in
+        │       ├── zlib1.rc
+        │       └── zlibwapi.rc
+        ├── crc32.c
+        ├── crc32.h
+        ├── deflate.c
+        ├── deflate.h
+        ├── doc
+        │   ├── algorithm.txt
+        │   ├── crc-doc.1.0.pdf
+        │   ├── rfc1950.txt
+        │   ├── rfc1951.txt
+        │   ├── rfc1952.txt
+        │   └── txtvsbin.txt
+        ├── examples
+        │   ├── enough.c
+        │   ├── fitblk.c
+        │   ├── gun.c
+        │   ├── gzappend.c
+        │   ├── gzjoin.c
+        │   ├── gzlog.c
+        │   ├── gzlog.h
+        │   ├── gznorm.c
+        │   ├── README.examples
+        │   ├── zlib_how.html
+        │   ├── zpipe.c
+        │   ├── zran.c
+        │   └── zran.h
+        ├── FAQ
+        ├── gzclose.c
+        ├── gzguts.h
+        ├── gzlib.c
+        ├── gzread.c
+        ├── gzwrite.c
+        ├── INDEX
+        ├── infback.c
+        ├── inffast.c
+        ├── inffast.h
+        ├── inffixed.h
+        ├── inflate.c
+        ├── inflate.h
+        ├── inftrees.c
+        ├── inftrees.h
+        ├── LICENSE
+        ├── Makefile
+        ├── Makefile.in
+        ├── make_vms.com
+        ├── MODULE.bazel
+        ├── msdos
+        │   ├── Makefile.bor
+        │   ├── Makefile.dj2
+        │   ├── Makefile.emx
+        │   ├── Makefile.msc
+        │   └── Makefile.tc
+        ├── os400
+        │   ├── bndsrc
+        │   ├── make.sh
+        │   ├── README400
+        │   ├── zlibfixed.rpgle
+        │   └── zlibfree.rpgle
+        ├── qnx
+        │   └── package.qpg
+        ├── README
+        ├── README-cmake.md
+        ├── test
+        │   ├── add_subdirectory_exclude_test.cmake.in
+        │   ├── add_subdirectory_test.cmake.in
+        │   ├── CMakeLists.txt
+        │   ├── example.c
+        │   ├── find_package_no_components_test.cmake.in
+        │   ├── find_package_test.cmake.in
+        │   ├── find_package_wrong_components_test.cmake.in
+        │   ├── infcover.c
+        │   └── minigzip.c
+        ├── treebuild.xml
+        ├── trees.c
+        ├── trees.h
+        ├── uncompr.c
+        ├── watcom
+        │   ├── watcom_f.mak
+        │   └── watcom_l.mak
+        ├── win32
+        │   ├── DLL_FAQ.txt
+        │   ├── Makefile.bor
+        │   ├── Makefile.gcc
+        │   ├── Makefile.msc
+        │   ├── README-WIN32.txt
+        │   ├── VisualC.txt
+        │   ├── zlib1.rc
+        │   ├── zlib-cmake.rc
+        │   └── zlib.def
+        ├── zconf.h
+        ├── zconf.h.in
+        ├── zlib.3
+        ├── zlib.3.pdf
+        ├── zlibConfig.cmake.in
+        ├── zlib.h
+        ├── zlib.map
+        ├── zlib.pc.cmakein
+        ├── zlib.pc.in
+        ├── zutil.c
+        └── zutil.h
+
+388 directories, 3699 files
