@@ -25,7 +25,7 @@ end
 local function draw_hud(state)
     alexgames.draw_rect('rgba(0,0,0,0.5)', 0, 0, 45, 800) 
     
-    alexgames.draw_rect('#ff0000', 15, 10, 35, 30) 
+    alexgames.draw_rect('#fff000', 15, 10, 35, 30) 
     alexgames.draw_text(tostring(state.score.red), '#ffffff', 35, 50, 20) 
     alexgames.draw_text("-", '#ffffff', 35, 70, 20)
     alexgames.draw_rect('#4d4dff', 15, 110, 35, 130) 
