@@ -155,7 +155,7 @@ function handle_touch_evt(canvas, ptr, evt) {
 			// Forzamos a que el mapeo táctil sea SIEMPRE a la resolución base de tu juego (800x480).
 			// Así ignoramos el zoom del dispositivo (DPR) y el CSS.
 			const x = (touch.clientX - rect.left) / (rect.right - rect.left) * 800;
-			const y = (touch.clientY - rect.top) / (rect.bottom - rect.top) * 500;
+			const y = (touch.clientY - rect.top) / (rect.bottom - rect.top) * 480;
 
 			Module.setValue(offset + 0,                         touch.identifier, 'i64');
 			Module.setValue(offset + sizeof_id,                 y,                'double');

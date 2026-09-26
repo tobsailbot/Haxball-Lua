@@ -57,7 +57,7 @@
     #game_canvas {
         display: block;
         touch-action: none;
-        aspect-ratio: 800 / 500; /* Proporción obligatoria 4:3 */
+        aspect-ratio: 800 / 480; /* Proporción obligatoria 4:3 */
         width: 100%;
         max-width: 800px;        /* En escritorio no superará los 800px nativos */
         height: auto;
@@ -253,7 +253,7 @@
 						</p>
 					</div>
 				</div>
-				<canvas id="game_canvas" width="800" height="600">
+				<canvas id="game_canvas" width="800" height="480">
 					Your browser doesn't support canvases.
 				</canvas>
 
@@ -943,7 +943,7 @@ TODO add session ID to options, maybe show other players that are connected
 
 		// Resolución interna fija de la cancha
 		const GAME_WIDTH = 800;
-		const GAME_HEIGHT = 500;
+		const GAME_HEIGHT = 480;
 
 		canvas.width = GAME_WIDTH * dpr;
 		canvas.height = GAME_HEIGHT * dpr;

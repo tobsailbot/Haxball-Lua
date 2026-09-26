@@ -25,7 +25,7 @@ end
 local function draw_hud(state)
     alexgames.draw_rect('rgba(0,0,0,0.5)', 0, 0, 45, 800) 
     
-    alexgames.draw_rect('#fff000', 15, 10, 35, 30) 
+    alexgames.draw_rect('#ff0000', 15, 10, 35, 30) 
     alexgames.draw_text(tostring(state.score.red), '#ffffff', 35, 50, 20) 
     alexgames.draw_text("-", '#ffffff', 35, 70, 20)
     alexgames.draw_rect('#4d4dff', 15, 110, 35, 130) 
@@ -54,22 +54,22 @@ local function draw_touchpad(state)
 end
 
 -- Nueva función para el panel de Debug
-local function draw_debug_stats(state)
-    local p1 = state.players[1]
-    local ball = state.ball
+-- local function draw_debug_stats(state)
+--     local p1 = state.players[1]
+--     local ball = state.ball
     
-    -- Magnitud de la velocidad calculada por Pitágoras
-    local p_speed = math.sqrt(p1.vx * p1.vx + p1.vy * p1.vy)
-    local b_speed = math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy)
+--     -- Magnitud de la velocidad calculada por Pitágoras
+--     local p_speed = math.sqrt(p1.vx * p1.vx + p1.vy * p1.vy)
+--     local b_speed = math.sqrt(ball.vx * ball.vx + ball.vy * ball.vy)
     
-    -- Fondo semitransparente (Y_inicio, X_inicio, Y_fin, X_fin) en la esquina inferior izquierda
-    alexgames.draw_rect('rgba(0,0,0,0.6)', 400, 10, 470, 200)
+--     -- Fondo semitransparente (Y_inicio, X_inicio, Y_fin, X_fin) en la esquina inferior izquierda
+--     alexgames.draw_rect('rgba(0,0,0,0.6)', 400, 10, 470, 200)
     
-    -- Textos de debugging con colores distintos (Y, X, tamaño)
-    alexgames.draw_text(string.format("FPS: %d", state.fps or 0), '#00ff00', 418, 20, 16)
-    alexgames.draw_text(string.format("Vel P1: %.1f", p_speed), '#ffff00', 440, 20, 16)
-    alexgames.draw_text(string.format("Vel Pelota: %.1f", b_speed), '#ff8800', 462, 20, 16)
-end
+--     -- Textos de debugging con colores distintos (Y, X, tamaño)
+--     alexgames.draw_text(string.format("FPS: %d", state.fps or 0), '#00ff00', 418, 20, 16)
+--     alexgames.draw_text(string.format("Vel P1: %.1f", p_speed), '#ffff00', 440, 20, 16)
+--     alexgames.draw_text(string.format("Vel Pelota: %.1f", b_speed), '#ff8800', 462, 20, 16)
+-- end
 
 function draw.render(state)
     alexgames.draw_clear()
@@ -93,7 +93,7 @@ function draw.render(state)
     draw_touchpad(state)
     
     -- Dibujamos el panel de stats por encima de todo
-    draw_debug_stats(state)
+    -- draw_debug_stats(state)
     
     alexgames.draw_refresh()
 end
