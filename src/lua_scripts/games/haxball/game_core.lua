@@ -22,7 +22,7 @@ core.state = {
     fps = 0,
     players = {
         { id = 1, team = "red", color = '#ff0000', x = 200, y = 240, vx = 0, vy = 0, radius = 15, up = false, down = false, left = false, right = false, kicking = false, speed_mult = 1.0, pad_active = false, pad_origin = {x=0, y=0}, pad_vec = {x=0, y=0} },
-        { id = 2, team = "blue", color = '#4d4dff', x = 600, y = 240, vx = 0, vy = 0, radius = 15, up = false, down = false, left = false, right = false, kicking = false, speed_mult = 1.0 }
+        { id = 2, team = "blue", color = '#4d4dff', x = 600, y = 240, vx = 0, vy = 0, radius = 15, up = false, down = false, left = false, right = false, kicking = false, speed_mult = 1.0, pad_active = false, pad_origin = {x=0, y=0}, pad_vec = {x=0, y=0} }
     }
 }
 
