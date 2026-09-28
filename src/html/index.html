@@ -439,6 +439,16 @@ TODO add session ID to options, maybe show other players that are connected
 			<div class="game_choice_popup_wrapper">
 				<h2 class="title">Select a game</h2>
 
+				<div id="game_row_haxball" class="game_row">
+					<div class="game_wrapper"><img class="game_icon" src="img/game_icons/haxball.png" /></div>
+					<h2 class="game_title">Haxball</h2>
+					<div class="description">
+						<p>Network multiplayer: 2-16 players.</p>
+						<p>A simple football game where you control a player with a ball, trying to score goals against
+							the opposing team.</p>
+					</div>
+				</div>				
+
 				<div id="game_row_solitaire" class="game_row">
 					<div class="game_wrapper"><img class="game_icon" src="img/game_icons/solitaire.png" /></div>
 					<h2 class="game_title">Solitaire (Klondike)</h2>
@@ -653,16 +663,6 @@ TODO add session ID to options, maybe show other players that are connected
 					</div>
 				</div>
 
-				<div id="game_row_haxball" class="game_row">
-					<div class="game_wrapper"><img class="game_icon" src="img/game_icons/haxball.png" /></div>
-					<h2 class="game_title">Haxball</h2>
-					<div class="description">
-						<p>Network multiplayer: 2-16 players.</p>
-						<p>A simple football game where you control a player with a ball, trying to score goals against
-							the opposing team.</p>
-					</div>
-				</div>
-
 				<div class="game_list_padding"></div>
 
 			</div>
@@ -671,6 +671,7 @@ TODO add session ID to options, maybe show other players that are connected
 
 		<script>
 			let game_choice_row_infos = [
+				{ row_id: "game_row_haxball", game_id: "haxball" },
 				{ row_id: "game_row_chess", game_id: "chess" },
 				{ row_id: "game_row_go", game_id: "go" },
 				{ row_id: "game_row_checkers", game_id: "checkers" },
@@ -691,7 +692,6 @@ TODO add session ID to options, maybe show other players that are connected
 				{ row_id: "game_row_life", game_id: "life" },
 				{ row_id: "game_row_spider_swing", game_id: "spider_swing" },
 				{ row_id: "game_row_hospital", game_id: "hospital" },
-				{ row_id: "game_row_haxball", game_id: "haxball" },
 			];
 			for (let game_choice_row_info of game_choice_row_infos) {
 				document.getElementById(game_choice_row_info.row_id).addEventListener('click', function () {
