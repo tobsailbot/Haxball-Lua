@@ -9,11 +9,10 @@
 	<meta name="keywords"
 		content="games, simple, board games, lua, multiplayer, solitaire, chess, go, checkers, free cell" />
 	<meta name="author" content="Alex Barry" />
-	<!-- setting maximum-scale=1 to prevent auto zooming in on input fields in safari mobile.
-	     this may be bad if it introduces other side effects.
-	     I still want to allow zooming in on some board games (e.g. 19x19 go) -->
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<!-- Opciones para iOS (si el usuario añade la web a la pantalla de inicio, se abre 100% sin barras) -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="mobile-web-app-capable" content="yes" />
 	<link rel="icon" type="image/png" href="img/logo.png" />
@@ -224,6 +223,51 @@
     .fullscreen_err_msg>p {
         color: red;
     }
+
+	/* Botón flotante semitransparente sobre el canvas */
+	.fullscreen_toggle_btn {
+		position: fixed;
+		top: 12px;
+		right: 12px;
+		z-index: 1000;
+		width: 44px;
+		height: 44px;
+		padding: 0;
+		background: rgba(0, 0, 0, 0.6);
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		border-radius: 8px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		backdrop-filter: blur(4px);
+		transition: background 0.2s, transform 0.1s;
+		touch-action: manipulation;
+	}
+
+	.fullscreen_toggle_btn:active {
+		transform: scale(0.92);
+		background: rgba(0, 0, 0, 0.85);
+	}
+
+	/* En modo horizontal en celular, lo colocamos bien pegado al borde seguro */
+	@media (orientation: landscape) and (max-height: 600px) {
+		.fullscreen_toggle_btn {
+			top: 8px;
+			right: 8px;
+			width: 38px;
+			height: 38px;
+			background: rgba(0, 0, 0, 0.4);
+		}
+	}
+
+	/* ocultar boton en pantalla grande de pc */
+	@media (min-width: 800px) {
+		.fullscreen_toggle_btn {
+			display: none;
+		}
+	}
+	
 </style>
 
 </head>
@@ -266,7 +310,15 @@
 					</div>
 				</div>
 				
-				
+			<!-- Botón flotante de Pantalla Completa -->
+			<button id="btn_fullscreen" class="fullscreen_toggle_btn" aria-label="Pantalla completa">
+				<svg id="fs_icon_enter" viewBox="0 0 24 24" width="22" height="22" fill="white">
+					<path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+				</svg>
+				<svg id="fs_icon_exit" viewBox="0 0 24 24" width="22" height="22" fill="white" style="display:none">
+					<path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/>
+				</svg>
+			</button>				
 				
 				<div id="status" class="status" style="flex:1">Initializing...</div>
 				
@@ -951,38 +1003,71 @@ TODO add session ID to options, maybe show other players that are connected
 		// El contexto escala los gráficos internos
 		ctx.scale(dpr, dpr);
 
-// =========================================================================
-// ENTRAR EN PANTALLA COMPLETA AL TOCAR EN HORIZONTAL
-// =========================================================================
-function tryFullscreen() {
-    // Verificamos si estamos en horizontal
-    const isLandscape = window.matchMedia("(orientation: landscape)").matches;
-    
-    // Si la pantalla está en horizontal y aún no estamos en pantalla completa
-    if (isLandscape && !document.fullscreenElement) {
-        const elem = document.documentElement;
-        if (elem.requestFullscreen) {
-            elem.requestFullscreen().catch((err) => {
-                console.warn("Fullscreen denegado:", err);
-            });
-        } else if (elem.webkitRequestFullscreen) { /* Safari / iOS */
-            elem.webkitRequestFullscreen();
-        }
-    }
-}
+		const fsBtn = document.getElementById("btn_fullscreen");
+		const iconEnter = document.getElementById("fs_icon_enter");
+		const iconExit = document.getElementById("fs_icon_exit");
 
-// 1. Intentamos entrar a pantalla completa con el PRIMER TOQUE del jugador en la pantalla.
-// Como el usuario debe tocar el canvas para mover el joypad o patear, esto cumple la regla de seguridad.
-window.addEventListener("touchstart", tryFullscreen, { once: true });
+		// Detecta si actualmente estamos en pantalla completa
+		function isFullscreen() {
+			return !!(
+				document.fullscreenElement ||
+				document.webkitFullscreenElement ||
+				document.mozFullScreenElement ||
+				document.msFullscreenElement
+			);
+		}
 
-// 2. Si el usuario arranca en vertical y luego gira a horizontal, 
-// rearmamos el evento para que el próximo toque lo ponga en pantalla completa.
-window.addEventListener("orientationchange", () => {
-    // Esperamos 200ms para que el navegador actualice la orientación internamente
-    setTimeout(() => {
-        window.addEventListener("touchstart", tryFullscreen, { once: true });
-    }, 200);
-});
+		// Actualiza los íconos según el estado real
+		function updateFsIcons() {
+			if (isFullscreen()) {
+				iconEnter.style.display = "none";
+				iconExit.style.display = "block";
+			} else {
+				iconEnter.style.display = "block";
+				iconExit.style.display = "none";
+			}
+		}
+
+		// Función principal vinculada al clic directo
+		function toggleFullscreen() {
+			const elem = document.documentElement;
+
+			if (!isFullscreen()) {
+				// Intentar entrar en pantalla completa con soporte multiprefijo
+				if (elem.requestFullscreen) {
+					elem.requestFullscreen().catch(err => console.warn(err));
+				} else if (elem.webkitRequestFullscreen) {
+					elem.webkitRequestFullscreen();
+				} else if (elem.mozRequestFullScreen) {
+					elem.mozRequestFullScreen();
+				} else if (elem.msRequestFullscreen) {
+					elem.msRequestFullscreen();
+				} else {
+					// Fallback para Safari en iPhone (donde no existe la API de Fullscreen para DOM)
+					// Hacer un scroll mínimo fuerza a Safari a compactar su barra superior/inferior
+					window.scrollTo(0, 1);
+					alert("En iPhone, agrega la página a la 'Pantalla de inicio' desde el menú Compartir para jugar a pantalla completa real.");
+				}
+			} else {
+				// Salir de pantalla completa
+				if (document.exitFullscreen) {
+					document.exitFullscreen().catch(err => console.warn(err));
+				} else if (document.webkitExitFullscreen) {
+					document.webkitExitFullscreen();
+				} else if (document.mozCancelFullScreen) {
+					document.mozCancelFullScreen();
+				} else if (document.msExitFullscreen) {
+					document.msExitFullscreen();
+				}
+			}
+		}
+
+		// El listener directo al botón NUNCA es bloqueado por Brave ni Chrome
+		fsBtn.addEventListener("click", toggleFullscreen);
+
+		// Escuchar cambios de estado para mantener sincronizados los íconos si el usuario sale con ESC o gestos
+		document.addEventListener("fullscreenchange", updateFsIcons);
+		document.addEventListener("webkitfullscreenchange", updateFsIcons);
 
 
 		let graphics_map = new Map();
