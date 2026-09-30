@@ -37,17 +37,19 @@ local function draw_hud(state)
     alexgames.draw_text(tiempo_str, '#ffffff', 35, 400, 24)
 end
 
-local function draw_touchpad(state)
-    local p1 = state.players[1]
+-- MODIFICADO: Ahora recibe el número del jugador local
+local function draw_touchpad(state, my_player_idx)
+    -- Asignamos el pad al jugador local (por defecto el 1 si se juega localmente)
+    local p = state.players[my_player_idx or 1]
     
-    if p1.pad_active then
-        local pad_x = p1.pad_origin.x
-        local pad_y = p1.pad_origin.y
+    if p and p.pad_active then
+        local pad_x = p.pad_origin.x
+        local pad_y = p.pad_origin.y
         
         alexgames.draw_circle('rgba(255,255,255,0.15)', '#ffffff', pad_y, pad_x, 60, 2)
         
-        local stick_x = pad_x + (p1.pad_vec.x * 38)
-        local stick_y = pad_y + (p1.pad_vec.y * 38)
+        local stick_x = pad_x + (p.pad_vec.x * 38)
+        local stick_y = pad_y + (p.pad_vec.y * 38)
         
         alexgames.draw_circle('rgba(255,255,255,0.7)', '#ffffff', stick_y, stick_x, 22, 2)
     end
@@ -77,7 +79,8 @@ local function draw_goal_banner(state)
     alexgames.draw_text(text, '#ffffff', 105, 360, 32)
 end
 
-function draw.render(state)
+-- MODIFICADO: Añadido el argumento my_player_idx
+function draw.render(state, my_player_idx)
     alexgames.draw_clear()
     draw_field()
     
@@ -96,9 +99,10 @@ function draw.render(state)
     alexgames.draw_circle('#ffffff', '#000000', state.ball.y, state.ball.x, state.ball.radius, 2)
     
     draw_hud(state)
-    draw_touchpad(state)
     
-    -- Dibujamos el cartel encima de la cancha y los jugadores
+    -- Le pasamos el índice de tu jugador al touchpad
+    draw_touchpad(state, my_player_idx)
+    
     draw_goal_banner(state)
     
     alexgames.draw_refresh()

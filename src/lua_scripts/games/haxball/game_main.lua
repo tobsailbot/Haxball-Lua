@@ -60,11 +60,10 @@ function update(dt_ms)
         core.state.fps = math.floor(1000 / dt_ms)
     end
     
-    -- El cliente NUNCA calcula físicas, solo obedece al Host para evitar desincronización
+    -- El cliente NUNCA calcula físicas, solo obedece al Host
     if not is_client then
         core.update_physics(dt)
         
-        -- Si somos el Host y estamos en red, enviamos la foto del mundo
         if is_network_game then
             local state_msg = "state:" .. serialize.serialize_state(core.state)
             for dst_player, player_name in pairs(players) do
@@ -75,7 +74,8 @@ function update(dt_ms)
         end
     end
     
-    draw.render(core.state)
+    -- ¡AQUÍ ESTÁ EL CAMBIO! Pasamos el índice del jugador local
+    draw.render(core.state, my_player_idx)
 end
 
 -- ==========================================
