@@ -16,10 +16,19 @@ core.state = {
     ball = { x = 400, y = 240, vx = 0, vy = 0, radius = 11 },
     score = { red = 0, blue = 0 },
     goal_scored = false,
-    last_goal_team = nil, -- [NUEVO] Registra el equipo que hizo el último gol
+    last_goal_team = nil, -- Registra el equipo que hizo el último gol
     goal_timer = 0,
     match_time = 0,
     fps = 0,
+    settings = {
+        goals_limit = 3, -- 1, 3 o 5 goles
+        time_limit = 180, -- en segundos; 60, 180, 300 o 0 (sin límite)
+    },
+    match_started = false, -- true únicamente cuando el partido está en juego (tras Iniciar o Revancha)
+    match_over = false,
+    match_over_timer = 0, -- temporizador de celebración de 3 segundos post-partido
+    winner = nil, -- 'red', 'blue', 'tie'
+    overtime = false, -- true cuando el tiempo reglamentario expira en empate (Gol de Oro)
     players = {
         { id = 1, team = "red", color = '#ff0000', x = 200, y = 240, vx = 0, vy = 0, radius = 15, up = false, down = false, left = false, right = false, kicking = false, speed_mult = 1.0, pad_active = false, pad_origin = {x=0, y=0}, pad_vec = {x=0, y=0} },
         { id = 2, team = "blue", color = '#4d4dff', x = 600, y = 240, vx = 0, vy = 0, radius = 15, up = false, down = false, left = false, right = false, kicking = false, speed_mult = 1.0, pad_active = false, pad_origin = {x=0, y=0}, pad_vec = {x=0, y=0} }
@@ -163,40 +172,125 @@ local function check_collision(state)
 end
 
 local function check_goal(state)
-    if state.goal_scored then return end
+    if state.goal_scored or state.match_over then return end
     
     local in_goal_y = (state.ball.y > 180 and state.ball.y < 300)
     
     if state.ball.x < 50 and in_goal_y then
         state.score.blue = state.score.blue + 1
         state.goal_scored = true
-        state.last_goal_team = "blue" -- [NUEVO]
-        state.goal_timer = 4.0
+        state.last_goal_team = "blue"
+        state.goal_timer = 3.0
         state.ball.vx = state.ball.vx * 0.2
         state.ball.vy = state.ball.vy * 0.2
-        -- alexgames.set_status_msg("¡GOL DEL EQUIPO AZUL! | Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
+
+        local limit = state.settings.goals_limit or 3
+        if state.overtime or state.score.blue >= limit then
+            state.match_over = true
+            state.winner = "blue"
+            state.match_over_timer = 3.0
+        end
         
     elseif state.ball.x > 750 and in_goal_y then
         state.score.red = state.score.red + 1
         state.goal_scored = true
-        state.last_goal_team = "red" -- [NUEVO]
-        state.goal_timer = 4.0
+        state.last_goal_team = "red"
+        state.goal_timer = 3.0
         state.ball.vx = state.ball.vx * 0.2
         state.ball.vy = state.ball.vy * 0.2
-        -- alexgames.set_status_msg("¡GOL DEL EQUIPO ROJO! | Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
+
+        local limit = state.settings.goals_limit or 3
+        if state.overtime or state.score.red >= limit then
+            state.match_over = true
+            state.winner = "red"
+            state.match_over_timer = 3.0
+        end
     end
+end
+
+function core.reset_match(goals_limit, time_limit)
+    local state = core.state
+    if goals_limit then state.settings.goals_limit = tonumber(goals_limit) end
+    if time_limit ~= nil then state.settings.time_limit = tonumber(time_limit) end
+    
+    state.score.red = 0
+    state.score.blue = 0
+    state.goal_scored = false
+    state.last_goal_team = nil
+    state.goal_timer = 0
+    state.match_time = 0
+    state.match_started = false
+    state.match_over = false
+    state.match_over_timer = 0
+    state.winner = nil
+    state.overtime = false
+    
+    state.ball.x, state.ball.y = 400, 240
+    state.ball.vx, state.ball.vy = 0, 0
+    
+    state.players[1].x, state.players[1].y = 200, 240
+    state.players[1].vx, state.players[1].vy = 0, 0
+    state.players[1].pad_active = false
+    state.players[1].kicking = false
+    state.players[1].up = false
+    state.players[1].down = false
+    state.players[1].left = false
+    state.players[1].right = false
+    
+    state.players[2].x, state.players[2].y = 600, 240
+    state.players[2].vx, state.players[2].vy = 0, 0
+    state.players[2].pad_active = false
+    state.players[2].kicking = false
+    state.players[2].up = false
+    state.players[2].down = false
+    state.players[2].left = false
+    state.players[2].right = false
 end
 
 function core.update_physics(dt)
     local state = core.state
 
-    if not state.goal_scored then
+    -- Si el partido no ha iniciado (en menús), no avanza reloj ni físicas
+    if not state.match_started then
+        return
+    end
+
+    -- Si el partido terminó, las físicas y controles continúan durante match_over_timer (3 segundos)
+    if state.match_over then
+        if state.match_over_timer > 0 then
+            state.match_over_timer = state.match_over_timer - dt
+            if state.goal_scored and state.goal_timer > 0 then
+                state.goal_timer = state.goal_timer - dt
+            end
+        else
+            -- Tiempo de festejo post-partido finalizado: congelar movimiento
+            return
+        end
+    end
+
+    if not state.goal_scored and not state.match_over then
         state.match_time = state.match_time + dt
+
+        local time_limit = state.settings.time_limit or 0
+        if time_limit > 0 and not state.overtime and state.match_time >= time_limit then
+            if state.score.red > state.score.blue then
+                state.match_over = true
+                state.winner = "red"
+                state.match_over_timer = 3.0
+            elseif state.score.blue > state.score.red then
+                state.match_over = true
+                state.winner = "blue"
+                state.match_over_timer = 3.0
+            else
+                -- Empate: Gol de Oro / Prórroga
+                state.overtime = true
+            end
+        end
     end
 
     check_goal(state)
 
-    if state.goal_scored then
+    if state.goal_scored and not state.match_over then
         state.goal_timer = state.goal_timer - dt
         if state.goal_timer <= 0 then
             state.ball.x, state.ball.y = 400, 240
@@ -210,7 +304,6 @@ function core.update_physics(dt)
             
             state.goal_scored = false
             state.last_goal_team = nil
-            -- alexgames.set_status_msg("Marcador: Rojo " .. state.score.red .. " - Azul " .. state.score.blue)
         end
     end
 

@@ -31,10 +31,30 @@ local function draw_hud(state)
     alexgames.draw_rect('#4d4dff', 15, 110, 35, 130) 
     alexgames.draw_text(tostring(state.score.blue), '#ffffff', 35, 90, 20)
 
-    local minutos = math.floor(state.match_time / 60)
-    local segundos = math.floor(state.match_time % 60)
-    local tiempo_str = string.format("%02d:%02d", minutos, segundos)
-    alexgames.draw_text(tiempo_str, '#ffffff', 35, 400, 24)
+    local time_limit = state.settings and state.settings.time_limit or 0
+    local tiempo_str = ""
+    local text_color = '#ffffff'
+
+    if time_limit > 0 then
+        if state.overtime then
+            local extra_sec = math.max(0, math.floor(state.match_time - time_limit))
+            local minutos = math.floor(extra_sec / 60)
+            local segundos = math.floor(extra_sec % 60)
+            tiempo_str = string.format("+%02d:%02d", minutos, segundos)
+            text_color = '#ffeb3b'
+        else
+            local remaining = math.max(0, time_limit - state.match_time)
+            local minutos = math.floor(remaining / 60)
+            local segundos = math.floor(remaining % 60)
+            tiempo_str = string.format("%02d:%02d", minutos, segundos)
+        end
+    else
+        local minutos = math.floor(state.match_time / 60)
+        local segundos = math.floor(state.match_time % 60)
+        tiempo_str = string.format("%02d:%02d", minutos, segundos)
+    end
+
+    alexgames.draw_text(tiempo_str, text_color, 35, 400, 24)
 end
 
 -- MODIFICADO: Ahora recibe el número del jugador local
@@ -79,6 +99,39 @@ local function draw_goal_banner(state)
     alexgames.draw_text(text, '#ffffff', 105, 360, 32)
 end
 
+local function draw_match_over_banner(state)
+    if not state.match_over then return end
+
+    local team_color = nil
+    local text = "FIN DEL PARTIDO"
+    
+    if state.winner == "red" then
+        team_color = '#ff0000'
+        text = "GANADOR ROJO"
+    elseif state.winner == "blue" then
+        team_color = '#4d4dff'
+        text = "GANADOR AZUL"
+    elseif state.winner == "tie" then
+        text = "¡EMPATE!"
+    end
+
+    -- 1. Fondo oscuro semitransparente idéntico a draw_goal_banner (y1, x1, y2, x2)
+    alexgames.draw_rect('rgba(0,0,0,0.65)', 60, 200, 120, 600)
+
+    -- 2. Cuadrado relleno con el color del equipo ganador (40x40 píxeles) con borde blanco
+    if team_color then
+        alexgames.draw_rect(team_color, 70, 500, 110, 540)
+        alexgames.draw_rect('#ffffff', 68, 498, 72, 542) -- Izquierda
+        alexgames.draw_rect('#ffffff', 108, 498, 112, 542) -- Derecha
+        alexgames.draw_rect('#ffffff', 68, 498, 112, 502) -- Arriba
+        alexgames.draw_rect('#ffffff', 68, 538, 112, 542) -- Abajo
+    end
+
+    -- 3. Texto del ganador/resultado ubicado similar a GOOOOL
+    local text_x = team_color and 350 or 400
+    alexgames.draw_text(text, '#ffffff', 104, text_x, 26)
+end
+
 -- MODIFICADO: Añadido el argumento my_player_idx
 function draw.render(state, my_player_idx)
     alexgames.draw_clear()
@@ -103,7 +156,12 @@ function draw.render(state, my_player_idx)
     -- Le pasamos el índice de tu jugador al touchpad
     draw_touchpad(state, my_player_idx)
     
-    draw_goal_banner(state)
+    -- Si el partido terminó se dibuja el cartel de fin de partido, si no el cartel de gol normal
+    if state.match_over then
+        draw_match_over_banner(state)
+    else
+        draw_goal_banner(state)
+    end
     
     alexgames.draw_refresh()
 end

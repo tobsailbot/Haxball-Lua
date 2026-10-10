@@ -11,6 +11,26 @@ local left_touch_id = nil
 local right_touch_id = nil
 
 -- ==========================================
+-- CONSTANTES DE MENÚS Y POPUPS
+-- ==========================================
+local POPUP_ID_MATCH_SETTINGS = "haxball_match_settings"
+local POPUP_ID_MATCH_OVER     = "haxball_match_over"
+
+local POPUP_ITEM_ID_GOALS_DROPDOWN = 1
+local POPUP_ITEM_ID_TIME_DROPDOWN  = 2
+local POPUP_ITEM_ID_BTN_START      = 3
+local POPUP_ITEM_ID_BTN_BACK       = 4
+
+local GOALS_OPTIONS = { "1 Gol", "3 Goles", "5 Goles" }
+local GOALS_VALUES  = { 1, 3, 5 }
+
+local TIME_OPTIONS  = { "1 Minuto", "3 Minutos", "5 Minutos", "Sin límite" }
+local TIME_VALUES   = { 60, 180, 300, 0 }
+
+local pending_mode = nil -- "local" o "network"
+local match_over_popup_shown = false
+
+-- ==========================================
 -- VARIABLES DE RED MULTIJUGADOR
 -- ==========================================
 local players = { [1] = "You" }
@@ -19,6 +39,99 @@ local is_client = false
 local is_network_game = false
 local player_name_to_idx = {}
 local last_sent_input = ""
+
+local function show_match_settings(mode)
+    pending_mode = mode
+    local mode_title = (mode == "local") and "Configuración del Partido (Local)" or "Configuración del Partido (Online)"
+    local btn_text = (mode == "local") and "Comenzar Partido" or "Comenzar Partido (Host)"
+    local back_text = (mode == "local") and "Volver" or "Volver a la Sala"
+
+    alexgames.show_popup(POPUP_ID_MATCH_SETTINGS, {
+        title = mode_title,
+        items = {
+            {
+                id = POPUP_ITEM_ID_GOALS_DROPDOWN,
+                item_type = alexgames.POPUP_ITEM_TYPE_DROPDOWN,
+                label = "Límite de Goles",
+                options = GOALS_OPTIONS,
+            },
+            {
+                id = POPUP_ITEM_ID_TIME_DROPDOWN,
+                item_type = alexgames.POPUP_ITEM_TYPE_DROPDOWN,
+                label = "Tiempo del Partido",
+                options = TIME_OPTIONS,
+            },
+            {
+                id = POPUP_ITEM_ID_BTN_START,
+                item_type = alexgames.POPUP_ITEM_TYPE_BTN,
+                text = btn_text,
+            },
+            {
+                id = POPUP_ITEM_ID_BTN_BACK,
+                item_type = alexgames.POPUP_ITEM_TYPE_BTN,
+                text = back_text,
+            },
+        },
+    })
+end
+
+local function show_match_over_popup()
+    local s = core.state
+    local winner_str = "¡Empate!"
+    if s.winner == "red" then
+        winner_str = "Ganador: Equipo Rojo"
+    elseif s.winner == "blue" then
+        winner_str = "Ganador: Equipo Azul"
+    end
+    
+    local msg = string.format("Marcador Final:\nRojo %d - Azul %d\n%s", s.score.red, s.score.blue, winner_str)
+    
+    local items = {
+        {
+            item_type = alexgames.POPUP_ITEM_TYPE_MSG,
+            msg = msg,
+        }
+    }
+    
+    if not is_client then
+        table.insert(items, {
+            id = 0,
+            item_type = alexgames.POPUP_ITEM_TYPE_BTN,
+            text = "Revancha (Mismas Reglas)",
+        })
+        table.insert(items, {
+            id = 1,
+            item_type = alexgames.POPUP_ITEM_TYPE_BTN,
+            text = "Configurar Nuevo Partido",
+        })
+        table.insert(items, {
+            id = 2,
+            item_type = alexgames.POPUP_ITEM_TYPE_BTN,
+            text = "Menú Principal",
+        })
+    else
+        table.insert(items, {
+            id = 0,
+            item_type = alexgames.POPUP_ITEM_TYPE_BTN,
+            text = "Volver al Menú Principal",
+        })
+    end
+    
+    alexgames.show_popup(POPUP_ID_MATCH_OVER, {
+        title = "Fin del Partido",
+        items = items,
+    })
+end
+
+local function get_dropdown_selection(popup_state, target_id)
+    if not popup_state then return 0 end
+    for _, item in ipairs(popup_state) do
+        if item.id == target_id then
+            return item.selected
+        end
+    end
+    return 0
+end
 
 -- Envía los controles a través de la red solo si cambiaron (para ahorrar ancho de banda)
 local function send_input_if_changed()
@@ -73,8 +186,16 @@ function update(dt_ms)
             end
         end
     end
+
+    -- Comprobación de fin de partido para mostrar popup solo tras expirar match_over_timer
+    if core.state.match_started and core.state.match_over and not match_over_popup_shown then
+        if core.state.match_over_timer <= 0 then
+            match_over_popup_shown = true
+            show_match_over_popup()
+        end
+    end
     
-    -- ¡AQUÍ ESTÁ EL CAMBIO! Pasamos el índice del jugador local
+    -- Pasamos el índice del jugador local
     draw.render(core.state, my_player_idx)
 end
 
@@ -82,6 +203,14 @@ end
 -- CONTROLES
 -- ==========================================
 function handle_key_evt(evt_id, code)
+    if not core.state.match_started then
+        return true
+    end
+
+    if core.state.match_over and core.state.match_over_timer <= 0 then
+        return true
+    end
+
     local is_pressed = (evt_id == "keydown")
 
     if is_network_game then
@@ -114,11 +243,17 @@ function handle_key_evt(evt_id, code)
 end
 
 function handle_touch_evt(evt_id, touches)
+    if not core.state.match_started then
+        return true
+    end
+
+    if core.state.match_over and core.state.match_over_timer <= 0 then
+        return true
+    end
+
     -- El touch siempre maneja a mi jugador asignado
     local target_idx = is_network_game and my_player_idx or 1
     local p = core.state.players[target_idx]
-    
-    local touch_kicking = false
 
     for _, touch in ipairs(touches) do
         if touch.x >= 400 then
@@ -194,13 +329,11 @@ local function start_host_game(players_arg, player_arg, player_name_to_idx_arg)
     player_name_to_idx = player_name_to_idx_arg
     is_client = false
     is_network_game = (#players > 1)
+    match_over_popup_shown = false
     
-    -- Resetear el partido limpio
-    core.state.ball.x, core.state.ball.y = 400, 240
-    core.state.ball.vx, core.state.ball.vy = 0, 0
-    core.state.players[1].x, core.state.players[1].y = 200, 240
-    core.state.players[2].x, core.state.players[2].y = 600, 240
-    core.state.score.red, core.state.score.blue = 0, 0
+    -- Resetear el partido limpio con las reglas configuradas y arrancarlo
+    core.reset_match(core.state.settings.goals_limit, core.state.settings.time_limit)
+    core.state.match_started = true
 end
 
 local function start_client_game(players_arg, player_arg, player_name_to_idx_arg)
@@ -209,13 +342,33 @@ local function start_client_game(players_arg, player_arg, player_name_to_idx_arg
     player_name_to_idx = player_name_to_idx_arg
     is_client = true
     is_network_game = true
+    match_over_popup_shown = false
+    core.state.match_started = true
 end
 
 function handle_msg_received(src, msg)
+    local header, payload = msg:match("([^:]+):(.*)")
+
+    if header == "config" then
+        if is_client and payload then
+            local g, t = payload:match("(%d+),(%d+)")
+            if g and t then
+                core.reset_match(tonumber(g), tonumber(t))
+            end
+        end
+        return
+    elseif header == "rematch" then
+        if is_client then
+            alexgames.hide_popup()
+            match_over_popup_shown = false
+            core.reset_match(core.state.settings.goals_limit, core.state.settings.time_limit)
+            core.state.match_started = true
+        end
+        return
+    end
+
     local handled = wait_for_players.handle_msg_received(src, msg)
     if handled then return end
-
-    local header, payload = msg:match("([^:]+):(.*)")
     
     if header == "state" then
         if not is_client then return end
@@ -240,8 +393,105 @@ function handle_msg_received(src, msg)
     end
 end 
 
-function handle_popup_btn_clicked(popup_id, btn_idx)
-    wait_for_players.handle_popup_btn_clicked(popup_id, btn_idx)
+function handle_popup_btn_clicked(popup_id, btn_idx, popup_state)
+    -- 1. Interceptar selección en el menú inicial de Modo de Juego
+    if popup_id == "wfp_multiplayer_type" then
+        if btn_idx == 0 then
+            -- Multijugador Local: abrimos configuración de partido
+            alexgames.hide_popup()
+            show_match_settings("local")
+            return true
+        else
+            -- Multijugador en Red: dejamos que wait_for_players gestione la sala
+            return wait_for_players.handle_popup_btn_clicked(popup_id, btn_idx)
+        end
+    end
+
+    -- 2. Interceptar cuando el Host pulsa "Comenzar partido" en la sala de espera
+    if popup_id == "waiting_for_players" then
+        if btn_idx == 0 then
+            alexgames.hide_popup()
+            show_match_settings("network")
+            return true
+        end
+    end
+
+    -- 3. Diálogo de Configuración de Partido (Goles y Tiempo)
+    if popup_id == POPUP_ID_MATCH_SETTINGS then
+        if btn_idx == POPUP_ITEM_ID_BTN_START then
+            local sel_goals = get_dropdown_selection(popup_state, POPUP_ITEM_ID_GOALS_DROPDOWN)
+            local sel_time  = get_dropdown_selection(popup_state, POPUP_ITEM_ID_TIME_DROPDOWN)
+            local goals = GOALS_VALUES[sel_goals + 1] or 3
+            local time  = TIME_VALUES[sel_time + 1] or 180
+
+            alexgames.hide_popup()
+            match_over_popup_shown = false
+            core.reset_match(goals, time)
+            core.state.match_started = true
+
+            if pending_mode == "local" then
+                is_client = false
+                is_network_game = false
+                alexgames.set_status_msg("Fútbol de mesa - Modo Local")
+                start_host_game({ [1] = "Jugador 1", [2] = "Jugador 2" }, 1, {})
+            else
+                -- Host en red: transmite configuración a los clientes e inicia
+                alexgames.send_message("all", string.format("config:%d,%d", goals, time))
+                alexgames.send_message("all", "start_game:")
+                start_host_game(players, my_player_idx, player_name_to_idx)
+            end
+            return true
+        elseif btn_idx == POPUP_ITEM_ID_BTN_BACK then
+            alexgames.hide_popup()
+            match_over_popup_shown = false
+            core.reset_match()
+            if pending_mode == "local" then
+                wait_for_players.init(players, my_player_idx, start_host_game, start_client_game)
+            else
+                wait_for_players.show_waiting_for_players_popup()
+            end
+            return true
+        end
+    end
+
+    -- 4. Diálogo de Fin de Partido
+    if popup_id == POPUP_ID_MATCH_OVER then
+        alexgames.hide_popup()
+        match_over_popup_shown = false
+
+        if is_client then
+            -- Cliente vuelve al menú principal
+            is_client = false
+            is_network_game = false
+            core.reset_match(core.state.settings.goals_limit, core.state.settings.time_limit)
+            wait_for_players.init(players, my_player_idx, start_host_game, start_client_game)
+        else
+            if btn_idx == 0 then
+                -- Revancha (Mismas Reglas)
+                core.reset_match(core.state.settings.goals_limit, core.state.settings.time_limit)
+                core.state.match_started = true
+                if is_network_game then
+                    alexgames.send_message("all", "rematch:")
+                    start_host_game(players, my_player_idx, player_name_to_idx)
+                else
+                    start_host_game({ [1] = "Jugador 1", [2] = "Jugador 2" }, 1, {})
+                end
+            elseif btn_idx == 1 then
+                -- Configurar nuevo partido
+                core.reset_match(core.state.settings.goals_limit, core.state.settings.time_limit)
+                show_match_settings(is_network_game and "network" or "local")
+            elseif btn_idx == 2 then
+                -- Menú principal
+                is_client = false
+                is_network_game = false
+                core.reset_match(core.state.settings.goals_limit, core.state.settings.time_limit)
+                wait_for_players.init(players, my_player_idx, start_host_game, start_client_game)
+            end
+        end
+        return true
+    end
+
+    return wait_for_players.handle_popup_btn_clicked(popup_id, btn_idx)
 end
 
 function start_game()
@@ -250,6 +500,9 @@ function start_game()
     alexgames.enable_evt("touch")
     alexgames.set_timer_update_ms(MS_PER_FRAME)
 
-    -- Inicia el menú de "Local" o "Red" de la librería
+    match_over_popup_shown = false
+    core.reset_match() -- reloj en 0, físicas congeladas hasta pulsar comenzar
+
+    -- Inicia el menú de selección de modo
     wait_for_players.init(players, my_player_idx, start_host_game, start_client_game)
 end
